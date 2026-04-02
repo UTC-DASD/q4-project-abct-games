@@ -1,6 +1,6 @@
 # Group-Project-Template
 # Please read/view all README files as needed!
-------------------------------------------------------------------------------------------------------------------------
+
 # For the Quarter 4 project, our focus is going to be a 2D Platformer with sprites, animation, and environments.
 
 # 2D Animation
@@ -12,8 +12,8 @@ Create a 2D Platformer using art assets created by 2D Animation students
 You may work together in small groups of up to 3 (4 for us) development students but expectations will be much higher with a larger team
 Mr. Wong has the final decision on who works in a team or not
 Project is due May 22nd.
-------------------------------------------------------------------------------------------------------------------------
-Credits:
+
+# Credits:
 
 Game Development: ABCT Games
 Creative Direction: ABCT Games
