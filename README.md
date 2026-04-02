@@ -16,6 +16,13 @@ Mr. Wong has the final decision on who works in a team or not
 
 Project is due May 22nd.
 
+# Q4 Project Docs
+Q4 Ideas Doc:https://docs.google.com/document/d/1GkydmumOlKe35lj2p3StzEMDIeaz-c68gwDXKa6dLDI/edit?usp=sharing 
+
+Q4 Project Template Doc: https://docs.google.com/document/d/1Z2K61x5Q92J29hs-ozDp8TY420T7HCHKy4oZGWX1rT0/edit?usp=sharing 
+
+2d Movement Guide made by a student in PM UTC: https://docs.google.com/document/d/1HPUOJrtRGTMbL-a6P5CJyZwr3nYHd-UMYassX6TjF48/edit?usp=sharing 
+
 # Credits:
 ABCT Games: Aiden Hunt, Brody Bilodeau, Cameron Gwinn, Trystan Goodwin
 
@@ -30,3 +37,4 @@ Art: DASD 2d Animation Students
 Scripting: ABCT Games
 
 Special Thanks for helping with Development: Mr. Wong, Andrew Hayden, ChatGPT
+
