@@ -16,7 +16,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Walk",
+                    "name": "Move",
                     "type": "PassThrough",
                     "id": "9c1eb47f-da5c-452b-9878-688abfce59b3",
                     "expectedControlType": "Vector2",
@@ -91,7 +91,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Walk",
+                    "action": "Move",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
@@ -102,7 +102,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Walk",
+                    "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -113,7 +113,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Walk",
+                    "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -124,7 +124,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Walk",
+                    "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -135,7 +135,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Walk",
+                    "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
