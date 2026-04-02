@@ -27,4 +27,8 @@ public class PlayerController : MonoBehaviour
     {
         horizontal = context.ReadValue<UnityEngine.Vector2>().x;
     }
+    private bool IsGrounded()
+    {
+        return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
+    }
 }
