@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 425767460}
   - component: {fileID: 425767459}
   - component: {fileID: 425767458}
+  - component: {fileID: 425767462}
   m_Layer: 0
   m_Name: Player Placeholder_0
   m_TagString: Untagged
@@ -168,7 +169,19 @@ MonoBehaviour:
     m_ActionId: 774557f2-2cb8-47ce-9842-5ab50107641d
     m_ActionName: 'Main/Jump[/Keyboard/space,/Keyboard/w]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 9c1eb47f-da5c-452b-9878-688abfce59b3
     m_ActionName: 'Main/Walk[/Keyboard/a,/Keyboard/d]'
   - m_PersistentCalls:
@@ -183,9 +196,13 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 409b0017-d428-445e-b555-7a8e7bd203a2
     m_ActionName: 'Main/Block[/Mouse/rightButton]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 77ada104-1c17-4f09-bc79-7c4b57c8d52a
+    m_ActionName: 'Main/Crouch[/Keyboard/s]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: 6e6ad9aa-6dda-448f-a32e-9738d3716796
+  m_DefaultActionMap: Main
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!61 &425767459
@@ -308,6 +325,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &425767462
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 425767457}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
