@@ -1,5 +1,4 @@
-# Group-Project-Template
-# Please read/view all README files as needed!
+# Q4 Project [Name TBD]
 
 # For the Quarter 4 project, our focus is going to be a 2D Platformer with sprites, animation, and environments.
 
