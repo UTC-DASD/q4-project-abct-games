@@ -19,8 +19,12 @@ public class PlayerController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
+        rb.linearVelocity = new UnityEngine.Vector2(horizontal * speed, rb.linearVelocity.y);
+    }
+    public void Walk(InputAction.CallbackContext context)
+    {
+        horizontal = context.ReadValue<UnityEngine.Vector2>().x;
     }
 }
