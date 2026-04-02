@@ -24,4 +24,10 @@ Game Development: ABCT Games
 
 Creative Direction: ABCT Games
 
-Software: Unity, VS Code, GitHub, 
+Software Used: Unity, VS Code, GitHub
+
+Art: DASD 2d Animation Students
+
+Scripting: ABCT Games
+
+Special Thanks for helping with Development: Mr. Wong, Andrew Hayden, ChatGPT
