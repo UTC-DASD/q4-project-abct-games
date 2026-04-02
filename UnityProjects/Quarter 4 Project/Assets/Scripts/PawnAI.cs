@@ -83,7 +83,7 @@ public class PawnAI : MonoBehaviour
         if (!alreadyAttacked)
         {
            Debug.Log ("Attacking the player!");
-           weaponObject.GetComponent<Weapons>().StartAttack(); // Call the StartAttack method from the Weapons script
+           weaponObject.GetComponent<Damage>().StartAttack(); // Call the StartAttack method from the Weapons script
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
         }
