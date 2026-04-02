@@ -18,6 +18,7 @@ Mr. Wong has the final decision on who works in a team or not
 Project is due May 22nd.
 
 # Credits:
+ABCT Games: Aiden Hunt, Brody Bilodeau, Cameron Gwinn, Trystan Goodwin
 
 Game Development: ABCT Games
 
