@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class Damage : MonoBehaviour
 {
@@ -35,7 +36,7 @@ public class Damage : MonoBehaviour
             EndAttack();
         }
     }
-    }
+    
        
     public void StartAttack()
     {
@@ -95,3 +96,4 @@ public class Damage : MonoBehaviour
             }
         }
     }
+}
