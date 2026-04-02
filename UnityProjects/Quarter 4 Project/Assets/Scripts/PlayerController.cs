@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
     {
         rb.linearVelocity = new UnityEngine.Vector2(horizontal * speed, rb.linearVelocity.y);
     }
-    public void Walk(InputAction.CallbackContext context)
+    public void Move(InputAction.CallbackContext context)
     {
         horizontal = context.ReadValue<UnityEngine.Vector2>().x;
     }
@@ -31,4 +31,12 @@ public class PlayerController : MonoBehaviour
     {
         return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
     }
+    public void Jump(InputAction.CallbackContext context)
+    {
+        if (IsGrounded() && context.performed)
+        {
+            UnityEngine.Debug.Log("Jumped");
+            rb.linearVelocity = new UnityEngine.Vector2(rb.linearVelocity.x, jumpPower);
+        }
+}
 }
