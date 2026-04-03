@@ -4,6 +4,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    float lastTapTime;
+    public float doubleTapDelay = 0.2f;
     public Rigidbody2D rb;
     private PlayerInput playerInput;
     public float speed;
@@ -59,6 +61,15 @@ public class PlayerController : MonoBehaviour
         {
             transform.localScale = new Vector3(1, 1, 1);
         }
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            float timeSinceLastTap = Time.time - lastTapTime;
+            if (timeSinceLastTap <= doubleTapDelay)
+            {
+                // Trigger Dash Left Logic
+            }
+            lastTapTime = Time.time;
+        }
     }
     // Update is called once per frame
     void FixedUpdate()
@@ -82,4 +93,8 @@ public class PlayerController : MonoBehaviour
             rb.linearVelocity = new UnityEngine.Vector2(rb.linearVelocity.x, jumpPower);
         }
 }
+    public void Dash(InputAction.CallbackContext context)
+    {
+        
+    }
 }
