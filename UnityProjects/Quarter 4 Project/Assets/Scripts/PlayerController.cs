@@ -108,10 +108,12 @@ public class PlayerController : MonoBehaviour
             UnityEngine.Debug.Log("Jumped");
             rb.linearVelocity = new UnityEngine.Vector2(rb.linearVelocity.x, jumpPower);
         }
-}
-    private void Dash(Vector2 direction) {
-        rb.linearVelocity = direction * dashForce;
-        Debug.Log("Dashed!");
-
-}
+    }
+        private void Dash(Vector2 direction) {
+            //rb.linearVelocity = direction * dashForce;
+            Debug.Log(direction);
+           // rb.AddForceX(dashForce, ForceMode2D.Impulse);
+            rb.MovePosition(rb.position + direction * dashForce * Time.deltaTime);
+            Debug.Log("Dashed!");
+        }
 }
