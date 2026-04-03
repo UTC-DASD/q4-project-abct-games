@@ -5,7 +5,7 @@ public class PlayerAttack : MonoBehaviour
 {
     public int damage;
     public float attacktime;
-    private HashSet<GameObject> damagedObjects = new HashSet<GameObject>(); // Set to track already damaged objects
+    //private HashSet<GameObject> damagedObjects = new HashSet<GameObject>(); // Set to track already damaged objects
     private Animator animator; // Reference to the Animator component
     public float attackCooldown = .7f;
     public float timeSinceLastAttack;
