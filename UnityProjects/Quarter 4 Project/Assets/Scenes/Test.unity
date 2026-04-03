@@ -2605,6 +2605,10 @@ PrefabInstance:
       propertyPath: groundCheck
       value: 
       objectReference: {fileID: 1543132688}
+    - target: {fileID: 6444645311621308143, guid: fcc4cb49479036d43aee40e8fb2b9bac, type: 3}
+      propertyPath: dashCooldown
+      value: 3.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6789362276985148941, guid: fcc4cb49479036d43aee40e8fb2b9bac, type: 3}
       propertyPath: m_Name
       value: Player
