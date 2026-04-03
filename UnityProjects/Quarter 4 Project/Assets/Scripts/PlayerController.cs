@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     [Header("Ground Check")]
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
+    public bool isGrounded;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -92,9 +93,12 @@ public class PlayerController : MonoBehaviour
         horizontal = context.ReadValue<UnityEngine.Vector2>().x;
     }
     private bool IsGrounded()
-    {
-        return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
-    }
+        {
+    float extraHeightText = 0.1f;
+    RaycastHit2D raycastHit = Physics2D.Raycast(GetComponent<Collider2D>().bounds.center, Vector2.down, GetComponent<Collider2D>().bounds.extents.y + extraHeightText, groundLayerMask);
+    return raycastHit.collider != null;
+}
+
     public void Jump(InputAction.CallbackContext context)
     {
         if (IsGrounded() && context.performed)
