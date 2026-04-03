@@ -64,12 +64,6 @@ public class PlayerController : MonoBehaviour
         {
             transform.localScale = new Vector3(1, 1, 1);
         }
-
-
-
-
-
-
         if (Input.GetKeyDown(KeyCode.A))
         {
             float timeSinceLastTapLeft = Time.time - lastTapTimeLeft;
