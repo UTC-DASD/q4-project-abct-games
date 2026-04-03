@@ -4,7 +4,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    float lastTapTime;
+    float lastTapTimeLeft;
+    float lastTapTimeRight; 
     public float doubleTapDelay = 0.2f;
     public Rigidbody2D rb;
     private PlayerInput playerInput;
@@ -63,12 +64,21 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.A))
         {
-            float timeSinceLastTap = Time.time - lastTapTime;
-            if (timeSinceLastTap <= doubleTapDelay)
+            float timeSinceLastTapLeft = Time.time - lastTapTimeLeft;
+            if (timeSinceLastTapLeft <= doubleTapDelay)
             {
                 // Trigger Dash Left Logic
             }
-            lastTapTime = Time.time;
+            lastTapTimeLeft = Time.time;
+        }
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            float timeSinceLastTapRight = Time.time - lastTapTimeRight;
+            if (timeSinceLastTapRight <= doubleTapDelay)
+            {
+                // Trigger Dash Right Logic
+            }
+            lastTapTimeRight = Time.time;
         }
     }
     // Update is called once per frame
@@ -93,8 +103,5 @@ public class PlayerController : MonoBehaviour
             rb.linearVelocity = new UnityEngine.Vector2(rb.linearVelocity.x, jumpPower);
         }
 }
-    public void Dash(InputAction.CallbackContext context)
-    {
-        
-    }
+
 }
