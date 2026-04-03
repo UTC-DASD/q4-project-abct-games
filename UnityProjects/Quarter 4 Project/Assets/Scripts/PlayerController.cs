@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
     public float speed;
     public float jumpPower;
     public float dashForce = 20f;
+    private float timeSinceLastDash;
+    public float dashCooldown = 2f;
     private float horizontal;
     private float startingRotationX;
     private float startingRotationY;
@@ -67,23 +69,27 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.A))
         {
             float timeSinceLastTapLeft = Time.time - lastTapTimeLeft;
-            if (timeSinceLastTapLeft <= doubleTapDelay)
+            if (timeSinceLastTapLeft <= doubleTapDelay && timeSinceLastDash > dashCooldown)
             {
                 // Trigger Dash Left Logic
                 Dash(Vector2.left);
+                timeSinceLastDash = 0f; // Reset dash timer
             }
             lastTapTimeLeft = Time.time;
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
             float timeSinceLastTapRight = Time.time - lastTapTimeRight;
-            if (timeSinceLastTapRight <= doubleTapDelay)
+            if (timeSinceLastTapRight <= doubleTapDelay && timeSinceLastDash > dashCooldown)
             {
                 // Trigger Dash Right Logic
                 Dash(Vector2.right);
+                timeSinceLastDash = 0f; // Reset dash timer
             }
             lastTapTimeRight = Time.time;
+            
         }
+        UpdateDashTimer();
     }
     // Update is called once per frame
     void FixedUpdate()
@@ -115,5 +121,9 @@ public class PlayerController : MonoBehaviour
            // rb.AddForceX(dashForce, ForceMode2D.Impulse);
             rb.MovePosition(rb.position + direction * dashForce * Time.deltaTime);
             Debug.Log("Dashed!");
+        }
+        private void UpdateDashTimer()
+        {
+            timeSinceLastDash += Time.deltaTime;
         }
 }
