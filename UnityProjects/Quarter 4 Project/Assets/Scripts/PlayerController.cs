@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     float lastTapTimeLeft;
-    float lastTapTimeRight; 
+    float lastTapTimeRight;
     public float doubleTapDelay = .2f;
     public Rigidbody2D rb;
     private PlayerInput playerInput;
@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
     public bool isGrounded;
+    private bool isDashing;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -76,6 +77,8 @@ public class PlayerController : MonoBehaviour
                 timeSinceLastDash = 0f; // Reset dash timer
             }
             lastTapTimeLeft = Time.time;
+            isDashing = false;
+
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
@@ -87,26 +90,29 @@ public class PlayerController : MonoBehaviour
                 timeSinceLastDash = 0f; // Reset dash timer
             }
             lastTapTimeRight = Time.time;
-            
+            isDashing = false;
+
         }
         UpdateDashTimer();
     }
     // Update is called once per frame
     void FixedUpdate()
     {
-        rb.linearVelocity = new UnityEngine.Vector2(horizontal * speed, rb.linearVelocity.y);
-        
+        if (!isDashing)
+        {
+            rb.linearVelocity = new UnityEngine.Vector2(horizontal * speed, rb.linearVelocity.y);
+        }
     }
     public void Move(InputAction.CallbackContext context)
     {
         horizontal = context.ReadValue<UnityEngine.Vector2>().x;
     }
     private bool IsGrounded()
- {
-    float extraHeightText = 0.1f;
-    RaycastHit2D raycastHit = Physics2D.Raycast(GetComponent<Collider2D>().bounds.center, Vector2.down, GetComponent<Collider2D>().bounds.extents.y + extraHeightText);
-    return raycastHit.collider != null;
-}
+    {
+        float extraHeightText = 0.1f;
+        RaycastHit2D raycastHit = Physics2D.Raycast(GetComponent<Collider2D>().bounds.center, Vector2.down, GetComponent<Collider2D>().bounds.extents.y + extraHeightText);
+        return raycastHit.collider != null;
+    }
     public void Jump(InputAction.CallbackContext context)
     {
         if (IsGrounded() && context.performed)
@@ -115,15 +121,17 @@ public class PlayerController : MonoBehaviour
             rb.linearVelocity = new UnityEngine.Vector2(rb.linearVelocity.x, jumpPower);
         }
     }
-        private void Dash(Vector2 direction) {
-            //rb.linearVelocity = direction * dashForce;
-            Debug.Log(direction);
-           // rb.AddForceX(dashForce, ForceMode2D.Impulse);
-            rb.MovePosition(rb.position + direction * dashForce * Time.deltaTime);
-            Debug.Log("Dashed!");
-        }
-        private void UpdateDashTimer()
-        {
-            timeSinceLastDash += Time.deltaTime;
-        }
+    private void Dash(Vector2 direction)
+    {
+        isDashing = true;
+        //rb.linearVelocity = direction * dashForce;
+        Debug.Log(direction);
+        // rb.AddForceX(dashForce, ForceMode2D.Impulse);
+        rb.MovePosition(rb.position + direction * dashForce * Time.deltaTime);
+        Debug.Log("Dashed!");
+    }
+    private void UpdateDashTimer()
+    {
+        timeSinceLastDash += Time.deltaTime;
+    }
 }
