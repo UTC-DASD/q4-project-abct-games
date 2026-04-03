@@ -66,7 +66,7 @@ public class PawnAI : MonoBehaviour
 
     private void ChasePlayer()
     {
-        agent.SetDestination(player.position);
+//        agent.SetDestination(player.position);
 
     }
 
