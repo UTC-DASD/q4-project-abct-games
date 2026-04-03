@@ -6,11 +6,12 @@ public class PlayerController : MonoBehaviour
 {
     float lastTapTimeLeft;
     float lastTapTimeRight; 
-    public float doubleTapDelay = 0.2f;
+    public float doubleTapDelay = .2f;
     public Rigidbody2D rb;
     private PlayerInput playerInput;
     public float speed;
     public float jumpPower;
+    public float dashForce = 20f;
     private float horizontal;
     private float startingRotationX;
     private float startingRotationY;
@@ -69,6 +70,7 @@ public class PlayerController : MonoBehaviour
             if (timeSinceLastTapLeft <= doubleTapDelay)
             {
                 // Trigger Dash Left Logic
+                Dash(Vector2.left);
             }
             lastTapTimeLeft = Time.time;
         }
@@ -78,6 +80,7 @@ public class PlayerController : MonoBehaviour
             if (timeSinceLastTapRight <= doubleTapDelay)
             {
                 // Trigger Dash Right Logic
+                Dash(Vector2.right);
             }
             lastTapTimeRight = Time.time;
         }
@@ -106,5 +109,9 @@ public class PlayerController : MonoBehaviour
             rb.linearVelocity = new UnityEngine.Vector2(rb.linearVelocity.x, jumpPower);
         }
 }
+private void Dash(Vector2 direction) {
+        rb.linearVelocity = direction * dashForce;
+        Debug.Log("Dashed!");
 
+}
 }
