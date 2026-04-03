@@ -93,9 +93,18 @@ public class PlayerController : MonoBehaviour
         horizontal = context.ReadValue<UnityEngine.Vector2>().x;
     }
     private bool IsGrounded()
+<<<<<<< HEAD
     {
         return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
     }
+=======
+        {
+    float extraHeightText = 0.1f;
+    RaycastHit2D raycastHit = Physics2D.Raycast(GetComponent<Collider2D>().bounds.center, Vector2.down, GetComponent<Collider2D>().bounds.extents.y + extraHeightText);
+    return raycastHit.collider != null;
+}
+
+>>>>>>> 3b4b54375f412159aeea9bbaaaed47f7b77d6108
     public void Jump(InputAction.CallbackContext context)
     {
         if (IsGrounded() && context.performed)
