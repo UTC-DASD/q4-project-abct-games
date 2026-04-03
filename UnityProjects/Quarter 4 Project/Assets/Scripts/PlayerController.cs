@@ -73,7 +73,7 @@ public class PlayerController : MonoBehaviour
             if (timeSinceLastTapLeft <= doubleTapDelay && timeSinceLastDash > dashCooldown)
             {
                 // Trigger Dash Left Logic
-                Dash(Vector2.left);
+             //   Dash(playerInput.actions["DashLeft"]);
                 timeSinceLastDash = 0f; // Reset dash timer
             }
             lastTapTimeLeft = Time.time;
@@ -86,7 +86,7 @@ public class PlayerController : MonoBehaviour
             if (timeSinceLastTapRight <= doubleTapDelay && timeSinceLastDash > dashCooldown)
             {
                 // Trigger Dash Right Logic
-                Dash(Vector2.right);
+              //  Dash(playerInput.actions["DashRight"]);
                 timeSinceLastDash = 0f; // Reset dash timer
             }
             lastTapTimeRight = Time.time;
@@ -121,13 +121,13 @@ public class PlayerController : MonoBehaviour
             rb.linearVelocity = new UnityEngine.Vector2(rb.linearVelocity.x, jumpPower);
         }
     }
-    private void Dash(Vector2 direction)
+    private void Dash(InputAction.CallbackContext context)
     {
         isDashing = true;
         //rb.linearVelocity = direction * dashForce;
-        Debug.Log(direction);
-        // rb.AddForceX(dashForce, ForceMode2D.Impulse);
-        rb.MovePosition(rb.position + direction * dashForce * Time.deltaTime);
+        Debug.Log(context.ReadValue<Vector2>());
+        //rb.AddForceX(dashForce, ForceMode2D.Impulse);
+        rb.MovePosition(rb.position + context.ReadValue<Vector2>() * dashForce * Time.deltaTime);
         Debug.Log("Dashed!");
     }
     private void UpdateDashTimer()
