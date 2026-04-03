@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     float lastTapTimeLeft;
     float lastTapTimeRight; 
-    public float doubleTapDelay = 1f;
+    public float doubleTapDelay = .2f;
     public Rigidbody2D rb;
     private PlayerInput playerInput;
     public float speed;
