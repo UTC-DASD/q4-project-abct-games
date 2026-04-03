@@ -28,8 +28,8 @@ public class PawnAI : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         startRotationX = transform.rotation.eulerAngles.x;
         startRotationY = transform.rotation.eulerAngles.y;
-        playerInSightRange = Physics.CheckSphere(transform.position, sightRange);
-        playerInAttackRange = Physics.CheckSphere(transform.position, attackRange);
+        playerInSightRange = Physics2D.OverlapCircle(transform.position, sightRange);
+        playerInAttackRange = Physics2D.OverlapCircle(transform.position, attackRange);
     }
 
     private void Update()
