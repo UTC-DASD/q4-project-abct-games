@@ -64,6 +64,12 @@ public class PlayerController : MonoBehaviour
         {
             transform.localScale = new Vector3(1, 1, 1);
         }
+
+
+
+
+
+
         if (Input.GetKeyDown(KeyCode.A))
         {
             float timeSinceLastTapLeft = Time.time - lastTapTimeLeft;
@@ -109,7 +115,7 @@ public class PlayerController : MonoBehaviour
             rb.linearVelocity = new UnityEngine.Vector2(rb.linearVelocity.x, jumpPower);
         }
 }
-private void Dash(Vector2 direction) {
+    private void Dash(Vector2 direction) {
         rb.linearVelocity = direction * dashForce;
         Debug.Log("Dashed!");
 
