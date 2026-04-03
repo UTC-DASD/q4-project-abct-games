@@ -163,6 +163,28 @@
                 },
                 {
                     "name": "",
+                    "id": "41490a20-3ef6-41aa-a582-b8a2fa025820",
+                    "path": "<Keyboard>/a",
+                    "interactions": "MultiTap",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Dash",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9625bb50-9311-450d-a8e1-293c046ef26b",
+                    "path": "<Keyboard>/d",
+                    "interactions": "MultiTap",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Dash",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "f3ea0ffb-d98c-4dd6-b21e-ce1d2dbc922a",
                     "path": "<Mouse>/rightButton",
                     "interactions": "",
