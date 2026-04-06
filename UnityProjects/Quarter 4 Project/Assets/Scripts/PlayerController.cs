@@ -29,6 +29,8 @@ public class PlayerController : MonoBehaviour
     public float dashDuration = 0.2f;
     private float dashTime;
     private int dashDirection;
+    public PlayerAbilities PlayerAbilities;
+    public bool canMove = true;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -123,20 +125,33 @@ public class PlayerController : MonoBehaviour
     }
     public void Move(InputAction.CallbackContext context)
     {
+       if (canMove == true)
+       {
         horizontal = context.ReadValue<UnityEngine.Vector2>().x;
+       }
     }
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Ground"))
+        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Platform"))
         {
             isGrounded = true;
         }
+       
     }
     public void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Ground"))
+        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Platform"))
         {
             isGrounded = false;
+        }
+         if (collision.gameObject.CompareTag("Ground"))
+        {
+            PlayerAbilities.canCreatePlatform = 1;
+        }
+        if (collision.gameObject.CompareTag("Platform"))
+        {
+            PlayerAbilities.canCreatePlatform = 0;
+            canMove = true;
         }
     }
     public void Jump(InputAction.CallbackContext context)
@@ -167,10 +182,19 @@ public class PlayerController : MonoBehaviour
         rb.AddForce(new Vector2(dashDirection * dashForce, 0), ForceMode2D.Impulse);
         Debug.Log("Dashed!");
         timeSinceLastDash = 0f;
+        DashJump();
     }
     private void UpdateDashTimer()
     {
         timeSinceLastDash += Time.deltaTime;
     }
-  
+    public void DashJump()
+    {
+        isGrounded = true;
+        StartCoroutine(WaitForSecondsRealTime(0.5f));
+    }
+    IEnumerator WaitForSecondsRealTime(float seconds)
+    {
+        yield return new WaitForSecondsRealtime(seconds);
+    }
 }

@@ -1842,24 +1842,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54c973d8403ac284d848d923dd79ce88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PawnAI
-  agent: {fileID: 1519295307}
   player: {fileID: 721709747}
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 8
-  whatIsPlayer:
-    serializedVersion: 2
-    m_Bits: 0
-  sightRange: 100
-  attackRange: 1
-  timeBetweenAttacks: 0
-  timeBetweenHeavyAttacks: 0
-  weaponObject: {fileID: 0}
-  rotationx: 0
-  startRotationX: 0
-  startRotationY: 0
-  rotationY: 0
-  rotationSpeed: 5
+  Speed: 0
 --- !u!61 &1519295305
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2599,7 +2583,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6444645311621308143, guid: fcc4cb49479036d43aee40e8fb2b9bac, type: 3}
       propertyPath: dashForce
-      value: 10
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 6444645311621308143, guid: fcc4cb49479036d43aee40e8fb2b9bac, type: 3}
       propertyPath: groundCheck
@@ -2607,8 +2591,12 @@ PrefabInstance:
       objectReference: {fileID: 1543132688}
     - target: {fileID: 6444645311621308143, guid: fcc4cb49479036d43aee40e8fb2b9bac, type: 3}
       propertyPath: dashCooldown
-      value: 2
+      value: 3.5
       objectReference: {fileID: 0}
+    - target: {fileID: 6444645311621308143, guid: fcc4cb49479036d43aee40e8fb2b9bac, type: 3}
+      propertyPath: PlayerAbilities
+      value: 
+      objectReference: {fileID: 8831870721559750374}
     - target: {fileID: 6789362276985148941, guid: fcc4cb49479036d43aee40e8fb2b9bac, type: 3}
       propertyPath: m_Name
       value: Player
@@ -2644,6 +2632,10 @@ PrefabInstance:
     - target: {fileID: 6914954904966091119, guid: fcc4cb49479036d43aee40e8fb2b9bac, type: 3}
       propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 9185116017716320252, guid: fcc4cb49479036d43aee40e8fb2b9bac, type: 3}
+      propertyPath: orthographic size
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8461713614766677066, guid: fcc4cb49479036d43aee40e8fb2b9bac, type: 3}
@@ -2682,6 +2674,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAbilities
   PlayerController: {fileID: 8831870721559750373}
   platformPrefab: {fileID: 2493212970326330905, guid: 3547d2d90c55ba64bb8b18fc11a6b0d4, type: 3}
+  canCreatePlatform: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
