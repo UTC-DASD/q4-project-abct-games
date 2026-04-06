@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+
     float lastTapTimeLeft;
     float lastTapTimeRight;
     public float doubleTapDelay = .2f;
@@ -107,15 +108,23 @@ public class PlayerController : MonoBehaviour
     {
         horizontal = context.ReadValue<UnityEngine.Vector2>().x;
     }
-    private bool IsGrounded()
+    public void OnCollisionEnter2D(Collision2D collision)
     {
-        float extraHeightText = 0.1f;
-        RaycastHit2D raycastHit = Physics2D.Raycast(GetComponent<Collider2D>().bounds.center, Vector2.down, GetComponent<Collider2D>().bounds.extents.y + extraHeightText);
-        return raycastHit.collider != null;
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = true;
+        }
+    }
+    public void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = false;
+        }
     }
     public void Jump(InputAction.CallbackContext context)
     {
-        if (IsGrounded() && context.performed)
+        if (isGrounded == true && context.performed)
         {
             UnityEngine.Debug.Log("Jumped");
             rb.linearVelocity = new UnityEngine.Vector2(rb.linearVelocity.x, jumpPower);
