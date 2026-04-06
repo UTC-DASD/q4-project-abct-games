@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 251875642}
   - component: {fileID: 251875641}
   - component: {fileID: 251875640}
-  - component: {fileID: 251875639}
+  - component: {fileID: 251875644}
   m_Layer: 0
   m_Name: Pawn
   m_TagString: Untagged
@@ -139,36 +139,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &251875639
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 251875638}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54c973d8403ac284d848d923dd79ce88, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PawnAI
-  agent: {fileID: 0}
-  player: {fileID: 425767461}
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 0
-  whatIsPlayer:
-    serializedVersion: 2
-    m_Bits: 0
-  sightRange: 100
-  attackRange: 1
-  timeBetweenAttacks: 0
-  timeBetweenHeavyAttacks: 0
-  weaponObject: {fileID: 798537412}
-  rotationx: 0
-  startRotationX: 0
-  startRotationY: 0
-  rotationY: 0
-  rotationSpeed: 5
 --- !u!114 &251875640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -273,6 +243,20 @@ Transform:
   - {fileID: 798537413}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &251875644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 251875638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54c973d8403ac284d848d923dd79ce88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PawnAI
+  player: {fileID: 425767457}
+  Speed: 2
 --- !u!1 &425767457
 GameObject:
   m_ObjectHideFlags: 0
@@ -550,6 +534,7 @@ MonoBehaviour:
   speed: 10
   jumpPower: 20
   dashForce: 20
+  dashCooldown: 2
   playerPositionX: 0
   groundCheck: {fileID: 885191417}
   groundLayer:
