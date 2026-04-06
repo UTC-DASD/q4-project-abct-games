@@ -34,6 +34,6 @@ public class PlayerAbilities : MonoBehaviour
     }
     public void DestroyPlatform()
     {
-    Destroy(gameObject.CompareTag("Platform"))
+    Destroy(spawned)
     }
 }
