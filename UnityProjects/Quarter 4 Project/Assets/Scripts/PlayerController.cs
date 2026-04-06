@@ -1,6 +1,7 @@
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
@@ -25,6 +26,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
     public bool isGrounded;
     private bool isDashing;
+    public float dashDuration = 0.2f;
+    private float dashTime;
+    private int dashDirection;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -60,7 +64,7 @@ public class PlayerController : MonoBehaviour
             Debug.LogWarning("PlayerController: Camera.main is null. Assign a MainCamera tag to your camera.");
         }
 
-        if (transform.position.x > mousePositionX)
+        if (transform.position.x >= mousePositionX)
         {
             transform.localScale = new Vector3(-1, 1, 1);
         }
@@ -68,17 +72,20 @@ public class PlayerController : MonoBehaviour
         {
             transform.localScale = new Vector3(1, 1, 1);
         }
+
         if (Input.GetKeyDown(KeyCode.A))
         {
             float timeSinceLastTapLeft = Time.time - lastTapTimeLeft;
             if (timeSinceLastTapLeft <= doubleTapDelay && timeSinceLastDash > dashCooldown)
             {
                 // Trigger Dash Left Logic
-             //   Dash(playerInput.actions["DashLeft"]);
+                dashDirection = -1;
+                isDashing = true;
+                dashTime = dashDuration;
                 timeSinceLastDash = 0f; // Reset dash timer
+                rb.AddForce(new Vector2(dashDirection * dashForce, 0), ForceMode2D.Impulse);
             }
             lastTapTimeLeft = Time.time;
-            isDashing = false;
 
         }
         if (Input.GetKeyDown(KeyCode.D))
@@ -87,14 +94,24 @@ public class PlayerController : MonoBehaviour
             if (timeSinceLastTapRight <= doubleTapDelay && timeSinceLastDash > dashCooldown)
             {
                 // Trigger Dash Right Logic
-              //  Dash(playerInput.actions["DashRight"]);
+                dashDirection = 1;
+                isDashing = true;
+                dashTime = dashDuration;
                 timeSinceLastDash = 0f; // Reset dash timer
+                rb.AddForce(new Vector2(dashDirection * dashForce, 0), ForceMode2D.Impulse);
             }
             lastTapTimeRight = Time.time;
-            isDashing = false;
 
         }
         UpdateDashTimer();
+        if (isDashing)
+        {
+            dashTime -= Time.deltaTime;
+            if (dashTime <= 0)
+            {
+                isDashing = false;
+            }
+        }
     }
     // Update is called once per frame
     void FixedUpdate()
@@ -130,17 +147,31 @@ public class PlayerController : MonoBehaviour
             rb.linearVelocity = new UnityEngine.Vector2(rb.linearVelocity.x, jumpPower);
         }
     }
-    private void Dash(InputAction.CallbackContext context)
+    public void Dash(InputAction.CallbackContext context)
     {
+        if (horizontal > 0)
+        {
+            dashDirection = 1;
+        }
+        else if (horizontal < 0)
+        {
+            dashDirection = -1;
+        }
+        else
+        {
+            dashDirection = (int)transform.localScale.x;
+        }
         isDashing = true;
-        //rb.linearVelocity = direction * dashForce;
-        Debug.Log(context.ReadValue<Vector2>());
-        //rb.AddForceX(dashForce, ForceMode2D.Impulse);
-        rb.MovePosition(rb.position + context.ReadValue<Vector2>() * dashForce * Time.deltaTime);
+        dashTime = dashDuration;
+        rb.AddForce(new Vector2(dashDirection * dashForce, 0), ForceMode2D.Impulse);
         Debug.Log("Dashed!");
     }
     private void UpdateDashTimer()
     {
         timeSinceLastDash += Time.deltaTime;
     }
+    IEnumerator WaitForSecondsRealTime(float seconds)
+    {
+        yield return new WaitForSecondsRealtime(seconds);
+}
 }
