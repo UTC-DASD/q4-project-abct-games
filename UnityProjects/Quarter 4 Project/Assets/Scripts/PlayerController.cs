@@ -149,6 +149,7 @@ public class PlayerController : MonoBehaviour
     }
     public void Dash(InputAction.CallbackContext context)
     {
+        if (timeSinceLastDash <= dashCooldown) return;
         if (horizontal > 0)
         {
             dashDirection = 1;
@@ -165,13 +166,11 @@ public class PlayerController : MonoBehaviour
         dashTime = dashDuration;
         rb.AddForce(new Vector2(dashDirection * dashForce, 0), ForceMode2D.Impulse);
         Debug.Log("Dashed!");
+        timeSinceLastDash = 0f;
     }
     private void UpdateDashTimer()
     {
         timeSinceLastDash += Time.deltaTime;
     }
-    IEnumerator WaitForSecondsRealTime(float seconds)
-    {
-        yield return new WaitForSecondsRealtime(seconds);
-}
+  
 }
