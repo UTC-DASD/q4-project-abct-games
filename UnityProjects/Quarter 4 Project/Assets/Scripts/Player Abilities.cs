@@ -8,6 +8,7 @@ public class PlayerAbilities : MonoBehaviour
     public PlayerController PlayerController;
     public GameObject platformPrefab;
     public float canCreatePlatform = 0;
+    private GameObject spawned;
 
      void Start()
     {
@@ -23,9 +24,9 @@ public class PlayerAbilities : MonoBehaviour
             PlayerController.canMove = false;
         }
     }
-    private IEnumerator SpawnPlatformRoutine()
+    public IEnumerator SpawnPlatformRoutine()
     {
-        GameObject spawned = Instantiate(platformPrefab, transform.position + new Vector3(0, -1, 0), Quaternion.identity);
+        spawned = Instantiate(platformPrefab, transform.position + new Vector3(0, -1, 0), Quaternion.identity);
         yield return new WaitForSecondsRealtime(3f);
         if (spawned != null)
         {
@@ -34,6 +35,6 @@ public class PlayerAbilities : MonoBehaviour
     }
     public void DestroyPlatform()
     {
-        Destroy(spawned)
+        Destroy(spawned);
     }
 }
