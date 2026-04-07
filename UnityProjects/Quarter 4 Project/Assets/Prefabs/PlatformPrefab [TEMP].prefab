@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 242079640307794427}
   - component: {fileID: 1751621735708132838}
   - component: {fileID: 5391573795170946613}
+  - component: {fileID: 7544940721466520805}
   m_Layer: 0
   m_Name: 'PlatformPrefab [TEMP]'
   m_TagString: Platform
@@ -138,3 +139,16 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &7544940721466520805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2493212970326330905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c5430bf9f3b7f94b9377ddbb48fa883, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::selfdestruct
+  selfDestructCountdown: 5

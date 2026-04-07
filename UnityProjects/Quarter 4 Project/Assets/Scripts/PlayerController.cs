@@ -191,8 +191,7 @@ public class PlayerController : MonoBehaviour
     }
     public void DashJump()
     {
-        isGrounded = true;
-        StartCoroutine(WaitForSecondsRealTime(0.5f));
+        PlayerAbilities.canCreatePlatform = 1;
     }
     IEnumerator WaitForSecondsRealTime(float seconds)
     {
