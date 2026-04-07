@@ -33,8 +33,5 @@ public class PlayerAbilities : MonoBehaviour
             Destroy(spawned);
         }
     }
-    public void DestroyPlatform()
-    {
-        Destroy(spawned);
-    }
+   
 }

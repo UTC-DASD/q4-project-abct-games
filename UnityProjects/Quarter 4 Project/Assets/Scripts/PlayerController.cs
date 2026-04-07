@@ -152,7 +152,6 @@ public class PlayerController : MonoBehaviour
         {
             PlayerAbilities.canCreatePlatform = 0;
             canMove = true;
-            PlayerAbilities.DestroyPlatform();
         }
     }
     public void Jump(InputAction.CallbackContext context)
