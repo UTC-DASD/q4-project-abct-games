@@ -1,40 +1,112 @@
 using UnityEngine;
+using System.Collections;
 
-public class CardFlip : MonoBehaviour
+[RequireComponent(typeof(SpriteRenderer))]
+public class CardFlipper : MonoBehaviour
 {
-    public float flipSpeed = 5f;
-    private bool flipping = false;
-    private float targetRotation = 0f;
+    [Header("Sprites")]
+    public Sprite frontSprite;
+    public Sprite backSprite;
+    
+    [Header("Settings")]
+    public float duration = 2f;
+    public float maxDepth = 0.2f;
+    private bool isFaceUp = true;
+    private SpriteRenderer spriteRenderer;
+    private Vector3 initialScale;
 
-    void Update()
+    void Awake()
     {
-        if (Input.GetKeyDown(KeyCode.Space)) // trigger flip
-        {
-            Flip();
-        }
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        initialScale = transform.localScale;
+        // Start with the front sprite
+        spriteRenderer.sprite = frontSprite;
+        FlipCard(); // Start flipping immediately
+    }
+    
+    
+        
+    
+    // Call this method from a button click or other event
+    public void FlipCard()
+    {
+        StopAllCoroutines(); // Prevent overlapping flips
+        StartCoroutine(FlipRoutine());
+    }
 
-        if (flipping)
+    private IEnumerator FlipRoutine()
+    {
+        float totalRotation = 0f;
+        float halfDuration = duration * 0.5f;
+        
+        while (true)
         {
-            transform.rotation = Quaternion.Lerp(
-                transform.rotation,
-                Quaternion.Euler(0, targetRotation, 0),
-                Time.deltaTime * flipSpeed
-            );
-
-            if (Quaternion.Angle(transform.rotation, Quaternion.Euler(0, targetRotation, 0)) < 0.1f)
+            // Rotate from front face to edge
+            float elapsed = 0f;
+            float startRotation = totalRotation;
+            while (elapsed < halfDuration)
             {
-                flipping = false;
+                elapsed += Time.deltaTime;
+                float t = elapsed / halfDuration;
+                totalRotation = startRotation + Mathf.Lerp(0, 90, t);
+                transform.rotation = Quaternion.Euler(0, totalRotation, 0);
+                ApplyDepth(totalRotation);
+                yield return null;
             }
+            
+            // Swap to back sprite at the halfway point
+            spriteRenderer.sprite = backSprite;
+            
+            // Rotate to the back-facing position
+            elapsed = 0f;
+            startRotation = totalRotation;
+            while (elapsed < halfDuration)
+            {
+                elapsed += Time.deltaTime;
+                float t = elapsed / halfDuration;
+                totalRotation = startRotation + Mathf.Lerp(0, 90, t);
+                transform.rotation = Quaternion.Euler(0, totalRotation, 0);
+                ApplyDepth(totalRotation);
+                yield return null;
+            }
+            
+            // Continue rotating while back sprite is visible
+            elapsed = 0f;
+            startRotation = totalRotation;
+            while (elapsed < halfDuration)
+            {
+                elapsed += Time.deltaTime;
+                float t = elapsed / halfDuration;
+                totalRotation = startRotation + Mathf.Lerp(0, 90, t);
+                transform.rotation = Quaternion.Euler(0, totalRotation, 0);
+                ApplyDepth(totalRotation);
+                yield return null;
+            }
+            
+            // Swap back to front sprite before the final quarter-turn
+            spriteRenderer.sprite = frontSprite;
+            
+            // Finish the rotation back to the front-facing position
+            elapsed = 0f;
+            startRotation = totalRotation;
+            while (elapsed < halfDuration)
+            {
+                elapsed += Time.deltaTime;
+                float t = elapsed / halfDuration;
+                totalRotation = startRotation + Mathf.Lerp(0, 90, t);
+                transform.rotation = Quaternion.Euler(0, totalRotation, 0);
+                ApplyDepth(totalRotation);
+                yield return null;
+            }
+            
+            totalRotation %= 360f;
         }
     }
 
-    public void Flip()
+    private void ApplyDepth(float rotationDegrees)
     {
-        flipping = true;
-
-        if (targetRotation == 0f)
-            targetRotation = 180f;
-        else
-            targetRotation = 0f;
+        float depthFactor = Mathf.Abs(Mathf.Cos(rotationDegrees * Mathf.Deg2Rad));
+        float widthScale = Mathf.Lerp(1f - maxDepth, 1f, depthFactor);
+        transform.localScale = new Vector3(initialScale.x * widthScale, initialScale.y, initialScale.z);
     }
 }

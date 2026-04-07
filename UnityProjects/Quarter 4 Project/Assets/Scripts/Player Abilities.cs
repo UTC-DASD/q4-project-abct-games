@@ -20,18 +20,9 @@ public class PlayerAbilities : MonoBehaviour
     
         if (PlayerController != null && PlayerController.isGrounded == false && Input.GetKeyDown(KeyCode.S) && canCreatePlatform >= 1)
         {
-            StartCoroutine(SpawnPlatformRoutine());
+            Instantiate(platformPrefab, transform.position + new Vector3(0, -1, 0), Quaternion.identity);
             PlayerController.canMove = false;
         }
     }
-    public IEnumerator SpawnPlatformRoutine()
-    {
-        GameObject platform = Instantiate(platformPrefab, transform.position + new Vector3(0, -1, 0), Quaternion.identity);
-        yield return new WaitForSecondsRealtime(platformDestroyDelay);
-        if (platform != null)
-        {
-            Destroy(platform);
-        }
-    }
-   
+  
 }
