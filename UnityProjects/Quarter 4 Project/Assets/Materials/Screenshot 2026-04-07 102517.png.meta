@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 2a91b906036401a45a3ebaf5a647c997
+guid: df24391ad1fffab41ac02cfb6121c5ca
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8015107559964283076
-    second: NeverDoThatAgain_0
+      213: 5375834915907250546
+    second: Screenshot 2026-04-07 102517_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: NeverDoThatAgain_0
+      name: Screenshot 2026-04-07 102517_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 2100
-        height: 1500
+        width: 254
+        height: 254
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c3fe7cbd32e94c090800000000000000
-      internalID: -8015107559964283076
+      spriteID: 2792bc5af5dca9a40800000000000000
+      internalID: 5375834915907250546
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      NeverDoThatAgain_0: -8015107559964283076
+      Screenshot 2026-04-07 102517_0: 5375834915907250546
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
