@@ -9,6 +9,7 @@ public class PlayerAbilities : MonoBehaviour
     public GameObject platformPrefab;
     public float canCreatePlatform = 0;
     private GameObject spawned;
+    public float platformDestroyDelay = 3f;
 
      void Start()
     {
@@ -27,14 +28,11 @@ public class PlayerAbilities : MonoBehaviour
     public IEnumerator SpawnPlatformRoutine()
     {
         spawned = Instantiate(platformPrefab, transform.position + new Vector3(0, -1, 0), Quaternion.identity);
-        yield return new WaitForSecondsRealtime(3f);
+        yield return new WaitForSecondsRealtime(platformDestroyDelay);
         if (spawned != null)
         {
             Destroy(spawned);
         }
     }
-    public void DestroyPlatform()
-    {
-        Destroy(spawned);
-    }
+   
 }
