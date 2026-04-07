@@ -5,7 +5,41 @@ using System.Collections;
 
 public class PawnAI : MonoBehaviour
 {
-   public GameObject player;
+     public Transform player; // Assign the player in inspector
+    public float speed = 3f;
+    private Rigidbody2D rb;
+
+    void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
+
+    void Update()
+    {
+        if (player != null)
+        {
+            // Only compare X position to move toward player
+            float directionX = 0f;
+            if (player.position.x > transform.position.x)
+            {
+                directionX = 1f; // Move Right
+            }
+            else if (player.position.x < transform.position.x)
+            {
+                directionX = -1f; // Move Left
+            }
+
+            // Apply velocity, keeping existing vertical velocity (gravity)
+            var lv = rb.linearVelocity;
+            lv.x = directionX * speed;
+            rb.linearVelocity = lv;
+
+            // Optional: Flip the sprite
+           // if (directionX > 0) transform.localScale = new Vector3(1, 1, 1);
+           //else if (directionX < 0) transform.localScale = new Vector3(-1, 1, 1);
+        }
+    }
+   /*public GameObject player;
    public float Speed;
 
    private float Distance;
@@ -24,5 +58,5 @@ public class PawnAI : MonoBehaviour
         {
             transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, Speed * Time.deltaTime);
         }
-    }
+    }*/
 }
