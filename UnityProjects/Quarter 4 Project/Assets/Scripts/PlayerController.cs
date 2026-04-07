@@ -150,6 +150,7 @@ public class PlayerController : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Platform"))
         {
+            StartCoroutine(WaitForSecondsRealTime(PlayerAbilities.platformDestroyDelay));
             PlayerAbilities.canCreatePlatform = 0;
             canMove = true;
         }
