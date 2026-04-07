@@ -35,8 +35,8 @@ public class PawnAI : MonoBehaviour
             rb.linearVelocity = lv;
 
             // Optional: Flip the sprite
-           // if (directionX > 0) transform.localScale = new Vector3(1, 1, 1);
-           //else if (directionX < 0) transform.localScale = new Vector3(-1, 1, 1);
+           if (directionX > 0) transform.localScale = new Vector3(-1, 1, 1);
+           else if (directionX < 0) transform.localScale = new Vector3(1, 1, 1);
         }
     }
    /*public GameObject player;
