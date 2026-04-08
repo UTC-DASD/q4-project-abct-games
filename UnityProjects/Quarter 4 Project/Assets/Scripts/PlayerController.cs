@@ -20,13 +20,14 @@ public class PlayerController : MonoBehaviour
     private float startingRotationX;
     private float startingRotationY;
     public float playerPositionX;
+    public float dashDuration = 0.2f;
     private float mousePositionX;
     [Header("Ground Check")]
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
     public bool isGrounded;
     private bool isDashing;
-    public float dashDuration = 0.2f;
+    
     private float dashTime;
     private int dashDirection;
     public PlayerAbilities PlayerAbilities;
@@ -37,6 +38,7 @@ public class PlayerController : MonoBehaviour
         playerInput = GetComponent<PlayerInput>();
         startingRotationX = transform.eulerAngles.x;
         startingRotationY = transform.eulerAngles.y;
+        timeSinceLastDash = dashCooldown;
     }
     void Update()
     {
@@ -78,7 +80,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.A))
         {
             float timeSinceLastTapLeft = Time.time - lastTapTimeLeft;
-            if (timeSinceLastTapLeft <= doubleTapDelay && timeSinceLastDash > dashCooldown)
+            if (timeSinceLastTapLeft <= doubleTapDelay && timeSinceLastDash >= dashCooldown)
             {
                 // Trigger Dash Left Logic
                 dashDirection = -1;
@@ -93,7 +95,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.D))
         {
             float timeSinceLastTapRight = Time.time - lastTapTimeRight;
-            if (timeSinceLastTapRight <= doubleTapDelay && timeSinceLastDash > dashCooldown)
+            if (timeSinceLastTapRight <= doubleTapDelay && timeSinceLastDash >= dashCooldown)
             {
                 // Trigger Dash Right Logic
                 dashDirection = 1;
@@ -165,7 +167,7 @@ public class PlayerController : MonoBehaviour
     }
     public void Dash(InputAction.CallbackContext context)
     {
-        if (timeSinceLastDash <= dashCooldown) return;
+        if (timeSinceLastDash < dashCooldown) return;
         if (horizontal > 0)
         {
             dashDirection = 1;
