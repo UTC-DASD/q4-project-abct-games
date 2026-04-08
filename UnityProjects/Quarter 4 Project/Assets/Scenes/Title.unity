@@ -375,7 +375,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f14e9ab294956c647a7e25e99c3a22d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Rotator
-  delayBeforeStart: 3
+  delayBeforeStart: 2
   xRotation: 0
   yRotation: 30
   zRotation: 0
