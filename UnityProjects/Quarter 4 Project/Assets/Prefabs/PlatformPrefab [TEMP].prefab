@@ -151,4 +151,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c5430bf9f3b7f94b9377ddbb48fa883, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::selfdestruct
-  selfDestructCountdown: 5
+  selfDestructCountdown: 1.5
