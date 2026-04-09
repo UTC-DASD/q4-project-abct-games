@@ -8,10 +8,14 @@ public class PawnAI : MonoBehaviour
      public Transform player; // Assign the player in inspector
     public float speed = 3f;
     private Rigidbody2D rb;
+    private float initialYScale;
+    private float initialZScale;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        initialYScale = transform.localScale.y;
+        initialZScale = transform.localScale.z;
     }
 
     void Update()
@@ -35,8 +39,8 @@ public class PawnAI : MonoBehaviour
             rb.linearVelocity = lv;
 
             // Optional: Flip the sprite
-           if (directionX > 0) transform.localScale = new Vector3(-1, 1, 1);
-           else if (directionX < 0) transform.localScale = new Vector3(1, 1, 1);
+           if (directionX > 0) transform.localScale = new Vector3(-1, initialYScale, initialZScale);
+           else if (directionX < 0) transform.localScale = new Vector3(1, initialYScale, initialZScale);
         }
     }
    /*public GameObject player;
