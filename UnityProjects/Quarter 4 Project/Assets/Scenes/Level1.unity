@@ -186,38 +186,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2efe5f6bdd713ef4e8fd1896872e5bdf, type: 3}
---- !u!1 &308792632
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 308792633}
-  m_Layer: 0
-  m_Name: Secret
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &308792633
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 308792632}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -203.41136, y: 9.038, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 341097498}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &321768360
 GameObject:
   m_ObjectHideFlags: 0
@@ -375,7 +343,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &341097498
 Transform:
   m_ObjectHideFlags: 0
@@ -385,11 +353,11 @@ Transform:
   m_GameObject: {fileID: 341097497}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 23.08136, y: -8.208, z: 0}
+  m_LocalPosition: {x: -180.33, y: 0.8299999, z: 0}
   m_LocalScale: {x: 0.26384902, y: 0.26037547, z: 0.3723}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 308792633}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &341097499
 MonoBehaviour:
@@ -404,7 +372,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PawnAI
   player: {fileID: 1626389315}
-  speed: 9
+  speed: 4
 --- !u!212 &341097500
 SpriteRenderer:
   serializedVersion: 2
@@ -1181,6 +1149,10 @@ PrefabInstance:
     - target: {fileID: 3541855743480106084, guid: fcc4cb49479036d43aee40e8fb2b9bac, type: 3}
       propertyPath: m_GravityScale
       value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6444645311621308143, guid: fcc4cb49479036d43aee40e8fb2b9bac, type: 3}
+      propertyPath: dashForce
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 6444645311621308143, guid: fcc4cb49479036d43aee40e8fb2b9bac, type: 3}
       propertyPath: jumpPower
@@ -3107,7 +3079,7 @@ MonoBehaviour:
   canInteract: 0
   player: {fileID: 1626389308}
   location: {x: -186.6, y: -5}
-  Surprise: {fileID: 308792632}
+  Surprise: {fileID: 341097497}
   SurpriseBackground: {fileID: 1141887639}
 --- !u!4 &1767756010
 Transform:
@@ -3118,8 +3090,8 @@ Transform:
   m_GameObject: {fileID: 1767756007}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.87, y: -0.35, z: 0}
-  m_LocalScale: {x: 0.44127247, y: 0.47299525, z: 1}
+  m_LocalPosition: {x: -3.87, y: 92.21, z: 0}
+  m_LocalScale: {x: 0.44127247, y: 6.6692333, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -3600,4 +3572,4 @@ SceneRoots:
   - {fileID: 1027971044}
   - {fileID: 483951343}
   - {fileID: 1767756010}
-  - {fileID: 308792633}
+  - {fileID: 341097498}
