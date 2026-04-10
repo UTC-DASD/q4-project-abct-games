@@ -28,8 +28,8 @@ Transform:
   m_GameObject: {fileID: 1425482070324202917}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -1.13, y: -1.14, z: 0}
-  m_LocalScale: {x: 0.38104427, y: 3.138869, z: 1}
+  m_LocalPosition: {x: -1.96, y: -0.07, z: 0}
+  m_LocalScale: {x: 0.9095527, y: 3.138869, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8871218226573355785}
@@ -151,6 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c317d1fdbd85ddb4c8f476197bfd0af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAttack
+  damageAmount: 10
 --- !u!1 &2088074067629022174
 GameObject:
   m_ObjectHideFlags: 0
@@ -165,7 +166,7 @@ GameObject:
   - component: {fileID: 8443758926980106779}
   - component: {fileID: 1227186736723117551}
   m_Layer: 0
-  m_Name: Pawn
+  m_Name: Pawn (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -180,7 +181,7 @@ Transform:
   m_GameObject: {fileID: 2088074067629022174}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 23.52, y: -0.81, z: 0}
+  m_LocalPosition: {x: 5.8551807, y: 1.294796, z: 0}
   m_LocalScale: {x: 0.32236, y: 0.32236, z: 0.32236}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -249,7 +250,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -0.85}
+  m_Offset: {x: 0.01954335, y: 2.1777296}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -259,7 +260,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.35, y: 1.7}
+  m_Size: {x: 2.0976562, y: 7.755457}
   m_EdgeRadius: 0
 --- !u!114 &8443758926980106779
 MonoBehaviour:
@@ -274,7 +275,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCHealth
   maxHealth: 35
-  currentHealth: 0
+  currentHealth: 35
 --- !u!114 &1227186736723117551
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -315,8 +316,8 @@ Transform:
   m_GameObject: {fileID: 5497391882458717514}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.84027, z: 0}
-  m_LocalScale: {x: 0.49815395, y: 0.56395, z: 0.56395}
+  m_LocalPosition: {x: 0, y: 2.169, z: 0}
+  m_LocalScale: {x: 0.8, y: 2.5377514, z: 0.8}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8871218226573355785}
