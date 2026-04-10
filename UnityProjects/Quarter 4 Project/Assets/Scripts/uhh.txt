@@ -1,0 +1,24 @@
+public void SpawnProjectile()
+    {
+        // Instantiate the projectile at the spawn point's position and rotation
+        GameObject projectile = Instantiate(projectilePrefab, spawnPoint.position, spawnPoint.rotation);
+
+        // Get the Rigidbody component and apply force
+        Rigidbody rb = projectile.GetComponent<Rigidbody>();
+        if (rb != null)
+        {
+            // Get the camera's forward direction, ignoring the vertical component
+            Vector3 cameraForward = Camera.main.transform.forward;
+           
+            cameraForward.Normalize();
+
+            // Apply force to the projectile
+            rb.AddForce(cameraForward * projectileSpeed, ForceMode.Impulse);
+
+            // Set the reference of the PlayerController in the projectile to update the score
+            ProjectileCollision projectileScript = projectile.GetComponent<ProjectileCollision>();
+            if (projectileScript != null)
+            {
+                projectileScript.playerController = this; // Reference to the player controller
+            }
+        }
