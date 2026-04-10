@@ -10,18 +10,45 @@ public class BishopAI : MonoBehaviour
     public float attackCooldown = 2f;
     public bool canAttack = true;
     public GameObject projectilePrefab; // Assign the projectile prefab in inspector
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private Rigidbody2D rb;
+
+     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        rb = GetComponent<Rigidbody2D>();
     }
-
     // Update is called once per frame
     void Update()
     {
        /* Vector2 direction = player.transform.position - transform.position;
 float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 transform.rotation = Quaternion.Euler(0, 0, angle); */
+
+ float directionX = 0f;
+       
+        if (player.position.x - transform.position.x > attackRange)
+        {
+            if (player.position.x > transform.position.x)
+            {
+                directionX = 1f; // Move Right
+            }
+            else if (player.position.x < transform.position.x)
+            {
+                directionX = -1f; // Move Left
+            }
+        }
+
+            // Apply velocity, keeping existing vertical velocity (gravity)
+            var lv = rb.linearVelocity;
+            lv.x = directionX * speed;
+            rb.linearVelocity = lv;
+
+            // Optional: Flip the sprite
+           if (directionX > 0) transform.localScale = new Vector3(-1, 1, 1);
+           else if (directionX < 0) transform.localScale = new Vector3(1, 1, 1);
+
+
+
 
     if (Vector2.Distance(transform.position, player.position) < attackRange && player.transform.position.y > transform.position.y + 1f)
     {
