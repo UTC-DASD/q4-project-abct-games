@@ -6,6 +6,7 @@ public class BishopAI : MonoBehaviour
     private Transform player; // Assign the player in inspector
     private float attackRange = 10f; // Example attack range
     public float speed = 3f; 
+    public float projectileSpeed = 10f;
     public float attackCooldown = 2f;
     public bool canAttack = true;
     public GameObject projectilePrefab; // Assign the projectile prefab in inspector
@@ -39,7 +40,7 @@ private IEnumerator Attack()
         // Instantiate the projectile and set its direction towards the player
         GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
         Vector2 direction = (player.position - transform.position).normalized;
-        projectile.GetComponent<Rigidbody2D>().linearVelocity = direction * speed;
+        projectile.GetComponent<Rigidbody2D>().linearVelocity = direction * projectileSpeed;
 
         yield return new WaitForSeconds(attackCooldown); // Wait for cooldown before allowing next attack
         canAttack = true;

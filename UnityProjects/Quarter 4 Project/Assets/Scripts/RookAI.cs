@@ -7,7 +7,7 @@ public class RookAI : MonoBehaviour
     private Rigidbody2D rb;
      private Health playerHealth;
     public int damageAmount = 80;
-    public bool canMove = true;
+    public bool canMove = false;
 
     void Start()
     {
@@ -20,20 +20,14 @@ public class RookAI : MonoBehaviour
         {
             // Only compare X position to move toward player
             float directionX = 0f;
-            if (player.position.x > transform.position.x && player.position.y < transform.position.y && canMove)
+            if (player.position.x > transform.position.x && player.position.y < transform.position.y && canMove == true) 
             {
-                rb.AddForce(new Vector2(1f, 0) * speed, ForceMode2D.Impulse); // Move Right
-                directionX = 1f;
+                StartCoroutine(MoveRight());
             }
-            else if (player.position.x < transform.position.x && player.position.y < transform.position.y && canMove)
-            {
-                rb.AddForce(new Vector2(-1f, 0) * speed, ForceMode2D.Impulse); // Move Left
-                directionX = -1f;
+            else if (player.position.x < transform.position.x && player.position.y < transform.position.y && canMove == true)
+            {   
+               StartCoroutine(MoveLeft());
             }
-
-            // Apply velocity, keeping existing vertical velocity (gravity)
-            var lv = new Vector2(directionX * speed, rb.linearVelocity.y);
-            rb.linearVelocity = lv;
 
             // Optional: Flip the sprite
            if (directionX > 0) transform.localScale = new Vector3(-1, 1, 1);
@@ -52,6 +46,34 @@ public class RookAI : MonoBehaviour
         }
     }
 }
+    private System.Collections.IEnumerator MovementReset()
+    {
+        if (canMove == false) // Allow movement again after a short delay
+        {
+            yield return new WaitForSeconds(3f); // Wait for 3 seconds
+            canMove = true;
+        }
+    }
+    private System.Collections.IEnumerator MoveRight()
+    {
+        if (canMove == true)
+        {
+            canMove = false; // Prevent further movement until next update
+            yield return new WaitForSeconds(1f);
+            rb.AddForce(new Vector2(1f, 0) * speed, ForceMode2D.Impulse); // Move Right
+            StartCoroutine(MovementReset());
+        }
+    }
+    private System.Collections.IEnumerator MoveLeft()
+    {
+        if (canMove == true)
+        {
+            canMove = false; // Prevent further movement until next update
+            yield return new WaitForSeconds(1f);
+            rb.AddForce(new Vector2(-1f, 0) * speed, ForceMode2D.Impulse); // Move Left
+            StartCoroutine(MovementReset());
+        }
+    }
 
   
 }

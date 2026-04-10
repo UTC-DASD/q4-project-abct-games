@@ -7,7 +7,12 @@ public class Projectile : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        WaitForSecondsRealtime wait = new WaitForSecondsRealtime(3f); // Adjust the time as needed
+        StartCoroutine(DestroyAfterTime());
+    }
+
+    private System.Collections.IEnumerator DestroyAfterTime()
+    {
+        yield return new WaitForSeconds(3f); // Adjust the time as needed
         Destroy(gameObject); // Destroy the projectile after the specified time
     }
     
