@@ -1,15 +1,18 @@
 using UnityEngine;
 using System.Collections;
+using System;
 
 public class KnightAI : MonoBehaviour
 {
-    public float speed = 3f;
+    public float speed = 5f;
     public float sightRange;
     private Transform player; // Assign the player in inspector
     private Rigidbody2D rb;
     private bool playerRecentlyAttacked = false;
     public int damageAmount = 40;
     public float attackRange = 1.5f;
+    public float hoverHeight = 10f;
+    private bool isAttacking = false;
 
     void Start()
     {
@@ -27,33 +30,32 @@ public class KnightAI : MonoBehaviour
         else if (Vector2.Distance(transform.position, player.position) < sightRange)
         {
              float directionX = 0f;
-            if (player.position.x > transform.position.x && Vector2.Distance(transform.position, player.position) > attackRange && playerRecentlyAttacked == false)
+            if (player.position.x > transform.position.x && Math.Abs(player.position.x - transform.position.x) > attackRange && playerRecentlyAttacked == false && isAttacking == false)
             {
                 directionX = 1f; // Move Right
-                transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x, player.position.y + 5f), speed * Time.deltaTime); // Stay above player
+                transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x, player.position.y + hoverHeight), speed * Time.deltaTime); // Stay above player
             }
-            else if (player.position.x < transform.position.x && Vector2.Distance(transform.position, player.position) > attackRange && playerRecentlyAttacked == false)
+            else if (player.position.x < transform.position.x && Math.Abs(player.position.x - transform.position.x) > attackRange && playerRecentlyAttacked == false && isAttacking == false)
             {
                 directionX = -1f; // Move Left
-                transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x, player.position.y + 5f), speed * Time.deltaTime);
+                transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x, player.position.y + hoverHeight), speed * Time.deltaTime);
             }
 
-            if (Vector2.Distance(transform.position, player.position) < attackRange && playerRecentlyAttacked == false)
+            if (Math.Abs(player.position.x - transform.position.x) < attackRange && playerRecentlyAttacked == false)
             {
-                transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
-
+                
                 StartCoroutine(Attack());
             }
 
             if (player.position.x > transform.position.x && Vector2.Distance(transform.position, player.position) > attackRange && playerRecentlyAttacked == true)
             {
                 directionX = -1f; // Move left
-                transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x, player.position.y + 5f), speed * Time.deltaTime); // Stay above player
+                transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x, player.position.y + hoverHeight), speed * Time.deltaTime); // Stay above player
             }
             else if (player.position.x < transform.position.x && Vector2.Distance(transform.position, player.position) > attackRange && playerRecentlyAttacked == true)
             {
                 directionX = 1f; // Move Right
-                transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x, player.position.y + 5f), speed * Time.deltaTime);
+                transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x, player.position.y + hoverHeight), speed * Time.deltaTime);
             }
 
             // Apply velocity, keeping existing vertical velocity (gravity)
@@ -81,10 +83,15 @@ public class KnightAI : MonoBehaviour
 
     private System.Collections.IEnumerator Attack()
     {
+        transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+        speed = 10f; // Increase speed when attacking
+        isAttacking = true;
         yield return new WaitForSeconds(3f);
         playerRecentlyAttacked = true;
-
-        yield return new WaitForSeconds(8f); // Cooldown before next attack
+        speed = 5f; // Reset speed after attack
+        isAttacking = false;
+        yield return new WaitForSeconds(4f); // Cooldown before next attack
         playerRecentlyAttacked = false;
+      
 }
 }
