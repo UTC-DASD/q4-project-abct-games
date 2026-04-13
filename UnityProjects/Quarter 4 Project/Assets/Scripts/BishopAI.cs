@@ -26,7 +26,7 @@ transform.rotation = Quaternion.Euler(0, 0, angle); */
 
  float directionX = 0f;
        
-        if (player.position.x - transform.position.x > attackRange)
+        if (Vector2.Distance(transform.position, player.position) > attackRange)
         {
             if (player.position.x > transform.position.x)
             {
@@ -44,8 +44,8 @@ transform.rotation = Quaternion.Euler(0, 0, angle); */
             rb.linearVelocity = lv;
 
             // Optional: Flip the sprite
-           if (directionX > 0) transform.localScale = new Vector3(-1, 1, 1);
-           else if (directionX < 0) transform.localScale = new Vector3(1, 1, 1);
+           if (directionX > 0) transform.localRotation = new Quaternion(0, 180, 0, 1);
+           else if (directionX < 0) transform.localRotation = new Quaternion(0, 0, 0, 1);
 
 
 
