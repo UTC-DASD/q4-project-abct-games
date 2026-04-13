@@ -2,15 +2,23 @@ using UnityEngine;
 
 public class Elevator : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public float targetY = 5f;      // The height the platform will reach
+    public float moveSpeed = 2f;    // How fast it rises
+    private bool isMoving = false;  // Triggered state
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if (isMoving)
+        {
+            // Move smoothly toward the target height
+            float newY = Mathf.MoveTowards(transform.position.y, targetY, moveSpeed * Time.deltaTime);
+            transform.position = new Vector3(transform.position.x, newY, transform.position.z);
+        }
+    }
+
+    public void StartRising()
+    {
+        isMoving = true;
     }
 }
+
