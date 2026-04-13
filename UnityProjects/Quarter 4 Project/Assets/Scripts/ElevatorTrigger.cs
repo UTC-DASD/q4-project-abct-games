@@ -2,12 +2,19 @@ using UnityEngine;
 
 public class ElevatorTrigger : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    private void OnTriggerEnter2D(Collider2D collision)
+    public Elevator elevator;
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            platform.StartRising();
+            elevator.StartRising();
+            Debug.Log("Active");
         }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        elevator.StopRising();
+        Debug.Log("Left");
     }
 }
