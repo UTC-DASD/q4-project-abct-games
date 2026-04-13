@@ -23,11 +23,11 @@ public class RookAI : MonoBehaviour
         {
             // Only compare X position to move toward player
             float directionX = 0f;
-            if (player.position.x > transform.position.x && player.position.y == transform.position.y && canMove == true) 
+            if (player.position.x > transform.position.x && player.position.y < transform.position.y && canMove == true) 
             {
                 StartCoroutine(MoveRight());
             }
-            else if (player.position.x < transform.position.x && player.position.y == transform.position.y && canMove == true)
+            else if (player.position.x < transform.position.x && player.position.y < transform.position.y && canMove == true)
             {   
                StartCoroutine(MoveLeft());
             }
