@@ -11,6 +11,7 @@ public class BishopAI : MonoBehaviour
     public bool canAttack = true;
     public GameObject projectilePrefab; // Assign the projectile prefab in inspector
     private Rigidbody2D rb;
+    public float sightRange;
 
      void Start()
     {
@@ -25,7 +26,8 @@ float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 transform.rotation = Quaternion.Euler(0, 0, angle); */
 
  float directionX = 0f;
-       
+        if (Vector2.Distance(transform.position, player.position) < sightRange)
+        {
         if (Vector2.Distance(transform.position, player.position) > attackRange)
         {
             if (player.position.x > transform.position.x)
@@ -46,6 +48,7 @@ transform.rotation = Quaternion.Euler(0, 0, angle); */
             // Optional: Flip the sprite
            if (directionX > 0) transform.localRotation = new Quaternion(0, 180, 0, 1);
            else if (directionX < 0) transform.localRotation = new Quaternion(0, 0, 0, 1);
+        }
 
 
 

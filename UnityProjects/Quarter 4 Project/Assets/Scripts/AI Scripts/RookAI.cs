@@ -8,6 +8,7 @@ public class RookAI : MonoBehaviour
      private Health playerHealth;
     public int damageAmount = 80;
     public bool canMove = false;
+    public float sightRange;
 
     void Start()
     {
@@ -16,6 +17,8 @@ public class RookAI : MonoBehaviour
 
     void Update()
     {
+        if (Vector2.Distance(transform.position, player.position) < sightRange)
+        {
         if (player != null)
         {
             // Only compare X position to move toward player
@@ -30,9 +33,10 @@ public class RookAI : MonoBehaviour
             }
 
             // Optional: Flip the sprite
-           if (directionX > 0) transform.localScale = new Vector3(-1, 1, 1);
-           else if (directionX < 0) transform.localScale = new Vector3(1, 1, 1);
+           if (directionX > 0) transform.localRotation = new Quaternion(0, 180, 0, 1);
+           else if (directionX < 0) transform.localRotation = new Quaternion(0, 0, 0, 1);
         }
+    }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
