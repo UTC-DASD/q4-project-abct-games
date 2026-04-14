@@ -57,6 +57,12 @@ public class KnightAI : MonoBehaviour
                 directionX = 1f; // Move Right
                 transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x, player.position.y + hoverHeight), speed * Time.deltaTime);
             }
+            if (isAttacking == true)
+            {
+                 transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+            }
+
+
 
             // Apply velocity, keeping existing vertical velocity (gravity)
             var lv = rb.linearVelocity;
@@ -72,18 +78,24 @@ public class KnightAI : MonoBehaviour
         {
             if (collision.CompareTag("Player"))
             {
+            if (isAttacking == true)
+            {    
                 // Implement damage logic here, e.g., reduce player's health
+
                     Health playerHealth = collision.GetComponent<Health>();
             if (playerHealth != null)
             {            playerHealth.TakeDamage(damageAmount); // Example damage amount
                 Debug.Log("Player hit by enemy attack!");
+                isAttacking = false; // Reset attack state after hitting the player
+                playerRecentlyAttacked = true; // Set the flag to prevent immediate re-attacks
+            }
             }
         }
         }
 
     private System.Collections.IEnumerator Attack()
     {
-        transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+       
         speed = 10f; // Increase speed when attacking
         isAttacking = true;
         yield return new WaitForSeconds(3f);
