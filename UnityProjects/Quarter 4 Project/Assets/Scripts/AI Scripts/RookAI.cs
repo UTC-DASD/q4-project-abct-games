@@ -9,6 +9,7 @@ public class RookAI : MonoBehaviour
     public int damageAmount = 80;
     public bool canMove = false;
     public float sightRange;
+    public bool isAttacking = false;
 
     void Start()
     {
@@ -27,7 +28,7 @@ public class RookAI : MonoBehaviour
             {
                 StartCoroutine(MoveRight());
             }
-            else if (player.position.x < transform.position.x && player.position.y < transform.position.y + .2f && canMove == true && player.position.y > transform.position.y - .2f)
+            else if (player.position.x > transform.position.x && player.position.y < transform.position.y + .2f && canMove == true && player.position.y > transform.position.y - .2f)
             {
                 StartCoroutine(MoveLeft());
             }
@@ -42,19 +43,25 @@ public class RookAI : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            // Implement damage logic here, e.g., reduce player's health
+            
+        if (isAttacking == true)
+        {
                 Health playerHealth = collision.GetComponent<Health>();
         if (playerHealth != null)
         {            playerHealth.TakeDamage(damageAmount); // Example damage amount
             Debug.Log("Player hit by enemy attack!");
+            isAttacking = false; // Reset attack state after hitting the player
         }
     }
+        }
 }
     private System.Collections.IEnumerator MovementReset()
     {
         if (canMove == false) // Allow movement again after a short delay
         {
-            yield return new WaitForSeconds(3f); // Wait for 3 seconds
+            yield return new WaitForSeconds(1f); // Wait for 1 second before allowing movement again
+            isAttacking = false; // Reset attacking state after movement
+            yield return new WaitForSeconds(2f); // Wait for 3 seconds
             canMove = true;
         }
     }
@@ -62,9 +69,11 @@ public class RookAI : MonoBehaviour
     {
         if (canMove == true)
         {
+            
             canMove = false; // Prevent further movement until next update
             yield return new WaitForSeconds(1f);
-            rb.AddForce(new Vector2(1f, 0) * speed, ForceMode2D.Impulse); // Move Right
+            isAttacking = true; // Set attacking state to true when moving towards the player
+            rb.AddForce(new Vector2(-1f, 0) * speed, ForceMode2D.Impulse); // Move Right
             StartCoroutine(MovementReset());
         }
     }
@@ -72,9 +81,11 @@ public class RookAI : MonoBehaviour
     {
         if (canMove == true)
         {
+            
             canMove = false; // Prevent further movement until next update
             yield return new WaitForSeconds(1f);
-            rb.AddForce(new Vector2(-1f, 0) * speed, ForceMode2D.Impulse); // Move Left
+            isAttacking = true; // Set attacking state to true when moving towards the player
+            rb.AddForce(new Vector2(1f, 0) * speed, ForceMode2D.Impulse); // Move Left
             StartCoroutine(MovementReset());
         }
     }
