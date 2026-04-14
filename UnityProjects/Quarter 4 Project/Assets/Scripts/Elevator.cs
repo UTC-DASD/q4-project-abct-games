@@ -12,7 +12,7 @@ public class Elevator : MonoBehaviour
         if (isMoving == true)
         {
             // Move smoothly toward the target height
-            float newY = Mathf.MoveTowards(transform.position.y, 43f, moveSpeed * Time.deltaTime);
+            float newY = Mathf.MoveTowards(transform.position.y, targetY, moveSpeed * Time.deltaTime);
             transform.position = new Vector3(transform.position.x, newY, transform.position.z);
         }
     }
