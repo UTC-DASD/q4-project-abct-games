@@ -328,7 +328,6 @@ GameObject:
   m_Component:
   - component: {fileID: 212767909}
   - component: {fileID: 212767908}
-  - component: {fileID: 212767907}
   - component: {fileID: 212767906}
   - component: {fileID: 212767905}
   - component: {fileID: 212767910}
@@ -412,20 +411,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &212767907
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 212767904}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9f7e2dbc1e19e1418b6dd50a3155b39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Elevator
-  targetY: 5
-  moveSpeed: 2
 --- !u!212 &212767908
 SpriteRenderer:
   serializedVersion: 2
@@ -1083,7 +1068,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b5f6904ca0fd4948b055949578e14b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ElevatorTrigger
-  elevator: {fileID: 212767907}
+  elevator: {fileID: 212767910}
 --- !u!61 &1118714710
 BoxCollider2D:
   m_ObjectHideFlags: 0
