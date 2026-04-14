@@ -3,43 +3,72 @@ using System.Collections.Generic;
 
 public class PlayerAttack : MonoBehaviour
 {
-    public int damage;
-    public float attacktime;
-    private HashSet<GameObject> damagedObjects = new HashSet<GameObject>(); // Set to track already damaged objects
-    private Animator animator; // Reference to the Animator component
-    public float attackCooldown = .7f;
-    public float timeSinceLastAttack;
-    public float currentTime;
-    private float CooldownEndTime;
-    private bool isAttacking = false;
+    public float attackCooldown = 1f; // Time between attacks
+    public float lastAttackTime = 0f; // Time of the last attack
 
- private void Start()
-    {  
-        animator = GetComponent<Animator>(); // Get the Animator component attached to this GameObject
+    public int attackDamage = 10; // Damage dealt by the attack
+    public bool isAttacking = false; // Flag to check if the player is currently attacking
+    public NPCHealth enemyHealth;
+    void Start()
+    {
+        isAttacking = false;
+
+
+    }
+    void Update()
+    {
+        // Check for mouse click to attack
+        if (Input.GetMouseButtonDown(0))
+        {
+            Attack();
+        }
+    }
+    public void Attack()
+    {
+     
+        
+            isAttacking = true; // Set attacking state to true when the attack is initiated
+            
+        
     }
 
-public void StartAttack()
-{
-     isAttacking = true;
-        animator.SetTrigger("AttackTrigger"); // Trigger the attack animation
-        damagedObjects.Clear(); // Clear the set of damaged objects at the start of an attack
-        timeSinceLastAttack = currentTime; // Reset the timer
-}
-  private void OnTriggerEnter(Collider other) // Use OnTriggerEnter for trigger colliders
-      {  // Try to get the Health component from the object we hit
-        NPCHealth otherNPCHealth = other.GetComponent<NPCHealth>();
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Enemy"))
+        {
         
 
-        // If the object has a Health component, call its TakeDamage method
-        if (otherNPCHealth != null)
-       {
-         if (isAttacking && !damagedObjects.Contains(other.gameObject)) // Check if we are attacking and haven't already damaged this object
-        {
-            damagedObjects.Add(other.gameObject); // Add the object to the set of damaged objects
+                if (isAttacking == true && Time.time - lastAttackTime >= attackCooldown)
+                {
+                    NPCHealth NPCHealth = collision.GetComponent<NPCHealth>();
+                    if (NPCHealth != null)
+                    {
+                        NPCHealth.TakeDamage(attackDamage); // Example damage amount
+                        Debug.Log("Player hit "+ collision.name + " with attack for " + attackDamage + " damage but cooldown is " + attackCooldown + " seconds" + " and last attack was at " + lastAttackTime + " seconds and current time is " + Time.time + " seconds, but also dont forget that the enemy has " + NPCHealth.currentHealth + " health remaining, but if the attack cooldown has not passed, the player cannot attack and the attack will not hit the enemy, but if the attack cooldown has passed, the player can attack and the attack will hit the enemy, but if the player is not currently attacking, the player cannot attack and the attack will not hit the enemy, and if the enemy health remaining is" + NPCHealth.currentHealth + " then the enemy is still alive, but if the enemy health remaining is 0 or less, then the enemy is dead!");
+                        isAttacking = false; // Reset attack state after hitting the player
+                    }
+                    if(NPCHealth == null)
+                    {
+                        Debug.Log("HELP");
+                        throw new System.Exception("HELP ITS BROKEN FIX IT PLEASE");
+                    }
+                    // Reset the attack cooldown
+                    lastAttackTime = Time.time;
+                    isAttacking = false; // Reset attacking state after the attack
 
-         otherNPCHealth.TakeDamage(damage); // Inflict damage using configured damage value
-         Debug.Log("Damage dealt: " + damage);
+
+
+        
+                    
+                        isAttacking = false; // Ensure attacking state is reset if cooldown hasn't passed
+                    
+                }
+                 
+            }
         }
-       }
-}       
-}
+    }
+
+
+
+
+
