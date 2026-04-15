@@ -1,0 +1,23 @@
+using UnityEngine;
+using UnityEditor.SceneManagement;
+using UnityEngine.SceneManagement;
+public class SceneTransition1 : MonoBehaviour
+{
+    public int Scene = 0;
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        SceneManager.LoadScene(Scene);
+    }
+}
