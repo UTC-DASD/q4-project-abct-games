@@ -19,17 +19,21 @@ public class QueenAI : MonoBehaviour
     public float ability1Cooldown = 5f;
     public float ability2Cooldown = 10f;
     public float ultimateCooldown = 30f;
+    public float abilityRange = 30f;
     private float nextTimeToFire;
     private float fireRate = .1f;
     private bool isUsingAbility = false;
     public bool phase2 = false;
     private bool isUsingUltimate = false;
+    private float startingY;
+    private float verticalVelocity = 7f;
     
 
      void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         rb = GetComponent<Rigidbody2D>();
+        startingY = transform.position.y;
     }
 
 
@@ -39,7 +43,7 @@ public class QueenAI : MonoBehaviour
             float directionX = 0f;
         if (Vector2.Distance(transform.position, player.position) < sightRange)
         {
-            if (!isUsingAbility)
+            if (!isUsingAbility || Vector2.Distance(transform.position, player.position) > abilityRange)
             {
                 if (player.position.x > transform.position.x)
             {
@@ -132,6 +136,8 @@ public class QueenAI : MonoBehaviour
     {
             isUsingAbility = true;
             isUsingUltimate = true;
+            transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x, startingY + 15f), verticalVelocity * Time.deltaTime);
+            rb.gravityScale = 0f; // Disable gravity during ultimate attack
 
             if (Time.time >= nextTimeToFire)
             {
@@ -144,6 +150,7 @@ public class QueenAI : MonoBehaviour
         usedUltimate = true;
         isUsingUltimate = false;
         isUsingAbility = false;
+        rb.gravityScale = 1f; // Re-enable gravity after ultimate attack
 
         yield return null; // Placeholder for any delay or animation during the ultimate attack
     }

@@ -1678,8 +1678,8 @@ GameObject:
   - component: {fileID: 1616395410}
   - component: {fileID: 1616395409}
   - component: {fileID: 1616395408}
-  - component: {fileID: 1616395412}
   - component: {fileID: 1616395411}
+  - component: {fileID: 1616395412}
   m_Layer: 0
   m_Name: Queen
   m_TagString: Untagged
@@ -1713,6 +1713,7 @@ MonoBehaviour:
   ability1Cooldown: 5
   ability2Cooldown: 10
   ultimateCooldown: 30
+  abilityRange: 30
   phase2: 1
 --- !u!212 &1616395409
 SpriteRenderer:
@@ -1763,8 +1764,8 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7025651857757288288, guid: c460fba04fd8d1f4395ac409cf7f1cb5, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 7519753400087680208, guid: 733617bb78f9e9340bb72442cf0d17df, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1853,13 +1854,13 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.01, y: 4.41}
+    oldSize: {x: 2.36, y: 4.71}
     newSize: {x: 2.01, y: 4.41}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 2.01, y: 4.41}
+  m_Size: {x: 2.36, y: 4.71}
   m_EdgeRadius: 0
 --- !u!1 &2086417239
 GameObject:
