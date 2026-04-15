@@ -13,6 +13,7 @@ public class PlayerAttack : MonoBehaviour
     {
         lastAttackTime = -attackCooldown;
         isAttacking = false;
+        lastAttackTime = 0f;
     }
 
     void Update()

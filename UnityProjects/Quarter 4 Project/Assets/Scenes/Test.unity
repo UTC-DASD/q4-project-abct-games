@@ -1160,7 +1160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCHealth
   maxHealth: 100
-  currentHealth: 0
+  currentHealth: 1
 --- !u!1 &528364053
 GameObject:
   m_ObjectHideFlags: 0
@@ -3124,6 +3124,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2393512959702421183, guid: fcc4cb49479036d43aee40e8fb2b9bac, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2393512959702421183, guid: fcc4cb49479036d43aee40e8fb2b9bac, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2393512959702421183, guid: fcc4cb49479036d43aee40e8fb2b9bac, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2393512959702421183, guid: fcc4cb49479036d43aee40e8fb2b9bac, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 167.7
+      objectReference: {fileID: 0}
     - target: {fileID: 6444645311621308143, guid: fcc4cb49479036d43aee40e8fb2b9bac, type: 3}
       propertyPath: groundCheck
       value: 
@@ -3131,6 +3147,10 @@ PrefabInstance:
     - target: {fileID: 6789362276985148941, guid: fcc4cb49479036d43aee40e8fb2b9bac, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8195508448646450621, guid: fcc4cb49479036d43aee40e8fb2b9bac, type: 3}
+      propertyPath: whyIsThisNotWorkingAtAllHelpMe
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
