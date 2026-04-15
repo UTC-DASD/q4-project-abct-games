@@ -5,70 +5,109 @@ public class PlayerAttack : MonoBehaviour
 {
     public float attackCooldown = 1f; // Time between attacks
     public float lastAttackTime = 0f; // Time of the last attack
-
     public int attackDamage = 10; // Damage dealt by the attack
     public bool isAttacking = false; // Flag to check if the player is currently attacking
-    public NPCHealth enemyHealth;
+
+    private readonly List<NPCHealth> enemiesInRange = new List<NPCHealth>();
+
     void Start()
     {
+        lastAttackTime = -attackCooldown;
         isAttacking = false;
-
-
+        Debug.Log("PlayerAttack initialized. Cooldown = " + attackCooldown + ", damage = " + attackDamage);
     }
+
     void Update()
     {
-        // Check for mouse click to attack
         if (Input.GetMouseButtonDown(0))
         {
+            Debug.Log("Attack input received at time " + Time.time);
             Attack();
         }
     }
+
     public void Attack()
     {
-     
-        
-            isAttacking = true; // Set attacking state to true when the attack is initiated
-            
-        
+        Debug.Log("Attempting attack. Current time = " + Time.time + ", lastAttackTime = " + lastAttackTime);
+
+        if (Time.time - lastAttackTime < attackCooldown)
+        {
+            Debug.Log("Attack blocked by cooldown. Time since last attack = " + (Time.time - lastAttackTime));
+            return;
+        }
+
+        enemiesInRange.RemoveAll(enemy => enemy == null);
+        Debug.Log("Enemies in range after cleanup: " + enemiesInRange.Count);
+
+        if (enemiesInRange.Count == 0)
+        {
+            Debug.Log("Attack aborted: no enemies in range.");
+            return;
+        }
+
+        isAttacking = true;
+        Debug.Log("Starting attack on " + enemiesInRange.Count + " enemy(ies).");
+
+        foreach (NPCHealth enemy in enemiesInRange)
+        {
+            if (enemy != null)
+            {
+                Debug.Log("Damaging enemy " + enemy.name + " (health before = " + enemy.currentHealth + ")");
+                enemy.TakeDamage(attackDamage);
+                Debug.Log("Enemy " + enemy.name + " took " + attackDamage + " damage and now has " + enemy.currentHealth + " health.");
+            }
+            else
+            {
+                Debug.Log("Skipped a null enemy reference in enemiesInRange.");
+            }
+        }
+
+        lastAttackTime = Time.time;
+        Debug.Log("Attack complete. Cooldown reset at " + lastAttackTime);
+        isAttacking = false;
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("Trigger enter: " + collision.name + " with tag " + collision.tag);
         if (collision.CompareTag("Enemy"))
         {
-        
-
-                if (isAttacking == true && Time.time - lastAttackTime >= attackCooldown)
+            NPCHealth enemyHealth = collision.GetComponent<NPCHealth>();
+            if (enemyHealth != null)
+            {
+                if (!enemiesInRange.Contains(enemyHealth))
                 {
-                    NPCHealth NPCHealth = collision.GetComponent<NPCHealth>();
-                    if (NPCHealth != null)
-                    {
-                        NPCHealth.TakeDamage(attackDamage); // Example damage amount
-                        Debug.Log("Player hit "+ collision.name + " with attack for " + attackDamage + " damage but cooldown is " + attackCooldown + " seconds" + " and last attack was at " + lastAttackTime + " seconds and current time is " + Time.time + " seconds, but also dont forget that the enemy has " + NPCHealth.currentHealth + " health remaining, but if the attack cooldown has not passed, the player cannot attack and the attack will not hit the enemy, but if the attack cooldown has passed, the player can attack and the attack will hit the enemy, but if the player is not currently attacking, the player cannot attack and the attack will not hit the enemy, and if the enemy health remaining is" + NPCHealth.currentHealth + " then the enemy is still alive, but if the enemy health remaining is 0 or less, then the enemy is dead!");
-                        isAttacking = false; // Reset attack state after hitting the player
-                    }
-                    if(NPCHealth == null)
-                    {
-                        Debug.Log("HELP");
-                        throw new System.Exception("HELP ITS BROKEN FIX IT PLEASE");
-                    }
-                    // Reset the attack cooldown
-                    lastAttackTime = Time.time;
-                    isAttacking = false; // Reset attacking state after the attack
-
-
-
-        
-                    
-                        isAttacking = false; // Ensure attacking state is reset if cooldown hasn't passed
-                    
+                    enemiesInRange.Add(enemyHealth);
+                    Debug.Log("Enemy added to range: " + enemyHealth.name + ". Total enemies in range: " + enemiesInRange.Count);
                 }
-                 
+                else
+                {
+                    Debug.Log("Enemy already in range: " + enemyHealth.name);
+                }
+            }
+            else
+            {
+                Debug.Log("Trigger entered by object tagged Enemy but NPCHealth component was missing: " + collision.name);
             }
         }
     }
 
-
-
-
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        Debug.Log("Trigger exit: " + collision.name + " with tag " + collision.tag);
+        if (collision.CompareTag("Enemy"))
+        {
+            NPCHealth enemyHealth = collision.GetComponent<NPCHealth>();
+            if (enemyHealth != null)
+            {
+                enemiesInRange.Remove(enemyHealth);
+                Debug.Log("Enemy removed from range: " + enemyHealth.name + ". Total enemies in range: " + enemiesInRange.Count);
+            }
+            else
+            {
+                Debug.Log("Enemy left range but NPCHealth component was missing: " + collision.name);
+            }
+        }
+    }
+}
 
