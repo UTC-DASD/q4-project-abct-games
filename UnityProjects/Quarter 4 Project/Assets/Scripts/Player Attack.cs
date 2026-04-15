@@ -7,7 +7,6 @@ public class PlayerAttack : MonoBehaviour
     public float lastAttackTime = 0f; // Time of the last attack
     public int attackDamage = 10; // Damage dealt by the attack
     public bool isAttacking = false; // Flag to check if the player is currently attacking
-    public NPCHealth NPCHealth; // Reference to the NPCHealth script
     private readonly List<NPCHealth> enemiesInRange = new List<NPCHealth>();
 
     void Start()
