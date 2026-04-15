@@ -28,8 +28,8 @@ Transform:
   m_GameObject: {fileID: 2577176884004273716}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 167.7, y: 0, z: 0}
-  m_LocalScale: {x: 100, y: 10, z: 10}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 80325726774756307}
@@ -80,12 +80,15 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -1.1001389, y: 1.1195797}
-      - {x: -0.8472122, y: 0.3512524}
-      - {x: -0.7677026, y: 0.109717116}
-      - {x: -1.113938, y: -1.0720923}
-      - {x: -2.7524703, y: -1.5025787}
-      - {x: -2.7479424, y: 1.743973}
+    - - {x: 0.014234066, y: 1.1840476}
+      - {x: -0.055177808, y: 0.18547781}
+      - {x: 0.0059114695, y: 0.045249358}
+      - {x: -0.08510807, y: -1.9814671}
+      - {x: -1.7564031, y: -2.2231765}
+      - {x: -3.5188904, y: -2.2689984}
+      - {x: -3.8399427, y: -0.12515154}
+      - {x: -3.1816788, y: 2.7701173}
+      - {x: -0.2152763, y: 2.8307178}
   m_UseDelaunayMesh: 1
 --- !u!114 &8195508448646450621
 MonoBehaviour:
@@ -186,6 +189,8 @@ GameObject:
   - component: {fileID: 4394161014212040716}
   - component: {fileID: 6444645311621308143}
   - component: {fileID: 1986540098485547042}
+  - component: {fileID: 6563382433123696638}
+  - component: {fileID: 187648462574280267}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -455,7 +460,7 @@ MonoBehaviour:
   rb: {fileID: 3541855743480106084}
   speed: 10
   jumpPower: 10
-  dashForce: 15
+  dashForce: 20
   dashCooldown: 3.5
   playerPositionX: 0
   dashDuration: 0.2
@@ -512,6 +517,36 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 2.25, y: 2.25}
   m_EdgeRadius: 0
+--- !u!114 &6563382433123696638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6789362276985148941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3c6bf3a01ee11141a2e5576b4330eb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Health
+  maxHealth: 100
+--- !u!114 &187648462574280267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6789362276985148941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4bdbf7e2f3c59d47bedeafd6723ef66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerAttack
+  attackCooldown: 1
+  lastAttackTime: 0
+  attackDamage: 10
+  isAttacking: 0
+  whyIsThisNotWorkingAtAllHelpMe: 0
 --- !u!1 &8023775123219597915
 GameObject:
   m_ObjectHideFlags: 0
