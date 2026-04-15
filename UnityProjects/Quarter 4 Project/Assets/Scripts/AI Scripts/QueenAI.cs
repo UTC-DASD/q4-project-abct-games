@@ -18,8 +18,13 @@ public class QueenAI : MonoBehaviour
     public float projectileDamage2 = 20f;
     public float ability1Cooldown = 5f;
     public float ability2Cooldown = 10f;
+    public float ultimateCooldown = 30f;
+    private float nextTimeToFire;
+    private float fireRate = .1f;
     private bool isUsingAbility = false;
-    private bool phase2 = false;
+    public bool phase2 = false;
+    private bool isUsingUltimate = false;
+    
 
      void Start()
     {
@@ -30,8 +35,21 @@ public class QueenAI : MonoBehaviour
 
     void Update()
     {
+
+            float directionX = 0f;
         if (Vector2.Distance(transform.position, player.position) < sightRange)
         {
+            if (!isUsingAbility)
+            {
+                if (player.position.x > transform.position.x)
+            {
+                directionX = 1f; // Move Right
+            }
+            else if (player.position.x < transform.position.x)
+            {
+                directionX = -1f; // Move Left
+            }
+            }
             if (!usedAbility1 && !isUsingAbility)
             {
                 StartCoroutine(UseAbility1());
@@ -48,8 +66,20 @@ public class QueenAI : MonoBehaviour
             {
                 StartCoroutine(AttackPlayer());
             }
+            if (!usedUltimate && !isUsingAbility && phase2 == true || isUsingUltimate == true && phase2 == true)
+            {
+                Debug.Log("Using Ultimate");
+                StartCoroutine(UltimateAttack());
+            }
+           // Apply velocity, keeping existing vertical velocity (gravity)
+            var lv = rb.linearVelocity;
+            lv.x = directionX * speed;
+            rb.linearVelocity = lv;
+       
         }
+        
     }
+
 
     private System.Collections.IEnumerator UseAbility1()
     {
@@ -100,10 +130,28 @@ public class QueenAI : MonoBehaviour
 
     private System.Collections.IEnumerator UltimateAttack()
     {
+            isUsingAbility = true;
+            isUsingUltimate = true;
+
+            if (Time.time >= nextTimeToFire)
+            {
+            nextTimeToFire = Time.time + fireRate;
+            shoot();
+            }
+      
+       
+        yield return new WaitForSeconds(10f);
         usedUltimate = true;
-        // Implement ultimate attack logic here (e.g., spawn powerful projectiles, area of effect attack, etc.)
+        isUsingUltimate = false;
+        isUsingAbility = false;
 
         yield return null; // Placeholder for any delay or animation during the ultimate attack
+    }
+    void shoot()
+    {
+        GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
+        Vector2 direction = (player.position - transform.position).normalized;
+        projectile.GetComponent<Rigidbody2D>().linearVelocity = direction * projectileSpeed;
     }
 
 
