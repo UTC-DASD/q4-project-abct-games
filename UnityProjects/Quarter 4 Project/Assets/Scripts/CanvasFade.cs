@@ -26,6 +26,7 @@ public class CanvasFade : MonoBehaviour
 
     private IEnumerator Start()
     {
+        
         if (startHidden)
         {
             canvasGroup.alpha = 0f;
