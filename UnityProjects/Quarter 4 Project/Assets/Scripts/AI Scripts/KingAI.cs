@@ -21,12 +21,12 @@ public class KingAI : MonoBehaviour
     {
         if (player.position.x > queen.position.x && panicked == false)
         {
-            transform.position = Vector2.MoveTowards(transform.position, new Vector2 (queen.position.x - 1, transform.position.y), speed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, new Vector2 (queen.position.x - 2, transform.position.y), speed * Time.deltaTime);
 
         }
         if (player.position.x < queen.position.x && panicked == false)
         {
-            transform.position = Vector2.MoveTowards(transform.position, new Vector2 (queen.position.x + 1, transform.position.y), speed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, new Vector2 (queen.position.x + 2, transform.position.y), speed * Time.deltaTime);
 
         }
         if (panicked == true)
