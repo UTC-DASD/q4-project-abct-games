@@ -60,7 +60,7 @@ public class KnightAI : MonoBehaviour
             if (isAttacking == true)
             {
                 transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
-                transform.LookAt(player);
+            
             }
 
 
