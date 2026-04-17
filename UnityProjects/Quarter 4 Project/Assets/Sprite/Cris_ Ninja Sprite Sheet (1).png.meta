@@ -1,0 +1,419 @@
+fileFormatVersion: 2
+guid: c71414cf5930ce34e9fbaa3d482fcd78
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8351529960998648468
+    second: Cris_ Ninja Sprite Sheet (1)_0
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Cris_ Ninja Sprite Sheet (1)_0
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 7499
+        width: 2105
+        height: 2501
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c65c4afafb7691c80800000000000000
+      internalID: -8351529960998648468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cris_ Ninja Sprite Sheet (1)_1
+      rect:
+        serializedVersion: 2
+        x: 2586
+        y: 7510
+        width: 2082
+        height: 2448
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16fc2ffef55bb01439908303a137d378
+      internalID: 1219483103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cris_ Ninja Sprite Sheet (1)_2
+      rect:
+        serializedVersion: 2
+        x: 5029
+        y: 7449
+        width: 2403
+        height: 2478
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c319eab1d50b9934fbc5d46fa3accfbe
+      internalID: -1252019840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cris_ Ninja Sprite Sheet (1)_3
+      rect:
+        serializedVersion: 2
+        x: 7735
+        y: 7449
+        width: 1998
+        height: 2551
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a92af09ebaab66c4a8c1380ec12ca959
+      internalID: 81620991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cris_ Ninja Sprite Sheet (1)_4
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 5200
+        width: 2282
+        height: 2072
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40c00d6388a000844b8a94d6d5b583be
+      internalID: -2026199419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cris_ Ninja Sprite Sheet (1)_5
+      rect:
+        serializedVersion: 2
+        x: 2550
+        y: 5155
+        width: 2303
+        height: 2088
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6166c0fbbd45404db617901f8b2dc01
+      internalID: -1359919282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cris_ Ninja Sprite Sheet (1)_6
+      rect:
+        serializedVersion: 2
+        x: 5086
+        y: 5217
+        width: 2319
+        height: 2029
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd6ef662d382bcf4fa6f3a09920b5d18
+      internalID: 1255253304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cris_ Ninja Sprite Sheet (1)_7
+      rect:
+        serializedVersion: 2
+        x: 7593
+        y: 5142
+        width: 2296
+        height: 2094
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e52c13ad45911b347a61ebd1420f4159
+      internalID: -605855795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cris_ Ninja Sprite Sheet (1)_8
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 2520
+        width: 2007
+        height: 2474
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8d2ac109b6b3df4aaedd3ab99b29f88
+      internalID: -390362847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cris_ Ninja Sprite Sheet (1)_9
+      rect:
+        serializedVersion: 2
+        x: 2604
+        y: 2517
+        width: 2165
+        height: 2490
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f0a16372297ef14cb9a8a25fa476d3d
+      internalID: -1072255015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cris_ Ninja Sprite Sheet (1)_10
+      rect:
+        serializedVersion: 2
+        x: 5131
+        y: 2538
+        width: 2353
+        height: 1705
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e991484d9a4fcc408fcc1298c429f88
+      internalID: -778105885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cris_ Ninja Sprite Sheet (1)_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 2479
+        height: 2036
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d862dddad5130574194d011ec3c16375
+      internalID: 69654221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cris_ Ninja Sprite Sheet (1)_12
+      rect:
+        serializedVersion: 2
+        x: 2514
+        y: 0
+        width: 2532
+        height: 2526
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d0c5ddb2ec0146489bec96d63d660b6
+      internalID: 276011720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: fe2a02bc8b9beda47a503437386d046d
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Cris_ Ninja Sprite Sheet (1)_0: -8351529960998648468
+      Cris_ Ninja Sprite Sheet (1)_1: 1219483103
+      Cris_ Ninja Sprite Sheet (1)_10: -778105885
+      Cris_ Ninja Sprite Sheet (1)_11: 69654221
+      Cris_ Ninja Sprite Sheet (1)_12: 276011720
+      Cris_ Ninja Sprite Sheet (1)_2: -1252019840
+      Cris_ Ninja Sprite Sheet (1)_3: 81620991
+      Cris_ Ninja Sprite Sheet (1)_4: -2026199419
+      Cris_ Ninja Sprite Sheet (1)_5: -1359919282
+      Cris_ Ninja Sprite Sheet (1)_6: 1255253304
+      Cris_ Ninja Sprite Sheet (1)_7: -605855795
+      Cris_ Ninja Sprite Sheet (1)_8: -390362847
+      Cris_ Ninja Sprite Sheet (1)_9: -1072255015
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
