@@ -7,6 +7,8 @@ TagManager:
   - Ground
   - Platform
   - Enemy
+  - Queen
+  - King
   layers:
   - Default
   - TransparentFX
