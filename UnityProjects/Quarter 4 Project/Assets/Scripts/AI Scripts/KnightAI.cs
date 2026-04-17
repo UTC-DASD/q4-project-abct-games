@@ -59,7 +59,8 @@ public class KnightAI : MonoBehaviour
             }
             if (isAttacking == true)
             {
-                 transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+                transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+                transform.LookAt(player);
             }
 
 
@@ -72,6 +73,8 @@ public class KnightAI : MonoBehaviour
             // Optional: Flip the sprite based on movement direction
            if (directionX > 0) transform.localRotation = new Quaternion(0, 180, 0, 1);
            else if (directionX < 0) transform.localRotation = new Quaternion(0, 0, 0, 1);
+
+          
         }
     }
         private void OnTriggerEnter2D(Collider2D collision)
@@ -88,6 +91,7 @@ public class KnightAI : MonoBehaviour
                 Debug.Log("Player hit by enemy attack!");
                 isAttacking = false; // Reset attack state after hitting the player
                 playerRecentlyAttacked = true; // Set the flag to prevent immediate re-attacks
+                speed = 5f;
             }
             }
         }
