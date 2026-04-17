@@ -95,9 +95,10 @@ public class PlayerAttack : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        Debug.Log("OnTriggerExit2D: " + collision.name + " tag=" + collision.tag);
+       
         if (collision.CompareTag("Enemy"))
         {
+             Debug.Log("OnTriggerExit2D: " + collision.name + " tag=" + collision.tag);
             NPCHealth enemyHealth = collision.GetComponent<NPCHealth>();
             if (enemyHealth != null)
             {
