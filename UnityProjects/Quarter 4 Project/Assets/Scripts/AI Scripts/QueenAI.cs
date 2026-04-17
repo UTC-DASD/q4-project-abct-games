@@ -16,8 +16,9 @@ public class QueenAI : MonoBehaviour
     public bool usedUltimate = false;
     public float collisionDamage1 = 20f;
     public float collisionDamage2 = 40f;
-    public float projectileDamage1 = 10f;
-    public float projectileDamage2 = 20f;
+    public int projectileDamage1 = 10;
+    public int projectileDamage2 = 20;
+    public int projectileDamage3 = 15;
     public float ability1Cooldown = 5f;
     public float ability2Cooldown = 10f;
     public float ultimateCooldown = 30f;
@@ -202,6 +203,7 @@ public class QueenAI : MonoBehaviour
         GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
         Vector2 direction = (player.position - transform.position).normalized;
         projectile.GetComponent<Rigidbody2D>().linearVelocity = direction * projectileSpeed;
+        projectilePrefab.GetComponent<Projectile>().damageAmount = projectileDamage1;
     }
     public void FireArcSpread()
 {
@@ -221,6 +223,7 @@ public class QueenAI : MonoBehaviour
             // 4. Instantiate and move
             GameObject proj = Instantiate(projectilePrefab, transform.position, rotation);
             proj.GetComponent<Rigidbody2D>().linearVelocity = rotation * Vector2.right * projectileSpeed;
+            projectilePrefab.GetComponent<Projectile>().damageAmount = projectileDamage2;
         }
     }
      public void FireArcSpreadPhase2()
@@ -241,6 +244,7 @@ public class QueenAI : MonoBehaviour
             // 4. Instantiate and move
             GameObject proj = Instantiate(projectilePrefab, transform.position, rotation);
             proj.GetComponent<Rigidbody2D>().linearVelocity = rotation * Vector2.right * projectileSpeed;
+            projectilePrefab.GetComponent<Projectile>().damageAmount = projectileDamage2;
         }
 }
 
