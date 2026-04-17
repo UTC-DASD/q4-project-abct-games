@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 425767464}
   - component: {fileID: 425767465}
   - component: {fileID: 425767466}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player Placeholder_0
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -501,7 +501,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -1287,6 +1287,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 922276490}
+  - component: {fileID: 922276491}
   m_Layer: 3
   m_Name: Ground
   m_TagString: Ground
@@ -1311,6 +1312,52 @@ Transform:
   - {fileID: 885191417}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &922276491
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 922276489}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1001 &1216687301
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1680,9 +1727,10 @@ GameObject:
   - component: {fileID: 1616395408}
   - component: {fileID: 1616395411}
   - component: {fileID: 1616395412}
-  m_Layer: 0
+  - component: {fileID: 1616395413}
+  m_Layer: 8
   m_Name: Queen
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1699,12 +1747,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b48f4706c6d50ba48b6dc7417a8e6ae4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::QueenAI
+  ground: {fileID: 922276489}
   speed: 3
   projectileSpeed: 10
   projectilePrefab: {fileID: 648301402877111112, guid: 052a351ba781caa419a9554cc1978e73, type: 3}
   sightRange: 60
-  usedAbility1: 1
-  usedAbility2: 1
+  shootForce: 100
+  usedAbility1: 0
+  usedAbility2: 0
   usedUltimate: 0
   collisionDamage1: 20
   collisionDamage2: 40
@@ -1862,6 +1912,20 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 2.36, y: 4.71}
   m_EdgeRadius: 0
+--- !u!114 &1616395413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1616395407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48c085288fd487440bbbd29606a262fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCHealth
+  maxHealth: 200
+  currentHealth: 0
 --- !u!1 &2086417239
 GameObject:
   m_ObjectHideFlags: 0
@@ -2181,7 +2245,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5559976247948933243, guid: 3759eddb141b1c949ab67b5914f7c825, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 18.3274
+      value: -29.8
       objectReference: {fileID: 0}
     - target: {fileID: 5559976247948933243, guid: 3759eddb141b1c949ab67b5914f7c825, type: 3}
       propertyPath: m_LocalPosition.y
