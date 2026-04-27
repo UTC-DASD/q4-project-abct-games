@@ -1,9 +1,14 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Health : MonoBehaviour
 {
     [SerializeField] private int maxHealth = 100; // Total health
     public float currentHealth; // Current health value
+    public bool canTakeDamage = true;
+    public Animator animator;
+    public bool CanBlock = true;
+    public float BlockCooldown;
     
 
     void Start()
@@ -14,8 +19,11 @@ public class Health : MonoBehaviour
     // Public method for other scripts to inflict damage
     public void TakeDamage(int damageAmount)
     {
+        if(canTakeDamage == true)
+        {
         currentHealth -= damageAmount; // Reduce health by the damage amount
         Debug.Log(gameObject.name + " took " + damageAmount + " damage. Current Health: " + currentHealth);
+        }
 
         if (currentHealth <= 0)
         {
@@ -46,5 +54,23 @@ public class Health : MonoBehaviour
         {
             currentHealth = maxHealth;
         }
+    }
+
+    public void Block(InputAction.CallbackContext context)
+    {
+       StartCoroutine(Block());
+    }
+
+    private System.Collections.IEnumerator Block()
+    {
+        if(CanBlock == true)
+        {
+        canTakeDamage = false;
+        CanBlock = false;
+        }
+        yield return new WaitForSeconds(1);
+        canTakeDamage = true;
+        yield return new WaitForSeconds(BlockCooldown);
+        CanBlock = true;  
     }
 }
