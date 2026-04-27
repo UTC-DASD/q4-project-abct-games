@@ -2,10 +2,11 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
 using TarotGame;
+using Mono.Cecil.Cil;
 
-//public class TarotGame : MonoBehaviour
-//{
-  /*  public enum GamePhase { Dealing, Bidding, DogExchange, Playing, Scoring }
+public class TartGame : MonoBehaviour
+{
+    public enum GamePhase { Dealing, Bidding, DogExchange, Playing, Scoring }
     public GamePhase currentPhase = GamePhase.Dealing;
 
     public Deck deck;
@@ -24,6 +25,10 @@ using TarotGame;
     public string currentPrompt = "";
     public int selectedCardIndex = -1;
     public int humanPlayerIndex = 0;
+
+    private int takerBonus;
+
+    private bool takerHasPetit;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -366,5 +371,5 @@ using TarotGame;
             Debug.Log($"Defense wins, taker loses {difference * multiplier} points!");
         }
         // Reset for new game
-    }*/
-//}
+    }
+}
