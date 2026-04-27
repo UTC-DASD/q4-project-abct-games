@@ -800,7 +800,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1012754245258184111, guid: 0065ae1a3382a20489d9a9a52c42d4a7, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6097997985135645336, guid: 0065ae1a3382a20489d9a9a52c42d4a7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1427,7 +1427,7 @@ GameObject:
   - component: {fileID: 945517243}
   m_Layer: 0
   m_Name: Queen_1
-  m_TagString: Enemy
+  m_TagString: King
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2849,6 +2849,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Health
   maxHealth: 100
   currentHealth: 0
+  canTakeDamage: 1
+  animator: {fileID: 0}
+  CanBlock: 1
+  BlockCooldown: 2.5
 --- !u!1 &1989320837
 GameObject:
   m_ObjectHideFlags: 0
