@@ -4,6 +4,7 @@ using System.Collections;
 public class QueenAI : MonoBehaviour
 {
      private Transform player; // Assign the player in inspector
+     private Transform king;
         public GameObject ground; // Assign the ground in inspector
     public float speed = 3f; 
     public float projectileSpeed = 10f;
@@ -39,6 +40,7 @@ public class QueenAI : MonoBehaviour
      void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        king = GameObject.FindGameObjectWithTag("King").transform;
        
         rb = GetComponent<Rigidbody2D>();
         startingY = transform.position.y;
@@ -108,12 +110,14 @@ public class QueenAI : MonoBehaviour
         
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Queen"), true); // Ignore collisions with player during ability
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Ground"), LayerMask.NameToLayer("Queen"), true); // Ignore collisions with ground during ability
+        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Default"), LayerMask.NameToLayer("Queen"), true);
 
         rb.AddForceY(30f, ForceMode2D.Impulse); // Example: Jump up as part of ability 1
 
         yield return new WaitForSeconds(0.5f); // Wait for the jump to reach its peak
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Queen"), false); // Re-enable collisions with player after jump
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Ground"), LayerMask.NameToLayer("Queen"), false); // Re-enable collisions with ground after jump
+        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Default"), LayerMask.NameToLayer("Queen"), false);
         abilit1AOEActive = true; // Activate AOE damage after the jump
         rb.AddForceY(-80f, ForceMode2D.Impulse); // Example: Jump up as part of ability 1
 
