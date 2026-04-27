@@ -3,7 +3,7 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     [SerializeField] private int maxHealth = 100; // Total health
-    private float currentHealth; // Current health value
+    public float currentHealth; // Current health value
     
 
     void Start()

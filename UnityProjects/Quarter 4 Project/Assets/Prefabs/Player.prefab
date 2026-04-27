@@ -191,6 +191,7 @@ GameObject:
   - component: {fileID: 1986540098485547042}
   - component: {fileID: 6563382433123696638}
   - component: {fileID: 187648462574280267}
+  - component: {fileID: 393585450081892774}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -530,6 +531,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
   maxHealth: 100
+  currentHealth: 100
 --- !u!114 &187648462574280267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -547,6 +549,19 @@ MonoBehaviour:
   attackDamage: 10
   isAttacking: 0
   whyIsThisNotWorkingAtAllHelpMe: 0
+--- !u!114 &393585450081892774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6789362276985148941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a6b355b7f422704986c9d3d06237b2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameOver
+  healthCheck: {fileID: 6563382433123696638}
 --- !u!1 &8023775123219597915
 GameObject:
   m_ObjectHideFlags: 0

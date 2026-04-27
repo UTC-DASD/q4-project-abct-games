@@ -20,6 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level3.unity
     guid: 055f31bada518684a95b16f704a371c0
+  - enabled: 1
+    path: Assets/Scenes/CheckMate.unity
+    guid: f587c28d4a2b20842915a1bf982e4d91
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: aa28fc9ec3aea4248b75d2c179dc61ff, type: 3}
   m_UseUCBPForAssetBundles: 0
