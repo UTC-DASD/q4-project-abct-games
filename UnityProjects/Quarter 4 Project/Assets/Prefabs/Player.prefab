@@ -532,6 +532,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Health
   maxHealth: 100
   currentHealth: 100
+  canTakeDamage: 1
+  animator: {fileID: 0}
+  CanBlock: 1
+  BlockCooldown: 2.5
 --- !u!114 &187648462574280267
 MonoBehaviour:
   m_ObjectHideFlags: 0

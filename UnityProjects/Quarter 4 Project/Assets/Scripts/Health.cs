@@ -72,5 +72,6 @@ public class Health : MonoBehaviour
         canTakeDamage = true;
         yield return new WaitForSeconds(BlockCooldown);
         CanBlock = true;  
+        Debug.Log("Blocking");
     }
 }
