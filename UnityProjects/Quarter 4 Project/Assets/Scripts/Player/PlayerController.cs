@@ -2,10 +2,14 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections;
+using System.Data.Common;
 
 public class PlayerController : MonoBehaviour
 {
-
+    private PlayerController PC;
+    public GameObject platformPrefab;
+    public float canCreatePlatform = 0;
+    public float platformDestroyDelay = 3f;
     float lastTapTimeLeft;
     float lastTapTimeRight;
     public float doubleTapDelay = .2f;
@@ -30,11 +34,11 @@ public class PlayerController : MonoBehaviour
     
     private float dashTime;
     private int dashDirection;
-    public PlayerAbilities PlayerAbilities;
     public bool canMove = true;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        PC = GetComponent<PlayerController>();
         playerInput = GetComponent<PlayerInput>();
         startingRotationX = transform.eulerAngles.x;
         startingRotationY = transform.eulerAngles.y;
@@ -116,6 +120,12 @@ public class PlayerController : MonoBehaviour
                 isDashing = false;
             }
         }
+        
+        if (isGrounded == false && Input.GetKeyDown(KeyCode.S) && canCreatePlatform >= 1)
+        {
+            Instantiate(platformPrefab, transform.position + new Vector3(0, -1, 0), Quaternion.identity);
+            canMove = false;
+        }
     }
     // Update is called once per frame
     void FixedUpdate()
@@ -148,12 +158,12 @@ public class PlayerController : MonoBehaviour
         }
          if (collision.gameObject.CompareTag("Ground"))
         {
-            PlayerAbilities.canCreatePlatform = 1;
+            canCreatePlatform = 1;
         }
         if (collision.gameObject.CompareTag("Platform"))
         {
-            StartCoroutine(WaitForSecondsRealTime(PlayerAbilities.platformDestroyDelay));
-            PlayerAbilities.canCreatePlatform = 0;
+            StartCoroutine(WaitForSecondsRealTime(platformDestroyDelay));
+            canCreatePlatform = 0;
             canMove = true;
         }
     }
@@ -193,7 +203,7 @@ public class PlayerController : MonoBehaviour
     }
     public void DashJump()
     {
-        PlayerAbilities.canCreatePlatform = 1;
+        canCreatePlatform = 1;
     }
     IEnumerator WaitForSecondsRealTime(float seconds)
     {
