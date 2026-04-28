@@ -202,10 +202,10 @@ MonoBehaviour:
     m_ActionName: 'Main/Walk[/Keyboard/a,/Keyboard/d]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Damage, Assembly-CSharp
-        m_MethodName: StartAttack
-        m_Mode: 1
+      - m_Target: {fileID: 425767463}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: Attack
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -217,15 +217,51 @@ MonoBehaviour:
     m_ActionId: e015b79c-deaa-4949-b704-c713f15b4876
     m_ActionName: 'Main/Attack[/Mouse/leftButton]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 425767463}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: Dash
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: cb912698-3841-4a75-abcb-5b547cca1cb5
     m_ActionName: 'Main/Dash[/Keyboard/leftShift]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 425767464}
+        m_TargetAssemblyTypeName: Health, Assembly-CSharp
+        m_MethodName: Block
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 409b0017-d428-445e-b555-7a8e7bd203a2
     m_ActionName: 'Main/Block[/Mouse/rightButton]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 425767457}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 77ada104-1c17-4f09-bc79-7c4b57c8d52a
     m_ActionName: 'Main/Crouch[/Keyboard/s]'
   m_NeverAutoSwitchControlSchemes: 0
@@ -394,6 +430,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2dc4a0c729519f4a86b6e651e131a25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
+  platformPrefab: {fileID: 2493212970326330905, guid: 3547d2d90c55ba64bb8b18fc11a6b0d4, type: 3}
+  canCreatePlatform: 0
+  platformDestroyDelay: 3
   doubleTapDelay: 0.2
   rb: {fileID: 425767462}
   speed: 10
@@ -407,8 +446,11 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   isGrounded: 0
-  PlayerAbilities: {fileID: 425767465}
   canMove: 1
+  BaseDamage: 0
+  AttackCooldown: 0
+  lastAttackTime: 0
+  IsAttacking: 0
 --- !u!114 &425767464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -514,7 +556,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &480807902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2089,7 +2131,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1616395408
 MonoBehaviour:
   m_ObjectHideFlags: 0
