@@ -17,13 +17,6 @@ public class Health : MonoBehaviour
         currentHealth = maxHealth; // Set current health to max at the start
     }
 
-    void Update()
-    {
-        if (currentHealth <= 0)
-        {
-            SceneManager.LoadScene(5);
-        }
-    }
 
     // Public method for other scripts to inflict damage
     public void TakeDamage(int damageAmount)
@@ -44,13 +37,13 @@ public class Health : MonoBehaviour
     {
         Debug.Log(gameObject.name + " has died.");
         // Add death animations, sound effects, game over logic here
-        Destroy(gameObject); // Destroy the game object when health runs out
+         // Destroy the game object when health runs out
         if (gameObject.CompareTag("Player"))
         {
            #if UNITY_EDITOR
-            UnityEditor.EditorApplication.isPlaying = false; // Stop play mode in the editor
+            //UnityEditor.EditorApplication.isPlaying = false; // Stop play mode in the editor
               #else
-            Application.Quit(); // Quit the application in a build
+            SceneManager.LoadScene(5); // Quit the application in a build
               #endif
         }
     }

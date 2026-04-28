@@ -20,4 +20,9 @@ public class SceneTransition1 : MonoBehaviour
     {
         SceneManager.LoadScene(Scene);
     }
+
+    public void Return()
+    {
+        SceneManager.LoadScene(Scene);
+    }
 }
