@@ -4,11 +4,11 @@ using System.Collections;
 public class selfdestruct : MonoBehaviour
 {
     public float selfDestructCountdown = 15f;
-    private PlayerAbilities playerAbilities;
+    private PlayerController playerAbilities;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        playerAbilities = FindAnyObjectByType<PlayerAbilities>();
+        playerAbilities = FindAnyObjectByType<PlayerController>();
         StartCoroutine(SelfDestruct());
     }
     void Update()
