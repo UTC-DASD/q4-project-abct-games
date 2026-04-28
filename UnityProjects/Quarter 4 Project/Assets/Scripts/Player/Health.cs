@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour
 {
@@ -14,6 +15,14 @@ public class Health : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth; // Set current health to max at the start
+    }
+
+    void Update()
+    {
+        if (currentHealth <= 0)
+        {
+            SceneManager.LoadScene(5);
+        }
     }
 
     // Public method for other scripts to inflict damage
