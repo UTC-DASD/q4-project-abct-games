@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections;
 using System.Data.Common;
+using System.Collections.Generic;
 
 public class PlayerController : MonoBehaviour
 {
@@ -35,6 +36,21 @@ public class PlayerController : MonoBehaviour
     private float dashTime;
     private int dashDirection;
     public bool canMove = true;
+
+
+    private float Damage;
+    public float BaseDamage;
+    public float AttackCooldown;
+    public float lastAttackTime = 0f;
+    public bool IsAttacking = false;
+    private bool canAttack = true;
+    public readonly List<NPCHealth> enemiesInRange = new List<NPCHealth>();
+    private bool AirAttack = false;
+
+
+
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -205,8 +221,47 @@ public class PlayerController : MonoBehaviour
     {
         canCreatePlatform = 1;
     }
+    public void Attack(InputAction.CallbackContext context)
+    {
+        if(canAttack == true)
+        {
+        StartCoroutine(AttackRoutine());
+        }
+    }
     IEnumerator WaitForSecondsRealTime(float seconds)
     {
         yield return new WaitForSecondsRealtime(seconds);
     }
+
+    private System.Collections.IEnumerator AttackRoutine()
+    {
+        if (isGrounded == true)
+        {
+        Debug.Log("Ground Attack Active");
+        IsAttacking = true;
+        canAttack = false;
+        yield return new WaitForSeconds(.5f);
+        IsAttacking = false;
+        yield return new WaitForSeconds(AttackCooldown);
+        canAttack = true;
+        }
+        if (isGrounded == false)
+        {
+            Debug.Log("Air Attack Active");
+            AirAttack = true;
+            rb.AddForceY(-30, ForceMode2D.Impulse);
+            canAttack = false;
+            if (canAttack == true)
+            {
+                yield break;
+            }
+            yield return new WaitForSeconds(.5f);
+            AirAttack = false;
+            yield return new WaitForSeconds(AttackCooldown);
+            canAttack = true;
+        }
+
+    }
+     
+    
 }
