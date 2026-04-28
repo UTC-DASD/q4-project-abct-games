@@ -1,28 +1,27 @@
 using System.Collections.Generic;
+using UnityEngine;
 
-namespace TarotGame
+public class TarotPlayer : MonoBehaviour
 {
-    public class Player
-    {
-        public string name;
-        public List<Card> hand = new List<Card>();
+        public string playerName;
+        public List<TarotCard> hand = new List<TarotCard>();
         public float score = 0;
 
-        public Player(string n)
+        public TarotPlayer(string n)
         {
-            name = n;
+            playerName = n;
         }
 
-        public void AddCard(Card c)
+        public void AddCard(TarotCard c)
         {
             hand.Add(c);
         }
 
-        public Card PlayCard(int index)
+        public TarotCard PlayCard(int index)
         {
             if (index >= 0 && index < hand.Count)
             {
-                Card c = hand[index];
+                TarotCard c = hand[index];
                 hand.RemoveAt(index);
                 return c;
             }
@@ -38,5 +37,4 @@ namespace TarotGame
                 return a.rank.CompareTo(b.rank);
             });
         }
-    }
 }

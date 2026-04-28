@@ -1,17 +1,20 @@
 using UnityEngine;
 
-namespace TarotGame
-{
+
+
     public enum Suit { Hearts, Diamonds, Clubs, Spades, Trumps }
     public enum Rank { One = 1, Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten, Jack, Knight, Queen, King, Excuse }
 
-    public class Card
+
+
+[System.Serializable]
+public class TarotCard
     {
         public Suit suit;
         public Rank rank;
         public float points;
 
-        public Card(Suit s, Rank r)
+        public TarotCard(Suit s, Rank r)
         {
             suit = s;
             rank = r;
@@ -43,4 +46,5 @@ namespace TarotGame
             return $"{rank} of {suit}";
         }
     }
-}
+
+
