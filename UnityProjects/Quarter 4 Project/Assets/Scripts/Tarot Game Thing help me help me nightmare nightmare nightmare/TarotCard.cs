@@ -2,7 +2,7 @@ using UnityEngine;
 
 
 
-    public enum Suit { Hearts, Diamonds, Clubs, Spades, Trumps }
+    public enum Suit { Wands, Cups, Pentacles, Swords, Trumps }
     public enum Rank { One = 1, Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten, Jack, Knight, Queen, King, Excuse }
 
 
