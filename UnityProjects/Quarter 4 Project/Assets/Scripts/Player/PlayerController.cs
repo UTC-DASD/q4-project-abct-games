@@ -163,7 +163,6 @@ public class PlayerController : MonoBehaviour
     {
        if (canMove == true)
        {
-        animator.SetTrigger("isRunning"); 
         horizontal = context.ReadValue<UnityEngine.Vector2>().x;
        }
     }
