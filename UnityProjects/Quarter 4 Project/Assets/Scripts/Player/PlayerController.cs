@@ -7,6 +7,7 @@ using System.Collections.Generic;
 
 public class PlayerController : MonoBehaviour
 {
+    public Animator animator;
     private PlayerController PC;
     public GameObject platformPrefab;
     public float canCreatePlatform = 0;
@@ -46,6 +47,13 @@ public class PlayerController : MonoBehaviour
     private bool canAttack = true;
     public readonly List<NPCHealth> enemiesInRange = new List<NPCHealth>();
     private bool AirAttack = false;
+
+
+    public bool RunActive;
+    public bool JumpActive;
+    public bool AttackActive;
+    public bool DashActive;
+    public bool CrouchActive;
 
 
 
@@ -155,6 +163,7 @@ public class PlayerController : MonoBehaviour
     {
        if (canMove == true)
        {
+        animator.SetTrigger("isRunning"); 
         horizontal = context.ReadValue<UnityEngine.Vector2>().x;
        }
     }
