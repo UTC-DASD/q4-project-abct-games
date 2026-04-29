@@ -1,12 +1,13 @@
 using UnityEngine;
+using System.Collections;
 
 public class LevelCharacteristics : MonoBehaviour
 {
     public bool Reversed;
-    public float healthMod = 1f;
-    public float damageMod = 1f;
-    public float currencyDropRate = 1f;
-    public float healRate = 1f;
+    public float healthMod = 0f;
+    public float damageMod = 0f;
+    public float currencyDropRate = 0f;
+    public float healRate = 0f;
 public void ApplyUpgrade(Upgrade up)
 {
     ApplyStat(up, true);
