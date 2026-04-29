@@ -2,7 +2,11 @@ using UnityEngine;
 
 public class LevelCharacteristics : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public bool Reversed;
+    public float healthMod;
+    public float damageMod;
+    public float currencyDropRate;
+    public float healRate;
     void Start()
     {
         
