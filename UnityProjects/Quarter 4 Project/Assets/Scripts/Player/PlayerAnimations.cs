@@ -43,9 +43,6 @@ public class PlayerAnimations : MonoBehaviour
         {
             anim.SetTrigger("StoppedRunning");
         }
-        if (player.GetComponent<PlayerController>().isGrounded == false)
-        {
-            anim.SetTrigger
-        }
+        
     }
 }
