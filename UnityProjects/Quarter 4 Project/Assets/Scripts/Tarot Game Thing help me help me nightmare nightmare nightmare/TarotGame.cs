@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
-using TarotGame;
+
 using Mono.Cecil.Cil;
 
 public class TartGame : MonoBehaviour
@@ -9,18 +9,18 @@ public class TartGame : MonoBehaviour
     public enum GamePhase { Dealing, Bidding, DogExchange, Playing, Scoring }
     public GamePhase currentPhase = GamePhase.Dealing;
 
-    public Deck deck;
-    public List<Player> players = new List<Player>();
-    public List<Card> chien = new List<Card>();
+    public TarotDeck deck;
+    public List<TarotPlayer> players = new List<TarotPlayer>();
+    public List<TarotCard> chien = new List<TarotCard>();
     public int currentPlayerIndex = 0;
-    public List<Card> trick = new List<Card>();
+    public List<TarotCard> trick = new List<TarotCard>();
     public Suit leadSuit;
     public int numPlayers = 4;
-    public Player taker;
+    public TarotPlayer taker;
     public enum Bid { Pass, Prise, Garde, GardeSans, GardeContre }
     public Bid contract = Bid.Pass;
     public bool excusePlayed = false;
-    public Player excuseOwner;
+    public TarotPlayer excuseOwner;
     public bool waitingForInput = false;
     public string currentPrompt = "";
     public int selectedCardIndex = -1;
@@ -38,12 +38,12 @@ public class TartGame : MonoBehaviour
 
     void InitializeGame()
     {
-        deck = new Deck();
+        deck = new TarotDeck();
         players.Clear();
         chien.Clear();
         for (int i = 0; i < numPlayers; i++)
         {
-            players.Add(new Player("Player " + (i + 1)));
+            players.Add(new TarotPlayer("Player " + (i + 1)));
         }
         DealCards();
         currentPhase = GamePhase.Bidding;
@@ -56,9 +56,9 @@ public class TartGame : MonoBehaviour
         int chienCards = numPlayers == 3 ? 6 : numPlayers == 4 ? 6 : 3;
         for (int i = 0; i < cardsPerPlayer; i++)
         {
-            foreach (Player p in players)
+            foreach (TarotPlayer p in players)
             {
-                Card c = deck.Draw();
+                TarotCard c = deck.Draw();
                 p.AddCard(c);
                 if (c.rank == Rank.Excuse) excuseOwner = p;
             }
@@ -67,7 +67,7 @@ public class TartGame : MonoBehaviour
         {
             chien.Add(deck.Draw());
         }
-        foreach (Player p in players)
+        foreach (TarotPlayer p in players)
         {
             p.SortHand();
         }
@@ -109,7 +109,7 @@ public class TartGame : MonoBehaviour
 
             if (selectedCardIndex >= 0 && selectedCardIndex < players[humanPlayerIndex].hand.Count)
             {
-                Card selectedCard = players[humanPlayerIndex].hand[selectedCardIndex];
+                TarotCard selectedCard = players[humanPlayerIndex].hand[selectedCardIndex];
                 bool isValid = true;
                 if (trick.Count > 0)
                 {
@@ -163,7 +163,7 @@ public class TartGame : MonoBehaviour
         int round = 0;
         while (biddingActive && round < numPlayers * 2) // Prevent infinite
         {
-            Player p = players[bidder];
+            TarotPlayer p = players[bidder];
             Bid bid = SimulateBid(p, currentBid, passCount, round);
             if (bid > currentBid)
             {
@@ -194,7 +194,7 @@ public class TartGame : MonoBehaviour
         }
     }
 
-    Bid SimulateBid(Player p, Bid currentBid, int passCount, int round)
+    Bid SimulateBid(TarotPlayer p, Bid currentBid, int passCount, int round)
     {
         // Simplified AI: first player bids Prise, others pass unless higher
         if (round == 0) return Bid.Prise;
@@ -205,7 +205,7 @@ public class TartGame : MonoBehaviour
     void HandleDogExchange()
     {
         // Taker takes chien cards
-        foreach (Card c in chien)
+        foreach (TarotCard c in chien)
         {
             taker.AddCard(c);
             if (c.rank == Rank.Excuse) excuseOwner = taker;
@@ -217,7 +217,7 @@ public class TartGame : MonoBehaviour
         if (trumpCount >= 10) takerBonus += 20; // Poignée bonus
         if (takerHasPetit) takerBonus += 10; // Petit bonus if has it
         // Simplified exchange: discard 6 lowest point cards
-        List<Card> sortedHand = taker.hand.OrderBy(c => c.points).ToList();
+        List<TarotCard> sortedHand = taker.hand.OrderBy(c => c.points).ToList();
         for (int i = 0; i < 6 && i < sortedHand.Count; i++)
         {
             taker.hand.Remove(sortedHand[i]);
@@ -234,9 +234,9 @@ public class TartGame : MonoBehaviour
         if (trick.Count == 0)
         {
             // Start new trick: current player leads
-            Player leader = players[currentPlayerIndex];
+            TarotPlayer leader = players[currentPlayerIndex];
             // NPC lead (human handled in Update)
-            Card played = ChooseCardToPlay(leader, true);
+            TarotCard played = ChooseCardToPlay(leader, true);
             trick.Add(played);
             leadSuit = played.suit;
             if (played.rank == Rank.Excuse) excusePlayed = true;
@@ -244,9 +244,9 @@ public class TartGame : MonoBehaviour
         }
         else if (trick.Count < numPlayers)
         {
-            Player p = players[currentPlayerIndex];
+            TarotPlayer p = players[currentPlayerIndex];
             // NPC play (human handled in Update)
-            Card toPlay = ChooseCardToPlay(p, false);
+            TarotCard toPlay = ChooseCardToPlay(p, false);
             trick.Add(toPlay);
             p.hand.Remove(toPlay);
             if (toPlay.rank == Rank.Excuse) excusePlayed = true;
@@ -268,7 +268,7 @@ public class TartGame : MonoBehaviour
         }
     }
 
-    Card ChooseCardToPlay(Player p, bool isLead)
+    TarotCard ChooseCardToPlay(TarotPlayer p, bool isLead)
     {
         if (isLead)
         {
@@ -276,7 +276,7 @@ public class TartGame : MonoBehaviour
             return p.hand[0];
         }
         // Must follow suit if possible
-        List<Card> validCards = p.hand.Where(c => c.suit == leadSuit).ToList();
+        List<TarotCard> validCards = p.hand.Where(c => c.suit == leadSuit).ToList();
         if (validCards.Count > 0)
         {
             // Play highest in suit
@@ -295,11 +295,11 @@ public class TartGame : MonoBehaviour
 
     int DetermineTrickWinner()
     {
-        Card winningCard = trick[0];
+        TarotCard winningCard = trick[0];
         int winner = 0;
         for (int i = 1; i < trick.Count; i++)
         {
-            Card c = trick[i];
+            TarotCard c = trick[i];
             if (c.rank == Rank.Excuse) continue;
             if (IsHigher(c, winningCard, leadSuit))
             {
@@ -316,7 +316,7 @@ public class TartGame : MonoBehaviour
         return actualWinner;
     }
 
-    bool IsHigher(Card a, Card b, Suit lead)
+    bool IsHigher(TarotCard a, TarotCard b, Suit lead)
     {
         if (a.suit == Suit.Trumps && b.suit != Suit.Trumps) return true;
         if (b.suit == Suit.Trumps && a.suit != Suit.Trumps) return false;
@@ -336,10 +336,10 @@ public class TartGame : MonoBehaviour
     float CalculateTrickPoints()
     {
         float points = 0;
-        foreach (Card c in trick)
+        foreach (TarotCard c in trick)
         {
             if (c.rank != Rank.Excuse)
-                points += c.points;
+                points += c.points; 
         }
         return points;
     }
@@ -359,7 +359,7 @@ public class TartGame : MonoBehaviour
         }
         float required = totalPoints * multiplier;
         bool petitAuBout = takerHasPetit && (players.IndexOf(taker) == currentPlayerIndex); // Won last trick
-        Debug.Log($"Taker {taker.name} points: {takerPoints}, Required: {required}, Petit au bout: {petitAuBout}");
+        Debug.Log($"Taker {taker.playerName} points: {takerPoints}, Required: {required}, Petit au bout: {petitAuBout}");
         if (takerPoints >= required || petitAuBout)
         {
             float difference = takerPoints - totalPoints;

@@ -10,6 +10,7 @@ public class QueenAI : MonoBehaviour
     public float projectileSpeed = 10f;
     public GameObject projectilePrefab; // Assign the projectile prefab in inspector
     private Rigidbody2D rb;
+    
     public float sightRange;
     public float shootForce = 1000f;
     public bool usedAbility1 = false;
