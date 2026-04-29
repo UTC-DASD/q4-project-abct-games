@@ -33,11 +33,19 @@ public class PlayerAnimations : MonoBehaviour
         }
         if (player.GetComponent<PlayerController>().CrouchActive == true)
         {
-            anim.SetTrigger("isRunning");
+            anim.SetTrigger("Crouching");
         }
         if (player.GetComponent<PlayerController>().isGrounded == true)
         {
             anim.SetTrigger("Hit ground");
+        }
+        if (player.GetComponent<PlayerController>().RunActive == false)
+        {
+            anim.SetTrigger("StoppedRunning");
+        }
+        if (player.GetComponent<PlayerController>().isGrounded == false)
+        {
+            anim.SetTrigger
         }
     }
 }
