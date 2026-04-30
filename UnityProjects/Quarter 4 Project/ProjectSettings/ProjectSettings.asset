@@ -42,10 +42,14 @@ PlayerSettings:
   m_SplashScreenLogos:
   - logo: {fileID: 10404, guid: 0000000000000000f000000000000000, type: 0}
     duration: 3
-  - logo: {fileID: -8936073189332912223, guid: 32727acde58494d4986d6bcc260ae4fb, type: 3}
+  - logo: {fileID: -8936073189332912223, guid: 2dc50e36f76c29f44b3370ff16191cdb, type: 3}
     duration: 3
   - logo: {fileID: 3667820070989590510, guid: 8b021df3b5b9e0c46ab36756684a4638, type: 3}
     duration: 3
+  - logo: {fileID: 3093391220892997005, guid: 99d9d581818520f49856430b3b40e071, type: 3}
+    duration: 3.02
+  - logo: {fileID: -994280441121582508, guid: 86852491a20d7874eab47d72344cf750, type: 3}
+    duration: 3.02
   m_VirtualRealitySplashScreen: {fileID: 0}
   m_HolographicTrackingLossScreen: {fileID: 0}
   defaultScreenWidth: 1920
