@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 public class HealingTable : MonoBehaviour{
 
     public GameObject player;
+    public GameObject surprise;
     // Flag to track if the player is in the trigger zone
     private bool playerInRange = false;
 
@@ -30,6 +31,10 @@ public class HealingTable : MonoBehaviour{
         {
             Interact();
         }
+        if (canInteract && Keyboard.current.cKey.IsPressed()) // Check for interaction input (e.g., 'E' key)
+        {
+            Secret();
+        }
     }
 
     // Called when another collider exits the trigger zone
@@ -47,5 +52,10 @@ public class HealingTable : MonoBehaviour{
         // Add your custom interaction code here (e.g., open a door, pick up an item, etc.)
         // If using UnityEvent:
         healthScript.Heal(30);
+    }
+
+    public void Secret()
+    {
+        surprise.SetActive(true);
     }
 }
