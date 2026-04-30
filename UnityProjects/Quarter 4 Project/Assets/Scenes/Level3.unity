@@ -183,7 +183,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCHealth
   maxHealth: 100
-  currentHealth: 0
+  currentHealth: 100
 --- !u!4 &228318866 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1272843737179928095, guid: 2efe5f6bdd713ef4e8fd1896872e5bdf, type: 3}
@@ -403,6 +403,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 262227527712319881, guid: 841ec364b6f31b74190900a92a08b277, type: 3}
+      propertyPath: currentHealth
+      value: 35
+      objectReference: {fileID: 0}
     - target: {fileID: 1447021465252789818, guid: 841ec364b6f31b74190900a92a08b277, type: 3}
       propertyPath: m_Name
       value: Pawn (3)
@@ -1948,7 +1952,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCHealth
   maxHealth: 100
-  currentHealth: 0
+  currentHealth: 100
 --- !u!1001 &1373856409
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1957,6 +1961,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 262227527712319881, guid: 841ec364b6f31b74190900a92a08b277, type: 3}
+      propertyPath: currentHealth
+      value: 35
+      objectReference: {fileID: 0}
     - target: {fileID: 1447021465252789818, guid: 841ec364b6f31b74190900a92a08b277, type: 3}
       propertyPath: m_Name
       value: Pawn (1)
@@ -2321,6 +2329,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 262227527712319881, guid: 841ec364b6f31b74190900a92a08b277, type: 3}
+      propertyPath: currentHealth
+      value: 35
+      objectReference: {fileID: 0}
     - target: {fileID: 1447021465252789818, guid: 841ec364b6f31b74190900a92a08b277, type: 3}
       propertyPath: m_Name
       value: Pawn (2)
@@ -3477,6 +3489,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 262227527712319881, guid: 841ec364b6f31b74190900a92a08b277, type: 3}
+      propertyPath: currentHealth
+      value: 35
+      objectReference: {fileID: 0}
     - target: {fileID: 1447021465252789818, guid: 841ec364b6f31b74190900a92a08b277, type: 3}
       propertyPath: m_Name
       value: Pawn
