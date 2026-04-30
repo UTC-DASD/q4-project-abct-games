@@ -6,9 +6,10 @@ public class HealingTable : MonoBehaviour{
     public GameObject surprise;
     // Flag to track if the player is in the trigger zone
     private bool playerInRange = false;
+    public bool altar = false;
 
     private bool canInteract = false;
-    private Health healthScript;
+    public Health healthScript;
     void Start()
     {
         
@@ -35,6 +36,11 @@ public class HealingTable : MonoBehaviour{
         {
             Secret();
         }
+        if(canInteract && Keyboard.current.qKey.IsPressed())
+        {
+            
+        }
+
     }
 
     // Called when another collider exits the trigger zone
@@ -52,6 +58,7 @@ public class HealingTable : MonoBehaviour{
         // Add your custom interaction code here (e.g., open a door, pick up an item, etc.)
         // If using UnityEvent:
         healthScript.Heal(30);
+        surprise.SetActive(false);
     }
 
     public void Secret()
