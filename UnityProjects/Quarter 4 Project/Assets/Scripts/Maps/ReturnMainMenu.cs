@@ -19,13 +19,14 @@ public class ReturnMainMenu : MonoBehaviour
         if (Keyboard.current.escapeKey.IsPressed())
         {
             card.SetActive(true);
-            ReturnMain();
+            StartCoroutine(ReturnMain());
         }
     }
 
-    public IEnumerator ReturnMain()
+    private IEnumerator ReturnMain()
     {
         yield return new WaitForSeconds(3f);
         SceneManager.LoadScene(0);
+        Debug.Log("return");
     }
 }
