@@ -78,12 +78,12 @@ public class QueenAI : MonoBehaviour
                 StartCoroutine(UseAbility2());
                
             }
-            else if (phase2 && !isUsingAbility)
+            else if (Vector2.Distance(king.position, player.position) < 2)
             {
                 StartCoroutine(ProtectKing());
                 
             }
-            else if (!phase2 && !isUsingAbility)
+            else if (!isUsingAbility)
             {
                 StartCoroutine(AttackPlayer());
                 
@@ -93,6 +93,11 @@ public class QueenAI : MonoBehaviour
                 StartCoroutine(UltimateAttack());
                 
             }
+            if (king.GetComponent<NPCHealth>().currentHealth < (king.GetComponent<NPCHealth>().maxHealth / 2))
+            {
+                phase2 = true;
+            }
+            
            // Apply velocity, keeping existing vertical velocity (gravity)
             var lv = rb.linearVelocity;
             lv.x = directionX * speed;
@@ -153,21 +158,10 @@ public class QueenAI : MonoBehaviour
         usedAbility2 = false;
     }
 
-    private System.Collections.IEnumerator PhaseTransition()
-    {
-        
-        phase2 = true;
-        // Implement phase transition logic here (e.g., change appearance, increase stats, etc.)
-
-        yield return null; // Placeholder for any delay or animation during the transition
-    }
-
     private System.Collections.IEnumerator ProtectKing()
     {
-       
-        // Implement logic to protect the king here (e.g., move towards the king, block attacks, etc.)
-
-        yield return null; // Placeholder for any delay or animation during the protection
+        yield return new WaitForSeconds(1);
+        transform.position = king.transform.position;
         
     }
 
