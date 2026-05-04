@@ -184,6 +184,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPCHealth
   maxHealth: 100
   currentHealth: 100
+  coin: {fileID: 0}
+  coinGain: 0
 --- !u!4 &228318866 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1272843737179928095, guid: 2efe5f6bdd713ef4e8fd1896872e5bdf, type: 3}
@@ -1838,6 +1840,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPCHealth
   maxHealth: 100
   currentHealth: 0
+  coin: {fileID: 0}
+  coinGain: 0
 --- !u!4 &1000589075 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1272843737179928095, guid: 2efe5f6bdd713ef4e8fd1896872e5bdf, type: 3}
@@ -2107,6 +2111,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPCHealth
   maxHealth: 100
   currentHealth: 100
+  coin: {fileID: 0}
+  coinGain: 0
 --- !u!1001 &1373856409
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -5,7 +5,8 @@ public class NPCHealth : MonoBehaviour
     public int maxHealth = 100; // Total health
     public float currentHealth; // Current health value
 
-
+    public CoinScript coin;
+    public int coinGain;
     void Start()
     {
         currentHealth = maxHealth; // Set current health to max at the start
@@ -21,6 +22,7 @@ public class NPCHealth : MonoBehaviour
         if (currentHealth <= 0)
         {
             Die(); // Handle death when health drops to or below zero
+            coin.coinAmount += coinGain;
         }
     }
 
