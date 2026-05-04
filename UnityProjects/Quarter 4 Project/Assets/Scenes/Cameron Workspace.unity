@@ -134,7 +134,6 @@ GameObject:
   - component: {fileID: 425767462}
   - component: {fileID: 425767463}
   - component: {fileID: 425767464}
-  - component: {fileID: 425767465}
   - component: {fileID: 425767466}
   m_Layer: 7
   m_Name: Player Placeholder_0
@@ -264,6 +263,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 77ada104-1c17-4f09-bc79-7c4b57c8d52a
     m_ActionName: 'Main/Crouch[/Keyboard/s]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f0cca32c-5a9f-477c-adab-e8e61ec27cf1
+    m_ActionName: 'Main/Air Slash[/Keyboard/1]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c4b51da5-b461-4f7f-8fd7-53a8dab91097
+    m_ActionName: 'Main/Sky Drill[/Keyboard/2]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 06b686c6-6f5b-4a2d-8142-a5e573436ec1
+    m_ActionName: 'Main/Special 1[/Keyboard/3]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 7e2fc04c-1ef7-424a-a065-3d9ea22b1222
+    m_ActionName: 'Main/Special 2[/Keyboard/4]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Main
@@ -430,6 +445,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2dc4a0c729519f4a86b6e651e131a25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
+  levelstats: {fileID: 874143745}
   platformPrefab: {fileID: 2493212970326330905, guid: 3547d2d90c55ba64bb8b18fc11a6b0d4, type: 3}
   canCreatePlatform: 0
   platformDestroyDelay: 3
@@ -447,10 +463,17 @@ MonoBehaviour:
     m_Bits: 8
   isGrounded: 0
   canMove: 1
-  BaseDamage: 0
-  AttackCooldown: 0
+  BaseDamage: 15
+  AttackCooldown: 5
   lastAttackTime: 0
   IsAttacking: 0
+  RunActive: 0
+  JumpActive: 0
+  AttackActive: 0
+  DashActive: 0
+  CrouchActive: 0
+  CanUseAbility3: 1
+  CanUseAbility4: 1
 --- !u!114 &425767464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -469,22 +492,6 @@ MonoBehaviour:
   animator: {fileID: 0}
   CanBlock: 1
   BlockCooldown: 0
---- !u!114 &425767465
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 425767457}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ae55039654cc264ab16fc341202a1b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerAbilities
-  PlayerController: {fileID: 0}
-  platformPrefab: {fileID: 0}
-  canCreatePlatform: 0
-  platformDestroyDelay: 3
 --- !u!60 &425767466
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1106,7 +1113,7 @@ GameObject:
   - component: {fileID: 763347677}
   m_Layer: 6
   m_Name: Pawn (3)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1369,6 +1376,55 @@ Transform:
   - {fileID: 524048860}
   m_Father: {fileID: 1475939507}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &874143745
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 874143747}
+  - component: {fileID: 874143746}
+  m_Layer: 0
+  m_Name: Level
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &874143746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 874143745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1735b6aeecd986d429cf0eab84dacd8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LevelCharacteristics
+  Reversed: 0
+  healthMod: 1
+  damageMod: 1
+  currencyDropRate: 1
+  healRate: 1
+--- !u!4 &874143747
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 874143745}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.10647, y: 17.52873, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &885191415
 GameObject:
   m_ObjectHideFlags: 0
@@ -1619,6 +1675,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 2088074067629022174, guid: dfed4838c205e5d44ae335594f7156cb, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 5497391882458717514, guid: dfed4838c205e5d44ae335594f7156cb, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -1745,6 +1805,7 @@ GameObject:
   - component: {fileID: 1240752059}
   - component: {fileID: 1240752060}
   - component: {fileID: 1240752061}
+  - component: {fileID: 1240752062}
   m_Layer: 7
   m_Name: Animation
   m_TagString: Untagged
@@ -1848,6 +1909,19 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1240752062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1240752058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5fa4ac6a4b2d754fa09cfa97dc3a843, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerAnimations
+  anim: {fileID: 0}
 --- !u!1 &1386532610
 GameObject:
   m_ObjectHideFlags: 0
@@ -2324,6 +2398,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPCHealth
   maxHealth: 200
   currentHealth: 0
+--- !u!1 &1977577922 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4641020454669249053, guid: 7e944aaf697f43644906a13ecb0d1f9a, type: 3}
+  m_PrefabInstance: {fileID: 7385121914497523869}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1977577929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1977577922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48c085288fd487440bbbd29606a262fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCHealth
+  maxHealth: 800
+  currentHealth: 0
 --- !u!1 &2086417239
 GameObject:
   m_ObjectHideFlags: 0
@@ -2488,7 +2581,7 @@ GameObject:
   - component: {fileID: 2094667926}
   m_Layer: 6
   m_Name: Pawn_0
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2583,6 +2676,10 @@ PrefabInstance:
     - target: {fileID: 1447021465252789818, guid: 841ec364b6f31b74190900a92a08b277, type: 3}
       propertyPath: m_Name
       value: Pawn
+      objectReference: {fileID: 0}
+    - target: {fileID: 1447021465252789818, guid: 841ec364b6f31b74190900a92a08b277, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 3988702270214044661, guid: 841ec364b6f31b74190900a92a08b277, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2856,7 +2953,7 @@ PrefabInstance:
       objectReference: {fileID: 425767461}
     - target: {fileID: 2655277805000059414, guid: 7e944aaf697f43644906a13ecb0d1f9a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 17.393335
+      value: 23.81
       objectReference: {fileID: 0}
     - target: {fileID: 2655277805000059414, guid: 7e944aaf697f43644906a13ecb0d1f9a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2900,12 +2997,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4641020454669249053, guid: 7e944aaf697f43644906a13ecb0d1f9a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4641020454669249053, guid: 7e944aaf697f43644906a13ecb0d1f9a, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4641020454669249053, guid: 7e944aaf697f43644906a13ecb0d1f9a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1977577929}
   m_SourcePrefab: {fileID: 100100000, guid: 7e944aaf697f43644906a13ecb0d1f9a, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
@@ -2921,3 +3025,4 @@ SceneRoots:
   - {fileID: 4468814840542040932}
   - {fileID: 1616395410}
   - {fileID: 480807904}
+  - {fileID: 874143747}
