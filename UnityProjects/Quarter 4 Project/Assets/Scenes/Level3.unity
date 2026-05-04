@@ -1838,7 +1838,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48c085288fd487440bbbd29606a262fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCHealth
-  maxHealth: 100
+  maxHealth: 300
   currentHealth: 0
   coin: {fileID: 0}
   coinGain: 0
@@ -2247,6 +2247,10 @@ PrefabInstance:
       propertyPath: platformPrefab
       value: 
       objectReference: {fileID: 2493212970326330905, guid: 3547d2d90c55ba64bb8b18fc11a6b0d4, type: 3}
+    - target: {fileID: 6563382433123696638, guid: fcc4cb49479036d43aee40e8fb2b9bac, type: 3}
+      propertyPath: CanBlock
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6789362276985148941, guid: fcc4cb49479036d43aee40e8fb2b9bac, type: 3}
       propertyPath: m_Name
       value: Player
@@ -2255,11 +2259,48 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 6914954904966091119, guid: fcc4cb49479036d43aee40e8fb2b9bac, type: 3}
+      propertyPath: m_ActionEvents.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6914954904966091119, guid: fcc4cb49479036d43aee40e8fb2b9bac, type: 3}
+      propertyPath: m_ActionEvents.Array.data[6].m_ActionId
+      value: f0cca32c-5a9f-477c-adab-e8e61ec27cf1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6914954904966091119, guid: fcc4cb49479036d43aee40e8fb2b9bac, type: 3}
+      propertyPath: m_ActionEvents.Array.data[7].m_ActionId
+      value: c4b51da5-b461-4f7f-8fd7-53a8dab91097
+      objectReference: {fileID: 0}
+    - target: {fileID: 6914954904966091119, guid: fcc4cb49479036d43aee40e8fb2b9bac, type: 3}
+      propertyPath: m_ActionEvents.Array.data[8].m_ActionId
+      value: 06b686c6-6f5b-4a2d-8142-a5e573436ec1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6914954904966091119, guid: fcc4cb49479036d43aee40e8fb2b9bac, type: 3}
+      propertyPath: m_ActionEvents.Array.data[9].m_ActionId
+      value: 7e2fc04c-1ef7-424a-a065-3d9ea22b1222
+      objectReference: {fileID: 0}
+    - target: {fileID: 6914954904966091119, guid: fcc4cb49479036d43aee40e8fb2b9bac, type: 3}
+      propertyPath: m_ActionEvents.Array.data[6].m_ActionName
+      value: 'Main/Air Slash[/Keyboard/1]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6914954904966091119, guid: fcc4cb49479036d43aee40e8fb2b9bac, type: 3}
+      propertyPath: m_ActionEvents.Array.data[7].m_ActionName
+      value: 'Main/Sky Drill[/Keyboard/2]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6914954904966091119, guid: fcc4cb49479036d43aee40e8fb2b9bac, type: 3}
+      propertyPath: m_ActionEvents.Array.data[8].m_ActionName
+      value: 'Main/Special 1[/Keyboard/3]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6914954904966091119, guid: fcc4cb49479036d43aee40e8fb2b9bac, type: 3}
+      propertyPath: m_ActionEvents.Array.data[9].m_ActionName
+      value: 'Main/Special 2[/Keyboard/4]'
+      objectReference: {fileID: 0}
     - target: {fileID: 8023775123219597915, guid: fcc4cb49479036d43aee40e8fb2b9bac, type: 3}
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 187648462574280267, guid: fcc4cb49479036d43aee40e8fb2b9bac, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:

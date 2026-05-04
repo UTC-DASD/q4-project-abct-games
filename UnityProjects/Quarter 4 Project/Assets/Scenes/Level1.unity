@@ -318,6 +318,7 @@ GameObject:
   - component: {fileID: 218410382}
   - component: {fileID: 218410381}
   - component: {fileID: 218410385}
+  - component: {fileID: 218410386}
   m_Layer: 6
   m_Name: Labubu_0
   m_TagString: King
@@ -486,6 +487,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &218410386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 218410380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48c085288fd487440bbbd29606a262fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCHealth
+  maxHealth: 150
+  currentHealth: 0
+  coin: {fileID: 315970312}
+  coinGain: 10000
 --- !u!4 &233492638 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1272843737179928095, guid: 2efe5f6bdd713ef4e8fd1896872e5bdf, type: 3}
@@ -548,6 +565,52 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2efe5f6bdd713ef4e8fd1896872e5bdf, type: 3}
+--- !u!1 &315970311
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 315970313}
+  - component: {fileID: 315970312}
+  m_Layer: 0
+  m_Name: CoinScript
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &315970312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 315970311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea0d0727bb3cd2f4685947a6a480d331, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CoinScript
+  CoinSave: {fileID: 315970311}
+  coinAmount: 100
+--- !u!4 &315970313
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 315970311}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 943.19763, y: 595.9582, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &321768360
 GameObject:
   m_ObjectHideFlags: 0
@@ -715,8 +778,8 @@ Transform:
   m_GameObject: {fileID: 341097497}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -181.8459, y: 2.9064, z: 0}
-  m_LocalScale: {x: 0.6230795, y: 0.6943172, z: 0.3723}
+  m_LocalPosition: {x: -181.1166, y: 1.9849, z: 0}
+  m_LocalScale: {x: 0.4502372, y: 0.50171363, z: 0.26902398}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -2185,7 +2248,7 @@ Transform:
   m_GameObject: {fileID: 902267932}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 47.2493, y: 87.1855, z: 0}
+  m_LocalPosition: {x: 47.2493, y: 87.21, z: 0}
   m_LocalScale: {x: 10.4213, y: 9.1711, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4455,3 +4518,4 @@ SceneRoots:
   - {fileID: 82063811}
   - {fileID: 995645219}
   - {fileID: 1208434574}
+  - {fileID: 315970313}
