@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class NPCHealth : MonoBehaviour
 {
-     [SerializeField] private int maxHealth = 100; // Total health
+    public int maxHealth = 100; // Total health
     public float currentHealth; // Current health value
 
 
