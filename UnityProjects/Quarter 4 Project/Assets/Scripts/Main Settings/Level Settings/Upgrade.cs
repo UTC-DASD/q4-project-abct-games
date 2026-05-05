@@ -4,10 +4,10 @@ using UnityEngine;
 
 public enum StatType
 {
-    healthMod,
-    damageMod,
-    currencyDropRate,
-    healRate
+    healthMod, //
+    damageMod, //
+    currencyDropRate, //
+    healRate //
 }
 
 [System.Serializable] // Makes it visible in the inspector
