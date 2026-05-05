@@ -4017,7 +4017,7 @@ MonoBehaviour:
   canInteract: 0
   player: {fileID: 1626389308}
   location: {x: -186.6, y: -5}
-  Surprise: {fileID: 341097497}
+  Surprise: {fileID: 0}
   SurpriseBackground: {fileID: 1141887639}
 --- !u!4 &1767756010
 Transform:
