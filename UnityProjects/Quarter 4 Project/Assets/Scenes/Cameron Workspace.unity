@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 425767463}
   - component: {fileID: 425767464}
   - component: {fileID: 425767466}
+  - component: {fileID: 425767467}
   m_Layer: 7
   m_Name: Player Placeholder_0
   m_TagString: Player
@@ -545,6 +546,52 @@ PolygonCollider2D:
       - {x: -2.2295644, y: -0.7569895}
       - {x: -1.0830677, y: -1.7907829}
   m_UseDelaunayMesh: 1
+--- !u!61 &425767467
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 425767457}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.0001, y: 0.0001}
+  m_EdgeRadius: 0
 --- !u!1 &480807901
 GameObject:
   m_ObjectHideFlags: 0
@@ -1255,7 +1302,7 @@ GameObject:
   - component: {fileID: 870062863}
   m_Layer: 6
   m_Name: Pawn (2)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2171,7 +2218,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1475939507
 Transform:
   m_ObjectHideFlags: 0
@@ -2439,9 +2486,10 @@ GameObject:
   - component: {fileID: 2059803504}
   - component: {fileID: 2059803503}
   - component: {fileID: 2059803502}
+  - component: {fileID: 2059803507}
   m_Layer: 6
   m_Name: Bishop
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2611,6 +2659,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2059803507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2059803501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48c085288fd487440bbbd29606a262fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCHealth
+  maxHealth: 100
+  currentHealth: 0
+  coin: {fileID: 0}
+  coinGain: 0
 --- !u!1 &2086417239
 GameObject:
   m_ObjectHideFlags: 0
@@ -2932,6 +2996,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2457965669741764568, guid: 3759eddb141b1c949ab67b5914f7c825, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5559976247948933243, guid: 3759eddb141b1c949ab67b5914f7c825, type: 3}
       propertyPath: m_LocalPosition.x
       value: -29.8
@@ -2979,6 +3047,10 @@ PrefabInstance:
     - target: {fileID: 8282176960970320623, guid: 3759eddb141b1c949ab67b5914f7c825, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8282176960970320623, guid: 3759eddb141b1c949ab67b5914f7c825, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3147,7 +3219,7 @@ PrefabInstance:
       objectReference: {fileID: 425767461}
     - target: {fileID: 2449777803391550621, guid: 7e944aaf697f43644906a13ecb0d1f9a, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2655277805000059414, guid: 7e944aaf697f43644906a13ecb0d1f9a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3195,13 +3267,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4641020454669249053, guid: 7e944aaf697f43644906a13ecb0d1f9a, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4641020454669249053, guid: 7e944aaf697f43644906a13ecb0d1f9a, type: 3}
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8720638902183807955, guid: 7e944aaf697f43644906a13ecb0d1f9a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
