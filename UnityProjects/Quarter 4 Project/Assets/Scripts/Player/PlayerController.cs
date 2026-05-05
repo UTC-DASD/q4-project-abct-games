@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
     public bool isGrounded;
-    private bool isDashing;
+    public bool isDashing;
     
     private float dashTime;
     private int dashDirection;
@@ -106,38 +106,6 @@ public class PlayerController : MonoBehaviour
         // Reset rotation to prevent tilting
         transform.rotation = Quaternion.Euler(startingRotationX, startingRotationY, 0);
         playerPositionX = transform.position.x;
-
-        // Input System mouse position (safe fallback for legacy input)
-        Vector2 screenMousePos;
-        if (Mouse.current != null)
-        {
-            screenMousePos = Mouse.current.position.ReadValue();
-        }
-        else
-        {
-            screenMousePos = Input.mousePosition;
-        }
-
-        if (Camera.main != null)
-        {
-            mousePositionX = Camera.main.ScreenToWorldPoint(screenMousePos).x;
-        }
-        else
-        {
-            // fallback: assume center screen if no main camera
-            mousePositionX = 0f;
-            Debug.LogWarning("PlayerController: Camera.main is null. Assign a MainCamera tag to your camera.");
-        }
-
-        if (transform.position.x >= mousePositionX)
-        {
-            transform.localScale = new Vector3(-1, 1, 1);
-        }
-        else if (transform.position.x < mousePositionX)
-        {
-            transform.localScale = new Vector3(1, 1, 1);
-        }
-
         if (Input.GetKeyDown(KeyCode.A))
         {
             float timeSinceLastTapLeft = Time.time - lastTapTimeLeft;
@@ -182,10 +150,49 @@ public class PlayerController : MonoBehaviour
         {
             Instantiate(platformPrefab, transform.position + new Vector3(0, -1, 0), Quaternion.identity);
             canMove = false;
+            CrouchActive = true;
+            RunActive = false;
         }
         if (EnemyTookDamage == true)
         {
             StartCoroutine(EnemyReset());
+        }
+
+        if (isDashing == true)
+        {
+            //Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Enemy"), LayerMask.NameToLayer("Player"), true);
+            GetComponent<Collider2D>().isTrigger = true;
+            GetComponent<Health>().canTakeDamage = false;
+            DashActive = true;
+            RunActive =false;
+        }
+        if (isDashing == false)
+        {
+            //Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Enemy"), LayerMask.NameToLayer("Player"), false);
+            GetComponent<Collider2D>().isTrigger = false;
+            GetComponent<Health>().canTakeDamage = true;
+            DashActive = false;
+        }
+        if (isGrounded == true)
+        {
+            JumpActive = false;
+        }
+        if (AirAttack == true)
+        {
+            CrouchActive = true;
+            RunActive = false;
+        }
+        if (AirAttack == false)
+        {
+            CrouchActive = false;
+        }
+        if (horizontal < 0)
+        {
+            transform.localRotation= new Quaternion(0, 0, 0, 1);
+        }
+        if (horizontal > 0)
+        {
+            transform.localRotation= new Quaternion(0, 180, 0, 1);
         }
     }
     // Update is called once per frame
@@ -202,6 +209,7 @@ public class PlayerController : MonoBehaviour
        {
         horizontal = context.ReadValue<UnityEngine.Vector2>().x;
        }
+       RunActive = true;
     }
     public void OnCollisionEnter2D(Collision2D collision)
     {
@@ -230,10 +238,11 @@ public class PlayerController : MonoBehaviour
     }
     public void Jump(InputAction.CallbackContext context)
     {
-        if (isGrounded == true && context.performed)
+        if (isGrounded == true)
         {
             UnityEngine.Debug.Log("Jumped");
             rb.linearVelocity = new UnityEngine.Vector2(rb.linearVelocity.x, jumpPower);
+            JumpActive = true;
         }
     }
     public void Dash(InputAction.CallbackContext context)
@@ -294,6 +303,7 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("Air Attack Active");
             AirAttack = true;
+            rb.linearVelocity = Vector2.zero;
             rb.AddForceY(-30, ForceMode2D.Impulse);
             canAttack = false;
             yield return new WaitForSeconds(.5f);
@@ -327,13 +337,27 @@ public class PlayerController : MonoBehaviour
                 if (AirAttack == true && EnemyTookDamage == false)
                 {
                     EnemyTookDamage = true;
-                    rb.AddForceY(50, ForceMode2D.Impulse);
+                    rb.linearVelocity = Vector2.zero;
+                    rb.AddForceY(15, ForceMode2D.Impulse);
                     enemyHealth.TakeDamage(Damage);
-                    canAttack = true;
+                    StartCoroutine(Pogo());
                    
+                }
+                if (isDashing == true)
+                {
+                    Rigidbody2D otherRb = collision.gameObject.GetComponent<Rigidbody2D>();
+                    otherRb.AddForceY(10, ForceMode2D.Impulse);
+                    enemyHealth.TakeDamage(Damage);
+                    EnemyTookDamage = true;
                 }
             }
     }
+    }
+
+    private System.Collections.IEnumerator Pogo()
+    {
+        yield return new WaitForSeconds(.3f);
+        canAttack = true;
     }
 
     private System.Collections.IEnumerator EnemyReset()
