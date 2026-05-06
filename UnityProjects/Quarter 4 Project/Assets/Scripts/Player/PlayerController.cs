@@ -39,6 +39,7 @@ public class PlayerController : MonoBehaviour
     private float dashTime;
     private int dashDirection;
     public bool canMove = true;
+    private bool jumping;
 
 
     private int Damage;
@@ -165,6 +166,7 @@ public class PlayerController : MonoBehaviour
             GetComponent<Health>().canTakeDamage = false;
             DashActive = true;
             RunActive =false;
+            JumpActive = false;
         }
         if (isDashing == false)
         {
@@ -176,6 +178,7 @@ public class PlayerController : MonoBehaviour
         if (isGrounded == true)
         {
             JumpActive = false;
+            jumping = false;
         }
         if (AirAttack == true)
         {
@@ -193,6 +196,10 @@ public class PlayerController : MonoBehaviour
         if (horizontal > 0)
         {
             transform.localScale = new (-1, 1, 1);
+        }
+        if (jumping == true)
+        {
+            RunActive = false;
         }
     }
     // Update is called once per frame
@@ -243,6 +250,9 @@ public class PlayerController : MonoBehaviour
             UnityEngine.Debug.Log("Jumped");
             rb.linearVelocity = new UnityEngine.Vector2(rb.linearVelocity.x, jumpPower);
             JumpActive = true;
+            RunActive = false;
+            DashActive = false;
+            jumping = true;
         }
     }
     public void Dash(InputAction.CallbackContext context)
