@@ -5,6 +5,7 @@ using System.Collections;
 using System.Data.Common;
 using System.Collections.Generic;
 using Unity.Mathematics;
+using NUnit.Framework;
 
 public class PlayerController : MonoBehaviour
 {
@@ -201,6 +202,16 @@ public class PlayerController : MonoBehaviour
         {
             RunActive = false;
         }
+
+        if (rb.linearVelocityX < .0001 && rb.linearVelocityX > -.0001)
+        {
+            RunActive = false;
+        }
+        
+        if(rb.linearVelocityX > .0001 && rb.linearVelocityX < -.0001 && isGrounded == true && !isDashing)
+        {
+            RunActive = true;
+        }
     }
     // Update is called once per frame
     void FixedUpdate()
@@ -250,7 +261,6 @@ public class PlayerController : MonoBehaviour
             UnityEngine.Debug.Log("Jumped");
             rb.linearVelocity = new UnityEngine.Vector2(rb.linearVelocity.x, jumpPower);
             JumpActive = true;
-            RunActive = false;
             DashActive = false;
             jumping = true;
         }

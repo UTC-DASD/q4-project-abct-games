@@ -15,6 +15,11 @@ public class PlayerAnimations : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+        if (player.GetComponent<PlayerController>().RunActive == false)
+        {
+            anim.SetTrigger("StoppedRunning");
+        }
         if (player.GetComponent<PlayerController>().RunActive == true)
         {
             anim.SetTrigger("Running");
@@ -39,9 +44,10 @@ public class PlayerAnimations : MonoBehaviour
         {
             anim.SetTrigger("Hit ground");
         }
-        if (player.GetComponent<PlayerController>().RunActive == false)
+        
+        if (player.GetComponent<PlayerController>().CrouchActive == false)
         {
-            anim.SetTrigger("StoppedRunning");
+            anim.SetTrigger("StoppedCrouching");
         }
         
     }
