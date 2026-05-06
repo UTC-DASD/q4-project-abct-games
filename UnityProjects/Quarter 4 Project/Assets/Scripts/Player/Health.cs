@@ -7,7 +7,6 @@ public class Health : MonoBehaviour
     [SerializeField] private int maxHealth = 100; // Total health
     public float currentHealth; // Current health value
     public bool canTakeDamage = true;
-    public Animator animator;
     public bool CanBlock = true;
     public float BlockCooldown;
     
