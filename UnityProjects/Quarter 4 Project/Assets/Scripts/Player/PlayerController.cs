@@ -188,11 +188,11 @@ public class PlayerController : MonoBehaviour
         }
         if (horizontal < 0)
         {
-            transform.localRotation= new Quaternion(0, 0, 0, 1);
+            transform.localScale = new (1, 1, 1);
         }
         if (horizontal > 0)
         {
-            transform.localRotation= new Quaternion(0, 180, 0, 1);
+            transform.localScale = new (-1, 1, 1);
         }
     }
     // Update is called once per frame
