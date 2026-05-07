@@ -377,6 +377,10 @@ public class PlayerController : MonoBehaviour
                 }
             }
     }
+        if (collision.CompareTag("Ground") && isDashing == true)
+        {
+         rb.linearVelocity = new UnityEngine.Vector2(-horizontal * speed * 3, rb.linearVelocity.y);
+        }
     }
 
     private System.Collections.IEnumerator Pogo()
