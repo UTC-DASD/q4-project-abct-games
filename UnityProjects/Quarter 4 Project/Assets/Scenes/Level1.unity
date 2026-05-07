@@ -2410,6 +2410,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 969682204}
+  - component: {fileID: 969682205}
   m_Layer: 0
   m_Name: Level
   m_TagString: Untagged
@@ -2432,6 +2433,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &969682205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 969682203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1735b6aeecd986d429cf0eab84dacd8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LevelCharacteristics
+  Reversed: 0
+  healthMod: 1
+  damageMod: 1
+  currencyDropRate: 1
+  healRate: 1
 --- !u!1 &995645217
 GameObject:
   m_ObjectHideFlags: 0
@@ -4636,10 +4654,10 @@ SceneRoots:
   - {fileID: 902267934}
   - {fileID: 483951343}
   - {fileID: 218410384}
-  - {fileID: 969682204}
   - {fileID: 152243356}
   - {fileID: 82063811}
   - {fileID: 995645219}
   - {fileID: 1208434574}
   - {fileID: 315970313}
   - {fileID: 2027666042}
+  - {fileID: 969682204}
