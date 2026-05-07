@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
 {
 
     public GameObject levelstats;
+    private GameObject detector;
     private PlayerController PC;
     public GameObject platformPrefab;
     public float canCreatePlatform = 0;
@@ -96,6 +97,7 @@ public class PlayerController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        detector = GameObject.FindGameObjectWithTag("GroundDetector");
         PC = GetComponent<PlayerController>();
         playerInput = GetComponent<PlayerInput>();
         startingRotationX = transform.eulerAngles.x;
@@ -229,14 +231,14 @@ public class PlayerController : MonoBehaviour
        }
        RunActive = true;
     }
-    public void OnCollisionEnter2D(Collision2D collision)
+    /*public void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Platform"))
         {
             isGrounded = true;
         }
        
-    }
+    } 
     public void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Platform"))
@@ -253,7 +255,7 @@ public class PlayerController : MonoBehaviour
             canCreatePlatform = 0;
             canMove = true;
         }
-    }
+    } */
     public void Jump(InputAction.CallbackContext context)
     {
         if (isGrounded == true)
