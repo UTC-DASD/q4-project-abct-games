@@ -4,6 +4,9 @@ using System.Collections;
 public class LevelCharacteristics : MonoBehaviour
 {
     public bool Reversed;
+    public bool Normal;
+    public bool Hard;
+    public bool Gambit;
     public float healthMod = 1f;
     public float damageMod = 1f;
     public float currencyDropRate = 1f;
