@@ -1048,19 +1048,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPCHealth
   maxHealth: 150
   currentHealth: 0
-  coin: {fileID: 315970312}
+  coin: {fileID: 0}
   coinGain: 10000
---- !u!114 &315970312 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6303115779246865612, guid: a83247e377bbdd641a09e89d0791d1dd, type: 3}
-  m_PrefabInstance: {fileID: 5214341730934231185}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea0d0727bb3cd2f4685947a6a480d331, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CoinScript
 --- !u!1 &321768360
 GameObject:
   m_ObjectHideFlags: 0
@@ -3404,67 +3393,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a5396e5cc289214fbab40514bfadda1, type: 3}
---- !u!1001 &5214341730934231185
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2500541260279073061, guid: a83247e377bbdd641a09e89d0791d1dd, type: 3}
-      propertyPath: m_Name
-      value: CoinScript
-      objectReference: {fileID: 0}
-    - target: {fileID: 4456574429482033638, guid: a83247e377bbdd641a09e89d0791d1dd, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 943.19763
-      objectReference: {fileID: 0}
-    - target: {fileID: 4456574429482033638, guid: a83247e377bbdd641a09e89d0791d1dd, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 595.9582
-      objectReference: {fileID: 0}
-    - target: {fileID: 4456574429482033638, guid: a83247e377bbdd641a09e89d0791d1dd, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4456574429482033638, guid: a83247e377bbdd641a09e89d0791d1dd, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4456574429482033638, guid: a83247e377bbdd641a09e89d0791d1dd, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4456574429482033638, guid: a83247e377bbdd641a09e89d0791d1dd, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4456574429482033638, guid: a83247e377bbdd641a09e89d0791d1dd, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4456574429482033638, guid: a83247e377bbdd641a09e89d0791d1dd, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4456574429482033638, guid: a83247e377bbdd641a09e89d0791d1dd, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4456574429482033638, guid: a83247e377bbdd641a09e89d0791d1dd, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6303115779246865612, guid: a83247e377bbdd641a09e89d0791d1dd, type: 3}
-      propertyPath: coinAmount
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: a83247e377bbdd641a09e89d0791d1dd, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -3477,7 +3405,6 @@ SceneRoots:
   - {fileID: 152243356}
   - {fileID: 82063811}
   - {fileID: 995645219}
-  - {fileID: 5214341730934231185}
   - {fileID: 2027666042}
   - {fileID: 969682204}
   - {fileID: 97637218}

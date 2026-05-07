@@ -1,2 +1,12 @@
 fileFormatVersion: 2
 guid: ea0d0727bb3cd2f4685947a6a480d331
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - CoinSave: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
