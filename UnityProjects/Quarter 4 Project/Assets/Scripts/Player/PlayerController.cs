@@ -167,6 +167,7 @@ public class PlayerController : MonoBehaviour
             //Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Enemy"), LayerMask.NameToLayer("Player"), true);
             GetComponent<Collider2D>().isTrigger = true;
             GetComponent<Health>().canTakeDamage = false;
+            GetComponent<Rigidbody2D>().gravityScale = 0;
             DashActive = true;
             RunActive =false;
             JumpActive = false;
@@ -176,6 +177,7 @@ public class PlayerController : MonoBehaviour
             //Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Enemy"), LayerMask.NameToLayer("Player"), false);
             GetComponent<Collider2D>().isTrigger = false;
             GetComponent<Health>().canTakeDamage = true;
+            GetComponent<Rigidbody2D>().gravityScale = 1;
             DashActive = false;
         }
         if (isGrounded == true)
@@ -365,12 +367,13 @@ public class PlayerController : MonoBehaviour
                     StartCoroutine(Pogo());
                    
                 }
-                if (isDashing == true)
+                if (isDashing == true && EnemyTookDamage == false)
                 {
+                    EnemyTookDamage = true;
                     Rigidbody2D otherRb = collision.gameObject.GetComponent<Rigidbody2D>();
                     otherRb.AddForceY(10, ForceMode2D.Impulse);
                     enemyHealth.TakeDamage(Damage);
-                    EnemyTookDamage = true;
+                    
                 }
             }
     }
