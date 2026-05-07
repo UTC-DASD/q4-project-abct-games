@@ -336,10 +336,10 @@ MonoBehaviour:
   rb: {fileID: 3541855743480106084}
   speed: 10
   jumpPower: 15
-  dashForce: 50
+  dashForce: 30
   dashCooldown: 2
   playerPositionX: 0
-  dashDuration: 0.1
+  dashDuration: 0.3
   groundCheck: {fileID: 0}
   groundLayer:
     serializedVersion: 2
