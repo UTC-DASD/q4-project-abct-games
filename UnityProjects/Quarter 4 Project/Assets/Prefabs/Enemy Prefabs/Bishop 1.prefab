@@ -200,3 +200,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPCHealth
   maxHealth: 50
   currentHealth: 0
+  coin: {fileID: 0}
+  coinGain: 50
