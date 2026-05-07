@@ -375,6 +375,7 @@ MonoBehaviour:
   canTakeDamage: 1
   CanBlock: 1
   BlockCooldown: 0
+  coinScript: {fileID: 6303115779246865612, guid: a83247e377bbdd641a09e89d0791d1dd, type: 3}
 --- !u!60 &7316210502773515920
 PolygonCollider2D:
   m_ObjectHideFlags: 0

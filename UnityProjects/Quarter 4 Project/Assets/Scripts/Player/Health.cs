@@ -9,7 +9,7 @@ public class Health : MonoBehaviour
     public bool canTakeDamage = true;
     public bool CanBlock = true;
     public float BlockCooldown;
-    
+    public CoinScript coinScript;
 
     void Start()
     {
@@ -29,6 +29,7 @@ public class Health : MonoBehaviour
         if (currentHealth <= 0)
         {
             Die(); // Handle death when health drops to or below zero
+            coinScript.coinAmount = 0;
         }
     }
 
@@ -43,6 +44,7 @@ public class Health : MonoBehaviour
             //UnityEditor.EditorApplication.isPlaying = false; // Stop play mode in the editor
               #else
             SceneManager.LoadScene(5); // Quit the application in a build
+            
               #endif
         }
     }
