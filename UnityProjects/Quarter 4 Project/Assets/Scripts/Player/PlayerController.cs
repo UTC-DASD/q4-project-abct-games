@@ -153,7 +153,6 @@ public class PlayerController : MonoBehaviour
         if (isGrounded == false && Input.GetKeyDown(KeyCode.S) && canCreatePlatform >= 1)
         {
             Instantiate(platformPrefab, transform.position + new Vector3(0, -1, 0), Quaternion.identity);
-            canMove = false;
             CrouchActive = true;
             RunActive = false;
         }

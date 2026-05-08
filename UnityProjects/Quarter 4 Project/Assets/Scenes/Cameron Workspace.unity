@@ -2636,6 +2636,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6444645311621308143, guid: fcc4cb49479036d43aee40e8fb2b9bac, type: 3}
+      propertyPath: dashForce
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6444645311621308143, guid: fcc4cb49479036d43aee40e8fb2b9bac, type: 3}
       propertyPath: levelstats
       value: 
       objectReference: {fileID: 874143745}
@@ -2643,6 +2647,10 @@ PrefabInstance:
       propertyPath: groundCheck
       value: 
       objectReference: {fileID: 885191417}
+    - target: {fileID: 6444645311621308143, guid: fcc4cb49479036d43aee40e8fb2b9bac, type: 3}
+      propertyPath: dashDuration
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 6789362276985148941, guid: fcc4cb49479036d43aee40e8fb2b9bac, type: 3}
       propertyPath: m_Name
       value: Player
