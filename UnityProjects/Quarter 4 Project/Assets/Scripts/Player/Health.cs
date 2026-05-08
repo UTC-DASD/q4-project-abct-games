@@ -30,6 +30,7 @@ public class Health : MonoBehaviour
         {
             Die(); // Handle death when health drops to or below zero
             coinScript.coinAmount = 0;
+            SceneManager.LoadScene(5);
         }
     }
 
@@ -43,7 +44,7 @@ public class Health : MonoBehaviour
            #if UNITY_EDITOR
             //UnityEditor.EditorApplication.isPlaying = false; // Stop play mode in the editor
               #else
-            SceneManager.LoadScene(5); // Quit the application in a build
+             // Quit the application in a build
             
               #endif
         }
