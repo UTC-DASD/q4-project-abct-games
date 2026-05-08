@@ -983,7 +983,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4365671044728456890, guid: 0065ae1a3382a20489d9a9a52c42d4a7, type: 3}
       propertyPath: coinGain
-      value: 30
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6097997985135645336, guid: 0065ae1a3382a20489d9a9a52c42d4a7, type: 3}
       propertyPath: m_LocalPosition.x

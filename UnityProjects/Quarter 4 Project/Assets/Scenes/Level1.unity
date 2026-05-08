@@ -908,9 +908,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48c085288fd487440bbbd29606a262fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCHealth
-  maxHealth: 150
+  maxHealth: 100
   currentHealth: 0
-  coin: {fileID: 0}
+  coin: {fileID: 6303115779246865612, guid: a83247e377bbdd641a09e89d0791d1dd, type: 3}
   coinGain: 10000
 --- !u!1 &321768360
 GameObject:
