@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - Queen
   - King
+  - GroundDetector
   layers:
   - Default
   - TransparentFX
