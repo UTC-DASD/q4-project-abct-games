@@ -152,9 +152,11 @@ public class PlayerController : MonoBehaviour
         
         if (isGrounded == false && Input.GetKeyDown(KeyCode.S) && canCreatePlatform >= 1)
         {
+            rb.linearVelocity = Vector2.zero;
             Instantiate(platformPrefab, transform.position + new Vector3(0, -1, 0), Quaternion.identity);
             CrouchActive = true;
             RunActive = false;
+            canCreatePlatform = 0;
         }
         if (EnemyTookDamage == true)
         {
@@ -281,7 +283,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            dashDirection = (int)transform.localScale.x;
+            dashDirection = -(int)transform.localScale.x;
         }
         isDashing = true;
         dashTime = dashDuration;
