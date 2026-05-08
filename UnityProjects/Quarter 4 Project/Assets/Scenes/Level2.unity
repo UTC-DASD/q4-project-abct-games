@@ -435,6 +435,22 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 9.397741
       objectReference: {fileID: 0}
+    - target: {fileID: 8853186376740919582, guid: 4a5396e5cc289214fbab40514bfadda1, type: 3}
+      propertyPath: m_Color.b
+      value: 0.29411766
+      objectReference: {fileID: 0}
+    - target: {fileID: 8853186376740919582, guid: 4a5396e5cc289214fbab40514bfadda1, type: 3}
+      propertyPath: m_Color.g
+      value: 0.29411766
+      objectReference: {fileID: 0}
+    - target: {fileID: 8853186376740919582, guid: 4a5396e5cc289214fbab40514bfadda1, type: 3}
+      propertyPath: m_Color.r
+      value: 0.29411766
+      objectReference: {fileID: 0}
+    - target: {fileID: 8853186376740919582, guid: 4a5396e5cc289214fbab40514bfadda1, type: 3}
+      propertyPath: m_SortingOrder
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -923,6 +939,18 @@ PrefabInstance:
     - target: {fileID: 8853186376740919582, guid: 4a5396e5cc289214fbab40514bfadda1, type: 3}
       propertyPath: m_Size.y
       value: 6.2478685
+      objectReference: {fileID: 0}
+    - target: {fileID: 8853186376740919582, guid: 4a5396e5cc289214fbab40514bfadda1, type: 3}
+      propertyPath: m_Color.b
+      value: 0.29411766
+      objectReference: {fileID: 0}
+    - target: {fileID: 8853186376740919582, guid: 4a5396e5cc289214fbab40514bfadda1, type: 3}
+      propertyPath: m_Color.g
+      value: 0.29411766
+      objectReference: {fileID: 0}
+    - target: {fileID: 8853186376740919582, guid: 4a5396e5cc289214fbab40514bfadda1, type: 3}
+      propertyPath: m_Color.r
+      value: 0.29411766
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1454,6 +1482,18 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 123.554436
       objectReference: {fileID: 0}
+    - target: {fileID: 6291625393059651264, guid: 6ca1e654a3bb04347aa31b64969725e8, type: 3}
+      propertyPath: m_Color.b
+      value: 0.29411766
+      objectReference: {fileID: 0}
+    - target: {fileID: 6291625393059651264, guid: 6ca1e654a3bb04347aa31b64969725e8, type: 3}
+      propertyPath: m_Color.g
+      value: 0.29411766
+      objectReference: {fileID: 0}
+    - target: {fileID: 6291625393059651264, guid: 6ca1e654a3bb04347aa31b64969725e8, type: 3}
+      propertyPath: m_Color.r
+      value: 0.29411766
+      objectReference: {fileID: 0}
     - target: {fileID: 8350551753705626779, guid: 6ca1e654a3bb04347aa31b64969725e8, type: 3}
       propertyPath: m_Name
       value: Cris_Normal Stone Wall_0 (1)
@@ -1781,6 +1821,18 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 6.2478685
       objectReference: {fileID: 0}
+    - target: {fileID: 8853186376740919582, guid: 4a5396e5cc289214fbab40514bfadda1, type: 3}
+      propertyPath: m_Color.b
+      value: 0.29411766
+      objectReference: {fileID: 0}
+    - target: {fileID: 8853186376740919582, guid: 4a5396e5cc289214fbab40514bfadda1, type: 3}
+      propertyPath: m_Color.g
+      value: 0.29411766
+      objectReference: {fileID: 0}
+    - target: {fileID: 8853186376740919582, guid: 4a5396e5cc289214fbab40514bfadda1, type: 3}
+      propertyPath: m_Color.r
+      value: 0.29411766
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1899,15 +1951,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6291625393059651264, guid: 6ca1e654a3bb04347aa31b64969725e8, type: 3}
       propertyPath: m_Color.b
-      value: 1
+      value: 0.29559743
       objectReference: {fileID: 0}
     - target: {fileID: 6291625393059651264, guid: 6ca1e654a3bb04347aa31b64969725e8, type: 3}
       propertyPath: m_Color.g
-      value: 1
+      value: 0.29559743
       objectReference: {fileID: 0}
     - target: {fileID: 6291625393059651264, guid: 6ca1e654a3bb04347aa31b64969725e8, type: 3}
       propertyPath: m_Color.r
-      value: 1
+      value: 0.29559743
+      objectReference: {fileID: 0}
+    - target: {fileID: 6291625393059651264, guid: 6ca1e654a3bb04347aa31b64969725e8, type: 3}
+      propertyPath: m_SortingOrder
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8350551753705626779, guid: 6ca1e654a3bb04347aa31b64969725e8, type: 3}
       propertyPath: m_Name
@@ -2001,6 +2057,18 @@ PrefabInstance:
     - target: {fileID: 6291625393059651264, guid: 6ca1e654a3bb04347aa31b64969725e8, type: 3}
       propertyPath: m_Size.y
       value: 756.7639
+      objectReference: {fileID: 0}
+    - target: {fileID: 6291625393059651264, guid: 6ca1e654a3bb04347aa31b64969725e8, type: 3}
+      propertyPath: m_Color.b
+      value: 0.29411766
+      objectReference: {fileID: 0}
+    - target: {fileID: 6291625393059651264, guid: 6ca1e654a3bb04347aa31b64969725e8, type: 3}
+      propertyPath: m_Color.g
+      value: 0.29411766
+      objectReference: {fileID: 0}
+    - target: {fileID: 6291625393059651264, guid: 6ca1e654a3bb04347aa31b64969725e8, type: 3}
+      propertyPath: m_Color.r
+      value: 0.29411766
       objectReference: {fileID: 0}
     - target: {fileID: 8350551753705626779, guid: 6ca1e654a3bb04347aa31b64969725e8, type: 3}
       propertyPath: m_Name
@@ -2143,6 +2211,18 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 587.11615
       objectReference: {fileID: 0}
+    - target: {fileID: 6291625393059651264, guid: 6ca1e654a3bb04347aa31b64969725e8, type: 3}
+      propertyPath: m_Color.b
+      value: 0.29411766
+      objectReference: {fileID: 0}
+    - target: {fileID: 6291625393059651264, guid: 6ca1e654a3bb04347aa31b64969725e8, type: 3}
+      propertyPath: m_Color.g
+      value: 0.29411766
+      objectReference: {fileID: 0}
+    - target: {fileID: 6291625393059651264, guid: 6ca1e654a3bb04347aa31b64969725e8, type: 3}
+      propertyPath: m_Color.r
+      value: 0.29411766
+      objectReference: {fileID: 0}
     - target: {fileID: 8350551753705626779, guid: 6ca1e654a3bb04347aa31b64969725e8, type: 3}
       propertyPath: m_Name
       value: Cris_Normal Stone Wall_0 (3)
@@ -2231,6 +2311,18 @@ PrefabInstance:
     - target: {fileID: 6291625393059651264, guid: 6ca1e654a3bb04347aa31b64969725e8, type: 3}
       propertyPath: m_Size.y
       value: 269.76062
+      objectReference: {fileID: 0}
+    - target: {fileID: 6291625393059651264, guid: 6ca1e654a3bb04347aa31b64969725e8, type: 3}
+      propertyPath: m_Color.b
+      value: 0.29411766
+      objectReference: {fileID: 0}
+    - target: {fileID: 6291625393059651264, guid: 6ca1e654a3bb04347aa31b64969725e8, type: 3}
+      propertyPath: m_Color.g
+      value: 0.29411766
+      objectReference: {fileID: 0}
+    - target: {fileID: 6291625393059651264, guid: 6ca1e654a3bb04347aa31b64969725e8, type: 3}
+      propertyPath: m_Color.r
+      value: 0.29411766
       objectReference: {fileID: 0}
     - target: {fileID: 8350551753705626779, guid: 6ca1e654a3bb04347aa31b64969725e8, type: 3}
       propertyPath: m_Name
