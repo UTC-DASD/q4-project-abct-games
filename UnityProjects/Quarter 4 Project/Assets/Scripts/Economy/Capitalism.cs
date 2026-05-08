@@ -1,48 +1,127 @@
 using System.Collections.Generic;
-using UnityEditor.Purchasing;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Capitalism : MonoBehaviour
 {
-    public CoinScript coinScript; // Reference to the CoinScript
-    public List<Shop> shop = new List<Shop>(); // List of shop items
-    public int coinbal;
-    public float projectile;
-    
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [Header("Shop Data")]
+    public CoinScript coinScript;
+    public List<Shop> shop = new List<Shop>();
+
+    [Header("UI References")]
+    public Transform shopGridParent;
+    public GameObject shopCardPrefab;
+    public Text coinBalanceText;
+
+    [Header("Card Styling")]
+    public Color affordableColor = Color.white;
+    public Color unaffordableColor = new Color(1, 1, 1, 0.45f);
+
+    private void Start()
     {
-    coinbal = coinScript.coinAmount; // Initialize coin balance from CoinScript
-   projectile = GetComponent<Shop>().price;// Update shop items based on initial coin balance
+        if (coinScript == null)
+            Debug.LogWarning("Capitalism: coinScript is not assigned.");
+
+        if (shopGridParent == null)
+            Debug.LogWarning("Capitalism: shopGridParent is not assigned.");
+
+        if (shopCardPrefab == null)
+            Debug.LogWarning("Capitalism: shopCardPrefab is not assigned.");
+
+        PopulateShopGrid();
+        RefreshUI();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        if (coinbal < projectile)
-        {
-            throw new System.Exception("Not enough coins to purchase this item.");
+        RefreshCoinText();
+    }
 
-        }
-        if (coinbal >= projectile && Input.GetMouseButtonDown(0))
-        {
-          PurchaseHighlightedItem();
-        }
-    }   
-    public void PurchaseHighlightedItem()
+    private void PopulateShopGrid()
     {
-        // Assuming the first item in the shop list is the highlighted item
-        Shop highlightedItem = shop[0]; // You can implement logic to determine which item is highlighted
+        if (shopGridParent == null || shopCardPrefab == null)
+            return;
 
-        if (coinbal >= highlightedItem.price)
+        foreach (Transform child in shopGridParent)
         {
-            coinbal -= (int)highlightedItem.price; // Deduct the price from the coin balance
-            Debug.Log("Purchased: " + highlightedItem.name);
-            // Implement additional logic for applying the item's effects here
+            Destroy(child.gameObject);
         }
-        else
+
+        foreach (Shop item in shop)
         {
-            Debug.Log("Not enough coins to purchase: " + highlightedItem.name);
+            GameObject cardInstance = Instantiate(shopCardPrefab, shopGridParent, false);
+            ShopCardUI cardUI = cardInstance.GetComponent<ShopCardUI>();
+
+            if (cardUI != null)
+            {
+                cardUI.Setup(item, PurchaseItem);
+                cardUI.SetCardState(IsAffordable(item), affordableColor, unaffordableColor);
+            }
+            else
+            {
+                Debug.LogWarning("Capitalism: shopCardPrefab does not contain a ShopCardUI component.");
+            }
         }
+    }
+
+    private void RefreshUI()
+    {
+        RefreshCoinText();
+        RefreshShopCards();
+    }
+
+    private void RefreshCoinText()
+    {
+        if (coinBalanceText == null || coinScript == null)
+            return;
+
+        coinBalanceText.text = $"Coins: {coinScript.coinAmount}";
+    }
+
+    private void RefreshShopCards()
+    {
+        if (shopGridParent == null)
+            return;
+
+        ShopCardUI[] cards = shopGridParent.GetComponentsInChildren<ShopCardUI>();
+        foreach (ShopCardUI card in cards)
+        {
+            bool affordable = IsAffordable(card.ItemData);
+            card.SetCardState(affordable, affordableColor, unaffordableColor);
+        }
+    }
+
+    private bool IsAffordable(Shop item)
+    {
+        if (coinScript == null)
+            return false;
+
+        return coinScript.coinAmount >= Mathf.RoundToInt(item.price);
+    }
+
+    public void PurchaseItem(Shop item)
+    {
+        if (coinScript == null || item == null)
+            return;
+
+        int itemPrice = Mathf.RoundToInt(item.price);
+        if (coinScript.coinAmount < itemPrice)
+        {
+            Debug.Log($"Not enough coins to purchase: {item.name}");
+            return;
+        }
+
+        coinScript.coinAmount -= itemPrice;
+        Debug.Log($"Purchased: {item.name} for {itemPrice} coins.");
+
+        RefreshUI();
+        ApplyItemEffect(item);
+    }
+
+    private void ApplyItemEffect(Shop item)
+    {
+        // TODO: apply the purchased item effect in your game logic.
+        // For now it only logs a purchase.
+        Debug.Log($"Applying shop effect for {item.name}.");
     }
 }
