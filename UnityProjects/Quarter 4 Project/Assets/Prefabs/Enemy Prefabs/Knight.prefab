@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2254617661312607210}
   - component: {fileID: 1273855974760787965}
   - component: {fileID: 2586826065436704893}
+  - component: {fileID: 4365671044728456890}
   m_Layer: 6
   m_Name: Knight
   m_TagString: Untagged
@@ -156,3 +157,19 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 20.82, y: 21.81}
   m_EdgeRadius: 0
+--- !u!114 &4365671044728456890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1012754245258184111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48c085288fd487440bbbd29606a262fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCHealth
+  maxHealth: 40
+  currentHealth: 0
+  coin: {fileID: 6303115779246865612, guid: a83247e377bbdd641a09e89d0791d1dd, type: 3}
+  coinGain: 30
