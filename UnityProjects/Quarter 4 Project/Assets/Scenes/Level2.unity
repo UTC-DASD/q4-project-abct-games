@@ -601,6 +601,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3541855743480106084, guid: fcc4cb49479036d43aee40e8fb2b9bac, type: 3}
+      propertyPath: m_GravityScale
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6444645311621308143, guid: fcc4cb49479036d43aee40e8fb2b9bac, type: 3}
       propertyPath: dashForce
       value: 30
@@ -2508,6 +2512,18 @@ PrefabInstance:
     - target: {fileID: 8853186376740919582, guid: 4a5396e5cc289214fbab40514bfadda1, type: 3}
       propertyPath: m_Size.y
       value: 6.2478685
+      objectReference: {fileID: 0}
+    - target: {fileID: 8853186376740919582, guid: 4a5396e5cc289214fbab40514bfadda1, type: 3}
+      propertyPath: m_Color.b
+      value: 0.29411766
+      objectReference: {fileID: 0}
+    - target: {fileID: 8853186376740919582, guid: 4a5396e5cc289214fbab40514bfadda1, type: 3}
+      propertyPath: m_Color.g
+      value: 0.29411766
+      objectReference: {fileID: 0}
+    - target: {fileID: 8853186376740919582, guid: 4a5396e5cc289214fbab40514bfadda1, type: 3}
+      propertyPath: m_Color.r
+      value: 0.29411766
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
