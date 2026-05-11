@@ -60,6 +60,7 @@ public class PlayerController : MonoBehaviour
     public bool AttackActive;
     public bool DashActive;
     public bool CrouchActive;
+    private bool canStopRunning = true;
 
         // ability 1
     private GameObject CurrentTarget;
@@ -162,7 +163,7 @@ public class PlayerController : MonoBehaviour
             rb.linearVelocity = Vector2.zero;
             Instantiate(platformPrefab, transform.position + new Vector3(0, -1, 0), Quaternion.identity);
             CrouchActive = true;
-            RunActive = false;
+            //RunActive = false;
             canCreatePlatform = 0;
         }
         if (EnemyTookDamage == true)
@@ -177,7 +178,7 @@ public class PlayerController : MonoBehaviour
             GetComponent<Health>().canTakeDamage = false;
             GetComponent<Rigidbody2D>().gravityScale = 0;
             DashActive = true;
-            RunActive =false;
+            //RunActive =false;
             JumpActive = false;
         }
         if (isDashing == false)
@@ -215,7 +216,7 @@ public class PlayerController : MonoBehaviour
             RunActive = false;
         }
 
-        if (rb.linearVelocityX < .0001 && rb.linearVelocityX > -.0001)
+        if (rb.linearVelocityX < .0001 && rb.linearVelocityX > -.0001 && canStopRunning == true)
         {
             RunActive = false;
         }
@@ -223,6 +224,15 @@ public class PlayerController : MonoBehaviour
         if(rb.linearVelocityX > .0001 && rb.linearVelocityX < -.0001 && isGrounded == true && !isDashing)
         {
             RunActive = true;
+        }
+        if((Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D)) && !isDashing)
+        {
+            RunActive = true;
+            canStopRunning = false;
+        }
+        if(Input.GetKeyUp(KeyCode.A) && Input.GetKeyUp(KeyCode.D))
+        {
+            canStopRunning = true;
         }
     }
     // Update is called once per frame
