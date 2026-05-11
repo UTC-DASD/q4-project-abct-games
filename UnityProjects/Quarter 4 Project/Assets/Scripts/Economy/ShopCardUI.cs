@@ -24,6 +24,7 @@ public class ShopCardUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     private Action<Shop> onClick;
     private Vector3 baseScale;
     private Coroutine scaleCoroutine;
+    private GameObject instantiatedPrefab;
 
     private void Awake()
     {
@@ -40,10 +41,34 @@ public class ShopCardUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         ItemData = item;
         onClick = onClickCallback;
 
-        if (iconImage != null)
+        // Handle prefab or icon display
+        if (item.prefab != null)
         {
-            iconImage.sprite = item.icon;
-            iconImage.gameObject.SetActive(item.icon != null);
+            // Instantiate prefab instead of showing icon
+            if (instantiatedPrefab != null)
+                Destroy(instantiatedPrefab);
+
+            instantiatedPrefab = Instantiate(item.prefab, iconImage.transform.parent);
+            instantiatedPrefab.transform.localPosition = Vector3.zero;
+            instantiatedPrefab.transform.localScale = Vector3.one;
+
+            if (iconImage != null)
+                iconImage.gameObject.SetActive(false);
+        }
+        else
+        {
+            // Use icon sprite
+            if (instantiatedPrefab != null)
+            {
+                Destroy(instantiatedPrefab);
+                instantiatedPrefab = null;
+            }
+
+          //  if (iconImage != null)
+            //{
+            //    iconImage.sprite = item.icon;
+            //    iconImage.gameObject.SetActive(item.icon != null);
+           // }
         }
 
         if (titleText != null)
@@ -53,7 +78,7 @@ public class ShopCardUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
             descriptionText.text = item.description;
 
         if (priceText != null)
-            priceText.text = $"{Mathf.RoundToInt(item.price)}";
+            priceText.text = $"Price: {Mathf.RoundToInt(item.price)}";
     }
 
     public void SetCardState(bool canBuy, Color affordableColor, Color unaffordableColor)

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Capitalism : MonoBehaviour
 {
@@ -10,13 +11,16 @@ public class Capitalism : MonoBehaviour
 
     [Header("UI References")]
     public Transform shopGridParent;
-    public GameObject shopCardPrefab;
-    public Text coinBalanceText;
+    public TextMeshProUGUI coinBalanceText;
 
     [Header("Card Styling")]
     public Color affordableColor = Color.white;
     public Color unaffordableColor = new Color(1, 1, 1, 0.45f);
 
+    //TRYSTAN what did you do. 
+    // i broked it
+
+public bool whatisgoingonhelpmehelpmehelpmenightmarenightmarenightmare = true;
     private void Start()
     {
         if (coinScript == null)
@@ -24,9 +28,6 @@ public class Capitalism : MonoBehaviour
 
         if (shopGridParent == null)
             Debug.LogWarning("Capitalism: shopGridParent is not assigned.");
-
-        if (shopCardPrefab == null)
-            Debug.LogWarning("Capitalism: shopCardPrefab is not assigned.");
 
         PopulateShopGrid();
         RefreshUI();
@@ -39,7 +40,7 @@ public class Capitalism : MonoBehaviour
 
     private void PopulateShopGrid()
     {
-        if (shopGridParent == null || shopCardPrefab == null)
+        if (shopGridParent == null)
             return;
 
         foreach (Transform child in shopGridParent)
@@ -49,7 +50,13 @@ public class Capitalism : MonoBehaviour
 
         foreach (Shop item in shop)
         {
-            GameObject cardInstance = Instantiate(shopCardPrefab, shopGridParent, false);
+            if (item.cardPrefab == null)
+            {
+                Debug.LogWarning($"Capitalism: Shop item '{item.name}' does not have a cardPrefab assigned.");
+                continue;
+            }
+
+            GameObject cardInstance = Instantiate(item.cardPrefab, shopGridParent, false);
             ShopCardUI cardUI = cardInstance.GetComponent<ShopCardUI>();
 
             if (cardUI != null)
@@ -59,7 +66,7 @@ public class Capitalism : MonoBehaviour
             }
             else
             {
-                Debug.LogWarning("Capitalism: shopCardPrefab does not contain a ShopCardUI component.");
+                Debug.LogWarning($"Capitalism: cardPrefab for '{item.name}' does not contain a ShopCardUI component.");
             }
         }
     }
@@ -86,14 +93,17 @@ public class Capitalism : MonoBehaviour
         ShopCardUI[] cards = shopGridParent.GetComponentsInChildren<ShopCardUI>();
         foreach (ShopCardUI card in cards)
         {
+            if (card.ItemData == null)
+                continue;
+
             bool affordable = IsAffordable(card.ItemData);
             card.SetCardState(affordable, affordableColor, unaffordableColor);
         }
     }
 
-    private bool IsAffordable(Shop item)
+    public bool IsAffordable(Shop item)
     {
-        if (coinScript == null)
+        if (coinScript == null || item == null)
             return false;
 
         return coinScript.coinAmount >= Mathf.RoundToInt(item.price);

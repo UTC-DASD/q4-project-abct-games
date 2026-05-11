@@ -8,7 +8,9 @@ using UnityEditor;
 
 /// <summary>
 /// Helper script to create and set up the Shop Card prefab with all necessary UI components.
-/// Use the menu option: Tools > Shop > Create Shop Card Prefab
+/// Use the menu options:
+/// - Tools > Shop > Create Shop Card Prefab
+/// - Tools > Shop > Setup Grid Parent (after selecting a container GameObject)
 /// </summary>
 public class ShopCardPrefabSetup : MonoBehaviour
 {
@@ -109,6 +111,43 @@ public class ShopCardPrefabSetup : MonoBehaviour
 
         EditorUtility.DisplayDialog("Success", $"Shop Card prefab created at {prefabPath}", "OK");
         AssetDatabase.Refresh();
+    }
+
+    [MenuItem("Tools/Shop/Setup Grid Parent")]
+    public static void SetupGridParent()
+    {
+        GameObject selected = Selection.activeGameObject;
+        
+        if (selected == null)
+        {
+            EditorUtility.DisplayDialog("Error", "Please select a GameObject to use as the grid parent.", "OK");
+            return;
+        }
+
+        RectTransform rectTransform = selected.GetComponent<RectTransform>();
+        if (rectTransform == null)
+        {
+            EditorUtility.DisplayDialog("Error", "Selected GameObject must have a RectTransform component (i.e., be a UI element).", "OK");
+            return;
+        }
+
+        // Add or get the GridLayoutGroup
+        GridLayoutGroup gridLayout = selected.GetComponent<GridLayoutGroup>();
+        if (gridLayout == null)
+        {
+            gridLayout = selected.AddComponent<GridLayoutGroup>();
+        }
+
+        // Configure the grid layout
+        gridLayout.cellSize = new Vector2(200, 250);
+        gridLayout.spacing = new Vector2(20, 20);
+        gridLayout.startCorner = GridLayoutGroup.Corner.UpperLeft;
+        gridLayout.startAxis = GridLayoutGroup.Axis.Horizontal;
+        gridLayout.padding = new RectOffset(10, 10, 10, 10);
+        gridLayout.constraint = GridLayoutGroup.Constraint.Flexible;
+
+        EditorUtility.SetDirty(selected);
+        EditorUtility.DisplayDialog("Success", $"GridLayoutGroup configured on {selected.name}.\n\nGrid cell size: 200x250\nSpacing: 20x20", "OK");
     }
 #endif
 }

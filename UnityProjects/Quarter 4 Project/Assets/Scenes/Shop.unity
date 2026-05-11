@@ -129,7 +129,6 @@ GameObject:
   m_Component:
   - component: {fileID: 326559891}
   - component: {fileID: 326559890}
-  - component: {fileID: 326559892}
   m_Layer: 0
   m_Name: Capitalism
   m_TagString: Untagged
@@ -149,17 +148,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8b8cc21e74dc0f47820373d4747b99f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Capitalism
-  coinScript: {fileID: 0}
+  coinScript: {fileID: 6303115779246865612, guid: a83247e377bbdd641a09e89d0791d1dd, type: 3}
   shop:
-  - icon: {fileID: 0}
-    name: 
-    description: 
-    price: 0
+  - cardPrefab: {fileID: 8149739201288833637, guid: 1eb180c34f6f2cf4f8040d8930d1a227, type: 3}
+    prefab: {fileID: 8149739201288833637, guid: 1eb180c34f6f2cf4f8040d8930d1a227, type: 3}
+    name: jimbolio
+    description: jimbolio
+    price: 10
   shopGridParent: {fileID: 534131654}
-  shopCardPrefab: {fileID: 0}
-  coinBalanceText: {fileID: 0}
+  coinBalanceText: {fileID: 1949448826}
   affordableColor: {r: 1, g: 1, b: 1, a: 1}
   unaffordableColor: {r: 1, g: 1, b: 1, a: 0.45}
+  whatisgoingonhelpmehelpmehelpmenightmarenightmarenightmare: 1
 --- !u!4 &326559891
 Transform:
   m_ObjectHideFlags: 0
@@ -175,26 +175,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &326559892
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 326559889}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60b2998af143fd040b3db9e7cd7bb70d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ShopCardUI
-  iconImage: {fileID: 0}
-  titleText: {fileID: 0}
-  descriptionText: {fileID: 0}
-  priceText: {fileID: 0}
-  buyButton: {fileID: 0}
-  backgroundImage: {fileID: 0}
-  hoverScale: 1.05
-  animationDuration: 0.12
 --- !u!1 &453902371
 GameObject:
   m_ObjectHideFlags: 0
@@ -248,6 +228,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 534131654}
+  - component: {fileID: 534131655}
   m_Layer: 0
   m_Name: shopgrid
   m_TagString: Untagged
@@ -255,21 +236,49 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &534131654
-Transform:
+--- !u!224 &534131654
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 534131653}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 82.6455, y: 3.24744, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1690320902}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 9, y: 207.5}
+  m_SizeDelta: {x: 938.4218, y: 652.6201}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &534131655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 534131653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a8695521f0d02e499659fee002a26c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.GridLayoutGroup
+  m_Padding:
+    m_Left: 10
+    m_Right: 10
+    m_Top: 10
+    m_Bottom: 10
+  m_ChildAlignment: 4
+  m_StartCorner: 0
+  m_StartAxis: 0
+  m_CellSize: {x: 200, y: 250}
+  m_Spacing: {x: 20, y: 20}
+  m_Constraint: 1
+  m_ConstraintCount: 2
 --- !u!1 &892157409
 GameObject:
   m_ObjectHideFlags: 0
@@ -581,6 +590,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1949448825}
+  - {fileID: 534131654}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -731,7 +741,6 @@ SceneRoots:
   m_Roots:
   - {fileID: 1661033218}
   - {fileID: 326559891}
-  - {fileID: 534131654}
   - {fileID: 1690320902}
   - {fileID: 892157412}
   - {fileID: 453902373}
