@@ -33,7 +33,8 @@ public class Grounded : MonoBehaviour
         {
             player.GetComponent<PlayerController>().isGrounded = false;
         }
-         if (collision.gameObject.CompareTag("Ground"))
+        
+        if (collision.gameObject.CompareTag("Ground"))
         {
             player.GetComponent<PlayerController>().canCreatePlatform = 1;
         }

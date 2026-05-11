@@ -61,6 +61,13 @@ public class PlayerController : MonoBehaviour
     public bool DashActive;
     public bool CrouchActive;
 
+        // ability 1
+    private GameObject CurrentTarget;
+    public GameObject knifePrefab;
+    public float KnifeProjectileSpeed = 30;
+    public float Ability1Cooldown = 3;
+    private bool Ability1Usable = true;
+
 
         //Ability 3 bools
         public bool CanUseAbility3 = true;
@@ -398,7 +405,8 @@ public class PlayerController : MonoBehaviour
 
     public void Ability1(InputAction.CallbackContext context)
     {
-        
+        CurrentTarget = GameObject.FindGameObjectWithTag("Flyer");
+        StartCoroutine(KnifeThrow());
     }
 
     public void Ability2(InputAction.CallbackContext context)
@@ -528,6 +536,18 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(WheelOfFortune());
             }
         }
+    }
+
+    private System.Collections.IEnumerator KnifeThrow()
+    {
+        Ability1Usable = false;
+        GameObject projectile = Instantiate(knifePrefab, transform.position, Quaternion.identity);
+        Vector2 direction = (CurrentTarget.transform.position - transform.position).normalized;
+        projectile.GetComponent<Rigidbody2D>().linearVelocity = direction * KnifeProjectileSpeed;
+        knifePrefab.GetComponent<PlayerProjectile>().damageAmount = Damage;
+        yield return new WaitForSeconds(Ability1Cooldown);
+        CurrentTarget = null;
+        Ability1Usable = true;
     }
 
     private System.Collections.IEnumerator Magician()
