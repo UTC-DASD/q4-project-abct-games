@@ -3,14 +3,15 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using TMPro;
 
 public class ShopCardUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
     [Header("UI Elements")]
     public Image iconImage;
-    public Text titleText;
-    public Text descriptionText;
-    public Text priceText;
+    public TextMeshProUGUI titleText;
+    public TextMeshProUGUI descriptionText;
+    public TextMeshProUGUI priceText;
     public Button buyButton;
     public Image backgroundImage;
 
