@@ -60,7 +60,7 @@ public class PlayerController : MonoBehaviour
     public bool AttackActive;
     public bool DashActive;
     public bool CrouchActive;
-    private bool canStopRunning = true;
+    public bool canStopRunning = true;
 
         // ability 1
     private GameObject CurrentTarget;
@@ -230,7 +230,7 @@ public class PlayerController : MonoBehaviour
             RunActive = true;
             canStopRunning = false;
         }
-        if(Input.GetKeyUp(KeyCode.A) && Input.GetKeyUp(KeyCode.D))
+        if(Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D))
         {
             canStopRunning = true;
         }
@@ -365,7 +365,7 @@ public class PlayerController : MonoBehaviour
     // For Basic Attacks
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Enemy"))
+        if (collision.CompareTag("Enemy") || collision.CompareTag("King") || collision.CompareTag("Queen"))
         {
             Debug.Log("EnemyAttacked");
             NPCHealth enemyHealth = collision.GetComponent<NPCHealth>();
