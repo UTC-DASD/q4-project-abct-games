@@ -2273,6 +2273,14 @@ PrefabInstance:
       value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 6444645311621308143, guid: fcc4cb49479036d43aee40e8fb2b9bac, type: 3}
+      propertyPath: BaseDamage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6444645311621308143, guid: fcc4cb49479036d43aee40e8fb2b9bac, type: 3}
+      propertyPath: levelstats
+      value: 
+      objectReference: {fileID: 2141890496}
+    - target: {fileID: 6444645311621308143, guid: fcc4cb49479036d43aee40e8fb2b9bac, type: 3}
       propertyPath: platformPrefab
       value: 
       objectReference: {fileID: 2493212970326330905, guid: 3547d2d90c55ba64bb8b18fc11a6b0d4, type: 3}
