@@ -1633,6 +1633,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pawn (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1447021465252789818, guid: 841ec364b6f31b74190900a92a08b277, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 3988702270214044661, guid: 841ec364b6f31b74190900a92a08b277, type: 3}
       propertyPath: m_LocalPosition.x
       value: 118.05484
@@ -2093,6 +2097,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2449777803391550621, guid: 7e944aaf697f43644906a13ecb0d1f9a, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1412059253}
     - target: {fileID: 2449777803391550621, guid: 7e944aaf697f43644906a13ecb0d1f9a, type: 3}
       propertyPath: sightRange
       value: 30
@@ -2614,7 +2622,7 @@ GameObject:
   - component: {fileID: 1586514619}
   m_Layer: 8
   m_Name: King_0
-  m_TagString: Enemy
+  m_TagString: Queen
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3144,6 +3152,10 @@ PrefabInstance:
     - target: {fileID: 1447021465252789818, guid: 841ec364b6f31b74190900a92a08b277, type: 3}
       propertyPath: m_Name
       value: Pawn
+      objectReference: {fileID: 0}
+    - target: {fileID: 1447021465252789818, guid: 841ec364b6f31b74190900a92a08b277, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 3988702270214044661, guid: 841ec364b6f31b74190900a92a08b277, type: 3}
       propertyPath: m_LocalPosition.x
