@@ -1487,7 +1487,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 80325726774756307, guid: fcc4cb49479036d43aee40e8fb2b9bac, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.2830763
+      value: -0.31
       objectReference: {fileID: 0}
     - target: {fileID: 80325726774756307, guid: fcc4cb49479036d43aee40e8fb2b9bac, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1541,6 +1541,14 @@ PrefabInstance:
       propertyPath: jumpPower
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 6444645311621308143, guid: fcc4cb49479036d43aee40e8fb2b9bac, type: 3}
+      propertyPath: BaseDamage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6444645311621308143, guid: fcc4cb49479036d43aee40e8fb2b9bac, type: 3}
+      propertyPath: levelstats
+      value: 
+      objectReference: {fileID: 969682203}
     - target: {fileID: 6444645311621308143, guid: fcc4cb49479036d43aee40e8fb2b9bac, type: 3}
       propertyPath: platformPrefab
       value: 
@@ -2783,7 +2791,7 @@ MonoBehaviour:
   player: {fileID: 1626389308}
   location: {x: -186.6, y: -5}
   Surprise: {fileID: 0}
-  SurpriseBackground: {fileID: 1141887639}
+  SurpriseBackground: {fileID: 0}
 --- !u!4 &1767756010
 Transform:
   m_ObjectHideFlags: 0
