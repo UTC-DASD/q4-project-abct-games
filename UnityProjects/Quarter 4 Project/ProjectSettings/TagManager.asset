@@ -10,6 +10,7 @@ TagManager:
   - Queen
   - King
   - GroundDetector
+  - Flyer
   layers:
   - Default
   - TransparentFX
