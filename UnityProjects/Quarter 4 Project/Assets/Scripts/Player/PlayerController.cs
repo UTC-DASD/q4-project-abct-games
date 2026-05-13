@@ -31,10 +31,6 @@ public class PlayerController : MonoBehaviour
     private float startingRotationY;
     public float playerPositionX;
     public float dashDuration = 0.2f;
-    private float mousePositionX;
-    [Header("Ground Check")]
-    [SerializeField] private Transform groundCheck;
-    [SerializeField] private LayerMask groundLayer;
     public bool isGrounded;
     public bool isDashing;
     
@@ -50,7 +46,6 @@ public class PlayerController : MonoBehaviour
     public float lastAttackTime = 0f;
     public bool IsAttacking = false;
     private bool canAttack = true;
-    public readonly List<NPCHealth> enemiesInRange = new List<NPCHealth>();
     private bool AirAttack = false;
     private bool EnemyTookDamage = false;
 
@@ -68,6 +63,15 @@ public class PlayerController : MonoBehaviour
     public float KnifeProjectileSpeed = 30;
     public float Ability1Cooldown = 3;
     private bool Ability1Usable = true;
+
+        //Ability 2
+    public bool CanUseAbility2 = true;
+    public GameObject slashPrefab;
+    public float SlashProjectileSpeed = 20;
+    public float Ability2Cooldown = 5;
+    public float slashKnockbackForce = 10f;
+
+
 
 
         //Ability 3 bools
