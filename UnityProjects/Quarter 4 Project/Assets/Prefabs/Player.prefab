@@ -254,13 +254,13 @@ MonoBehaviour:
     m_ActionName: 'Main/Block[/Mouse/rightButton]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6789362276985148941}
-        m_TargetAssemblyTypeName: 
+      - m_Target: {fileID: 6444645311621308143}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -273,7 +273,19 @@ MonoBehaviour:
     m_ActionId: f0cca32c-5a9f-477c-adab-e8e61ec27cf1
     m_ActionName: 'Main/Air Slash[/Keyboard/1]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6444645311621308143}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: Ability1
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: c4b51da5-b461-4f7f-8fd7-53a8dab91097
     m_ActionName: 'Main/Sky Drill[/Keyboard/2]'
   - m_PersistentCalls:
@@ -357,7 +369,7 @@ MonoBehaviour:
   DashActive: 0
   CrouchActive: 0
   canStopRunning: 1
-  knifePrefab: {fileID: 0}
+  knifePrefab: {fileID: 7165456908831989621, guid: 8f915d8e80bd49c4c97939044c0f94c0, type: 3}
   KnifeProjectileSpeed: 30
   Ability1Cooldown: 3
   CanUseAbility3: 1
