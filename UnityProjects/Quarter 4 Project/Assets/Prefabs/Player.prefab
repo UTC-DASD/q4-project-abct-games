@@ -334,7 +334,7 @@ MonoBehaviour:
   platformDestroyDelay: 3
   doubleTapDelay: 0.2
   rb: {fileID: 3541855743480106084}
-  speed: 10
+  speed: 15
   jumpPower: 10
   dashForce: 30
   dashCooldown: 2
