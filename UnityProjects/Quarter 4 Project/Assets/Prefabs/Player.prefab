@@ -329,13 +329,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   levelstats: {fileID: 0}
-  platformPrefab: {fileID: 2493212970326330905, guid: 3547d2d90c55ba64bb8b18fc11a6b0d4, type: 3}
+  platformPrefab: {fileID: 1864916684179823773, guid: 035ff56ac82fd2844bbe734bed7b7edb, type: 3}
   canCreatePlatform: 0
   platformDestroyDelay: 3
   doubleTapDelay: 0.2
   rb: {fileID: 3541855743480106084}
   speed: 10
-  jumpPower: 15
+  jumpPower: 10
   dashForce: 30
   dashCooldown: 2
   playerPositionX: 0
@@ -356,6 +356,10 @@ MonoBehaviour:
   AttackActive: 0
   DashActive: 0
   CrouchActive: 0
+  canStopRunning: 1
+  knifePrefab: {fileID: 0}
+  KnifeProjectileSpeed: 30
+  Ability1Cooldown: 3
   CanUseAbility3: 1
   CanUseAbility4: 1
 --- !u!114 &6563382433123696638
