@@ -302,6 +302,7 @@ public class PlayerController : MonoBehaviour
         {
             dashDirection = -(int)transform.localScale.x;
         }
+        rb.linearVelocity = Vector2.zero;
         isDashing = true;
         dashTime = dashDuration;
         rb.AddForce(new Vector2(dashDirection * dashForce, 0), ForceMode2D.Impulse);
