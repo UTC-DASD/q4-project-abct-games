@@ -4,10 +4,17 @@ public class PlayerProjectile : MonoBehaviour
 {
      private NPCHealth enemyHealth;
     public int damageAmount = 25;
+
+    public float rotationSpeed = 100f; // Degrees per second
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         StartCoroutine(DestroyAfterTime());
+    }
+
+    void Update()
+    {
+        transform.Rotate(Vector3.forward * rotationSpeed * Time.deltaTime);
     }
 
     private System.Collections.IEnumerator DestroyAfterTime()

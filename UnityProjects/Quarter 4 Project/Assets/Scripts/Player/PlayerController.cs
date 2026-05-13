@@ -416,7 +416,10 @@ public class PlayerController : MonoBehaviour
     public void Ability1(InputAction.CallbackContext context)
     {
         CurrentTarget = GameObject.FindGameObjectWithTag("Flyer");
+        if (CurrentTarget != null && Ability1Usable == true)
+        {
         StartCoroutine(KnifeThrow());
+        }
     }
 
     public void Ability2(InputAction.CallbackContext context)
