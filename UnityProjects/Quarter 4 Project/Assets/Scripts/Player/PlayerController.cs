@@ -63,7 +63,7 @@ public class PlayerController : MonoBehaviour
     public float KnifeProjectileSpeed = 30;
     public float Ability1Cooldown = 3;
     private bool Ability1Usable = true;
-    public float Ability1Range = 10f;
+    public float Ability1Range = 25f;
 
         //Ability 2
     public bool CanUseAbility2 = true;
@@ -371,7 +371,7 @@ public class PlayerController : MonoBehaviour
     // For Basic Attacks
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Enemy") || collision.CompareTag("King") || collision.CompareTag("Queen"))
+        if (collision.CompareTag("Enemy") || collision.CompareTag("King") || collision.CompareTag("Queen") || collision.CompareTag("Flyer"))
         {
             Debug.Log("EnemyAttacked");
             NPCHealth enemyHealth = collision.GetComponent<NPCHealth>();
@@ -401,9 +401,9 @@ public class PlayerController : MonoBehaviour
                 }
             }
     }
-        if (collision.CompareTag("Ground") && isDashing == true)
+        if (collision.CompareTag("Wall") && isDashing == true)
         {
-         rb.linearVelocity = new UnityEngine.Vector2(-horizontal * speed * 3, rb.linearVelocity.y);
+         rb.AddForceY(-horizontal * 10, ForceMode2D.Impulse);
         }
     }
 
