@@ -352,10 +352,6 @@ MonoBehaviour:
   dashCooldown: 2
   playerPositionX: 0
   dashDuration: 0.3
-  groundCheck: {fileID: 0}
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 8
   isGrounded: 0
   isDashing: 0
   canMove: 1
@@ -372,6 +368,12 @@ MonoBehaviour:
   knifePrefab: {fileID: 7165456908831989621, guid: 8f915d8e80bd49c4c97939044c0f94c0, type: 3}
   KnifeProjectileSpeed: 30
   Ability1Cooldown: 3
+  Ability1Range: 25
+  CanUseAbility2: 1
+  slashPrefab: {fileID: 0}
+  SlashProjectileSpeed: 20
+  Ability2Cooldown: 5
+  slashKnockbackForce: 10
   CanUseAbility3: 1
   CanUseAbility4: 1
 --- !u!114 &6563382433123696638
