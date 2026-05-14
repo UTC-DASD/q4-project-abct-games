@@ -85,9 +85,7 @@ public class ShopCardUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     {
         if (buyButton != null)
             buyButton.interactable = canBuy;
-
-        if (backgroundImage != null)
-            backgroundImage.color = canBuy ? affordableColor : unaffordableColor;
+        backgroundImage.color = canBuy ? affordableColor : unaffordableColor;
     }
 
     public void OnPointerEnter(PointerEventData eventData)

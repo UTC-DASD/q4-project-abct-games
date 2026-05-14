@@ -4,9 +4,10 @@ public class Shop
 {
     public GameObject cardPrefab;  // Prefab for the card layout
     //public Sprite icon;           // (Optional) Icon sprite to display
-    public GameObject prefab;     // (Optional) Prefab to instantiate and display instead of icon
+
+    public GameObject prefab;     // Prefab to instantiate when bought (e.g. a buff or item)
     public string name;           // e.g. "+2 casts per round"
     public string description;    // e.g. "Gives you 2 extra casts for the round"
 
-    public float price; // 0 = permanent, >0 = temporary in seconds
+    public int price; // 0 = permanent, >0 = temporary in seconds
 }

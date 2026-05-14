@@ -25,7 +25,7 @@ public class ShopCardPrefabSetup : MonoBehaviour
 
         // Add background image
         Image backgroundImage = cardRoot.AddComponent<Image>();
-        backgroundImage.color = Color.white;
+        backgroundImage.color = Color.grey;
 
         // Add ShopCardUI component
         ShopCardUI cardUI = cardRoot.AddComponent<ShopCardUI>();
