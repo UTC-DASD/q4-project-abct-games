@@ -356,7 +356,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6303115779246865612, guid: a83247e377bbdd641a09e89d0791d1dd, type: 3}
       propertyPath: coinAmount
-      value: 2147483647
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -800,6 +800,70 @@ PrefabInstance:
       propertyPath: coinBalanceText
       value: 
       objectReference: {fileID: 1949448826}
+    - target: {fileID: 6698396900509622501, guid: a9d28a3a0dfc26142a9c53fc51472eb7, type: 3}
+      propertyPath: shop.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6698396900509622501, guid: a9d28a3a0dfc26142a9c53fc51472eb7, type: 3}
+      propertyPath: affordableColor.b
+      value: 0.59119487
+      objectReference: {fileID: 0}
+    - target: {fileID: 6698396900509622501, guid: a9d28a3a0dfc26142a9c53fc51472eb7, type: 3}
+      propertyPath: affordableColor.g
+      value: 0.59119487
+      objectReference: {fileID: 0}
+    - target: {fileID: 6698396900509622501, guid: a9d28a3a0dfc26142a9c53fc51472eb7, type: 3}
+      propertyPath: affordableColor.r
+      value: 0.59119487
+      objectReference: {fileID: 0}
+    - target: {fileID: 6698396900509622501, guid: a9d28a3a0dfc26142a9c53fc51472eb7, type: 3}
+      propertyPath: unaffordableColor.b
+      value: 0.18238991
+      objectReference: {fileID: 0}
+    - target: {fileID: 6698396900509622501, guid: a9d28a3a0dfc26142a9c53fc51472eb7, type: 3}
+      propertyPath: unaffordableColor.g
+      value: 0.18238991
+      objectReference: {fileID: 0}
+    - target: {fileID: 6698396900509622501, guid: a9d28a3a0dfc26142a9c53fc51472eb7, type: 3}
+      propertyPath: unaffordableColor.r
+      value: 0.18238991
+      objectReference: {fileID: 0}
+    - target: {fileID: 6698396900509622501, guid: a9d28a3a0dfc26142a9c53fc51472eb7, type: 3}
+      propertyPath: shop.Array.data[0].name
+      value: Blueprint
+      objectReference: {fileID: 0}
+    - target: {fileID: 6698396900509622501, guid: a9d28a3a0dfc26142a9c53fc51472eb7, type: 3}
+      propertyPath: shop.Array.data[1].name
+      value: Jimbo
+      objectReference: {fileID: 0}
+    - target: {fileID: 6698396900509622501, guid: a9d28a3a0dfc26142a9c53fc51472eb7, type: 3}
+      propertyPath: shop.Array.data[0].price
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6698396900509622501, guid: a9d28a3a0dfc26142a9c53fc51472eb7, type: 3}
+      propertyPath: shop.Array.data[0].prefab
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6698396900509622501, guid: a9d28a3a0dfc26142a9c53fc51472eb7, type: 3}
+      propertyPath: shop.Array.data[1].prefab
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6698396900509622501, guid: a9d28a3a0dfc26142a9c53fc51472eb7, type: 3}
+      propertyPath: shop.Array.data[0].cardPrefab
+      value: 
+      objectReference: {fileID: 7937947624853765947, guid: ab77c66b83eafc442bf20d1d0dd47b16, type: 3}
+    - target: {fileID: 6698396900509622501, guid: a9d28a3a0dfc26142a9c53fc51472eb7, type: 3}
+      propertyPath: shop.Array.data[1].cardPrefab
+      value: 
+      objectReference: {fileID: 8149739201288833637, guid: 1eb180c34f6f2cf4f8040d8930d1a227, type: 3}
+    - target: {fileID: 6698396900509622501, guid: a9d28a3a0dfc26142a9c53fc51472eb7, type: 3}
+      propertyPath: shop.Array.data[0].description
+      value: THIS IS A PLACEHOLDER
+      objectReference: {fileID: 0}
+    - target: {fileID: 6698396900509622501, guid: a9d28a3a0dfc26142a9c53fc51472eb7, type: 3}
+      propertyPath: shop.Array.data[1].description
+      value: THIS IS A PLACEHOLDER
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
