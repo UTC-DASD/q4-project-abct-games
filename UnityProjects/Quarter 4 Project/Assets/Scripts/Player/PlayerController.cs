@@ -63,6 +63,7 @@ public class PlayerController : MonoBehaviour
     public float KnifeProjectileSpeed = 30;
     public float Ability1Cooldown = 3;
     private bool Ability1Usable = true;
+    public float Ability1Range = 10f;
 
         //Ability 2
     public bool CanUseAbility2 = true;
@@ -421,7 +422,7 @@ public class PlayerController : MonoBehaviour
     public void Ability1(InputAction.CallbackContext context)
     {
         CurrentTarget = GameObject.FindGameObjectWithTag("Flyer");
-        if (CurrentTarget != null && Ability1Usable == true)
+        if (CurrentTarget != null && Ability1Usable == true && Vector2.Distance(transform.position, CurrentTarget.transform.position) <= Ability1Range)
         {
         StartCoroutine(KnifeThrow());
         }
@@ -429,7 +430,10 @@ public class PlayerController : MonoBehaviour
 
     public void Ability2(InputAction.CallbackContext context)
     {
-        
+        if (CanUseAbility2 == true)
+        {        
+        StartCoroutine(Slash());
+        }
     }
 
 
@@ -566,6 +570,16 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(Ability1Cooldown);
         CurrentTarget = null;
         Ability1Usable = true;
+    }
+
+    private System.Collections.IEnumerator Slash()
+    {
+        CanUseAbility2 = false;
+        GameObject projectile = Instantiate(slashPrefab, transform.position, Quaternion.identity);
+        projectile.GetComponent<Rigidbody2D>().AddForceX(transform.localScale.x * SlashProjectileSpeed, ForceMode2D.Impulse);
+        slashPrefab.GetComponent<PlayerProjectile>().damageAmount = Damage;
+        yield return new WaitForSeconds (Ability2Cooldown);
+        CanUseAbility2 = true;
     }
 
     private System.Collections.IEnumerator Magician()

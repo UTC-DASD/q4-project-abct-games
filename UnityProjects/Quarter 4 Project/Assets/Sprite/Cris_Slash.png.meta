@@ -1,0 +1,429 @@
+fileFormatVersion: 2
+guid: 03c75331958334744a45c2a36bbaf7ef
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2594783220166694754
+    second: Cris_Slash_0
+  - first:
+      213: 6349510325302091686
+    second: Cris_Slash_1
+  - first:
+      213: -3395650438699931897
+    second: Cris_Slash_2
+  - first:
+      213: -5389543998478851253
+    second: Cris_Slash_3
+  - first:
+      213: 4246369843659151150
+    second: Cris_Slash_4
+  - first:
+      213: -4894789815710746827
+    second: Cris_Slash_5
+  - first:
+      213: -8669313334132005068
+    second: Cris_Slash_6
+  - first:
+      213: 7400288594927458555
+    second: Cris_Slash_7
+  - first:
+      213: 4800767616243627091
+    second: Cris_Slash_8
+  - first:
+      213: 9165139692327286850
+    second: Cris_Slash_9
+  - first:
+      213: 6829313126022398163
+    second: Cris_Slash_10
+  - first:
+      213: -1398132593092666898
+    second: Cris_Slash_11
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Cris_Slash_0
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 8626
+        width: 137
+        height: 636
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e98e1d4b86a7dfbd0800000000000000
+      internalID: -2594783220166694754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cris_Slash_1
+      rect:
+        serializedVersion: 2
+        x: 2884
+        y: 8496
+        width: 325
+        height: 896
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6af5e4deffdfd1850800000000000000
+      internalID: 6349510325302091686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cris_Slash_2
+      rect:
+        serializedVersion: 2
+        x: 5279
+        y: 8922
+        width: 219
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70724ebbae930e0d0800000000000000
+      internalID: -3395650438699931897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cris_Slash_3
+      rect:
+        serializedVersion: 2
+        x: 5397
+        y: 8357
+        width: 859
+        height: 1174
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b436455d94e7435b0800000000000000
+      internalID: -5389543998478851253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cris_Slash_4
+      rect:
+        serializedVersion: 2
+        x: 8326
+        y: 8919
+        width: 248
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e271c34efd22eea30800000000000000
+      internalID: 4246369843659151150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cris_Slash_5
+      rect:
+        serializedVersion: 2
+        x: 8459
+        y: 8281
+        width: 972
+        height: 1326
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5377c58a896321cb0800000000000000
+      internalID: -4894789815710746827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cris_Slash_6
+      rect:
+        serializedVersion: 2
+        x: 1573
+        y: 6666
+        width: 69
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4372180647960b780800000000000000
+      internalID: -8669313334132005068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cris_Slash_7
+      rect:
+        serializedVersion: 2
+        x: 1714
+        y: 5734
+        width: 540
+        height: 1172
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf89608c44b13b660800000000000000
+      internalID: 7400288594927458555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cris_Slash_8
+      rect:
+        serializedVersion: 2
+        x: 4224
+        y: 5942
+        width: 232
+        height: 756
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 354766f16b0cf9240800000000000000
+      internalID: 4800767616243627091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cris_Slash_9
+      rect:
+        serializedVersion: 2
+        x: 4017
+        y: 6542
+        width: 45
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 248300ebdfd113f70800000000000000
+      internalID: 9165139692327286850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cris_Slash_10
+      rect:
+        serializedVersion: 2
+        x: 1675
+        y: 6472
+        width: 254
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d04a78da1896ce50800000000000000
+      internalID: 6829313126022398163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cris_Slash_11
+      rect:
+        serializedVersion: 2
+        x: 4175
+        y: 6024
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee9d0df60d5d89ce0800000000000000
+      internalID: -1398132593092666898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Cris_Slash_0: -2594783220166694754
+      Cris_Slash_1: 6349510325302091686
+      Cris_Slash_10: 6829313126022398163
+      Cris_Slash_11: -1398132593092666898
+      Cris_Slash_2: -3395650438699931897
+      Cris_Slash_3: -5389543998478851253
+      Cris_Slash_4: 4246369843659151150
+      Cris_Slash_5: -4894789815710746827
+      Cris_Slash_6: -8669313334132005068
+      Cris_Slash_7: 7400288594927458555
+      Cris_Slash_8: 4800767616243627091
+      Cris_Slash_9: 9165139692327286850
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
