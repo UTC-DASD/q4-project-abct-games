@@ -5,12 +5,31 @@ public class Slash : MonoBehaviour
      private NPCHealth enemyHealth;
     public int damageAmount = 25;
     public float knockbackForce;
+    private float trueKnockbackForce;
+    private Rigidbody2D Rb;
 
    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        Rb = GetComponent<Rigidbody2D>();
         StartCoroutine(DestroyAfterTime());
+    }
+
+    void Update()
+    {
+        
+        if (Rb.linearVelocity.x < 0f)
+        {
+            transform.transform.localRotation = new Quaternion(0, 180, 0, 1);
+            trueKnockbackForce = -knockbackForce;
+        }
+        else if (Rb.linearVelocity.x > 0f)
+        {
+            transform.localRotation = new Quaternion(0, 0, 0, 1);
+            trueKnockbackForce = knockbackForce;
+        }
+        
     }
 
     private System.Collections.IEnumerator DestroyAfterTime()
@@ -21,17 +40,13 @@ public class Slash : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Flyer"))
+        if (collision.CompareTag("Enemy") || collision.CompareTag("King") || collision.CompareTag("Queen"))
         {
                 NPCHealth enemyHealth = collision.GetComponent<NPCHealth>();
+                Rigidbody2D enemyRigidbody = collision.GetComponent<Rigidbody2D>();
         if (enemyHealth != null)
-        {            enemyHealth.TakeDamage(damageAmount);
-            Rigidbody2D enemyRigidbody = collision.GetComponent<Rigidbody2D>();
-            if (enemyRigidbody != null)
-            {
-                Vector2 knockbackDirection = (collision.transform.position - transform.position).normalized;
-                enemyRigidbody.AddForce(knockbackDirection * knockbackForce, ForceMode2D.Impulse);
-            }
+        {   enemyHealth.TakeDamage(damageAmount);
+            enemyRigidbody.AddForceX(knockbackForce, ForceMode2D.Impulse);
             Destroy(gameObject);
         }
     }

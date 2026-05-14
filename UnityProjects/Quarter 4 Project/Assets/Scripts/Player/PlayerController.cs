@@ -68,7 +68,7 @@ public class PlayerController : MonoBehaviour
         //Ability 2
     public bool CanUseAbility2 = true;
     public GameObject slashPrefab;
-    public float SlashProjectileSpeed = 20;
+    public float SlashProjectileSpeed = 30;
     public float Ability2Cooldown = 5;
     public float slashKnockbackForce = 10f;
 
@@ -431,7 +431,8 @@ public class PlayerController : MonoBehaviour
     public void Ability2(InputAction.CallbackContext context)
     {
         if (CanUseAbility2 == true)
-        {        
+        {    
+        Debug.Log("Slash Activated");    
         StartCoroutine(Slash());
         }
     }
@@ -575,9 +576,10 @@ public class PlayerController : MonoBehaviour
     private System.Collections.IEnumerator Slash()
     {
         CanUseAbility2 = false;
+        Debug.Log("Slash Attempted Spawn");
         GameObject projectile = Instantiate(slashPrefab, transform.position, Quaternion.identity);
-        projectile.GetComponent<Rigidbody2D>().AddForceX(transform.localScale.x * SlashProjectileSpeed, ForceMode2D.Impulse);
-        slashPrefab.GetComponent<PlayerProjectile>().damageAmount = Damage;
+        projectile.GetComponent<Rigidbody2D>().AddForceX(-transform.localScale.x * SlashProjectileSpeed, ForceMode2D.Impulse);
+        slashPrefab.GetComponent<Slash>().damageAmount = Damage;
         yield return new WaitForSeconds (Ability2Cooldown);
         CanUseAbility2 = true;
     }

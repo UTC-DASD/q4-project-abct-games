@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.InputSystem;
 
 public class Capitalism : MonoBehaviour
 {
@@ -14,14 +15,13 @@ public class Capitalism : MonoBehaviour
     public TextMeshProUGUI coinBalanceText;
 
     [Header("Card Styling")]
-    public Color affordableColor = Color.white;
-    public Color unaffordableColor = new Color(1, 1, 1, 0.45f);
+    public Color affordableColor = Color.grey;
+    public Color unaffordableColor = Color.gray;
 
     //TRYSTAN what did you do. 
     // i broked it
 
-public bool whatisgoingonhelpmehelpmehelpmenightmarenightmarenightmare = true;
-    private void Start()
+public bool whatisgoingonhelpmehelpmehelpmenightmarenightmarenightmare = true;    private GameObject lastPurchasedObject;    private void Start()
     {
         if (coinScript == null)
             Debug.LogWarning("Capitalism: coinScript is not assigned.");
@@ -123,11 +123,21 @@ public bool whatisgoingonhelpmehelpmehelpmenightmarenightmarenightmare = true;
 
         coinScript.coinAmount -= itemPrice;
         Debug.Log($"Purchased: {item.name} for {itemPrice} coins.");
-
         RefreshUI();
         ApplyItemEffect(item);
     }
+    public void buyItem(int index)
+    {
+        if (index >= 0 && index < shop.Count)
+        {
+            PurchaseItem(shop[index]);
+        }
+        else
+        {
+            Debug.LogWarning("Invalid shop item index.");
+        }
 
+    }
     private void ApplyItemEffect(Shop item)
     {
         // TODO: apply the purchased item effect in your game logic.
