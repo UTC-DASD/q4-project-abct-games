@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 8459488307454312675}
   - component: {fileID: 7577855290452038837}
   - component: {fileID: 1047454506752910073}
-  - component: {fileID: 2843180916346845533}
   - component: {fileID: 232722872178758348}
+  - component: {fileID: 2843180916346845533}
   m_Layer: 6
-  m_Name: Queen_1
+  m_Name: King
   m_TagString: King
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,8 +30,8 @@ Transform:
   m_GameObject: {fileID: 5778831150324932547}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 347, y: 83.77, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 3.81, y: -0.37, z: 0}
+  m_LocalScale: {x: 0.20320915, y: 0.20320915, z: 0.20320915}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -85,12 +85,12 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 536568784, guid: 733617bb78f9e9340bb72442cf0d17df, type: 3}
+  m_Sprite: {fileID: 1580492640089482019, guid: 5bc29319047e27b4c94b96321fa82bfa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.32, y: 5.55}
+  m_Size: {x: 0.87, y: 0.39}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4837b9968f67da4ea9c69d2ab37bae5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KingAI
-  speed: 3
+  speed: 5
   panicked: 0
 --- !u!61 &1047454506752910073
 BoxCollider2D:
@@ -147,14 +147,30 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.32, y: 5.55}
-    newSize: {x: 2.32, y: 5.55}
+    oldSize: {x: 19.79, y: 23.32}
+    newSize: {x: 0.87, y: 0.39}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 2.32, y: 5.55}
+  m_Size: {x: 19.79, y: 23.32}
   m_EdgeRadius: 0
+--- !u!114 &232722872178758348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5778831150324932547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48c085288fd487440bbbd29606a262fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCHealth
+  maxHealth: 300
+  currentHealth: 0
+  coin: {fileID: 0}
+  coinGain: 0
 --- !u!50 &2843180916346845533
 Rigidbody2D:
   serializedVersion: 5
@@ -182,19 +198,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &232722872178758348
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5778831150324932547}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48c085288fd487440bbbd29606a262fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NPCHealth
-  maxHealth: 300
-  currentHealth: 0
-  coin: {fileID: 0}
-  coinGain: 0

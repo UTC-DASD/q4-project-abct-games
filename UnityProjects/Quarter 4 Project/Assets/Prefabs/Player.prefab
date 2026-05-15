@@ -269,7 +269,19 @@ MonoBehaviour:
     m_ActionId: 77ada104-1c17-4f09-bc79-7c4b57c8d52a
     m_ActionName: 'Main/Crouch[/Keyboard/s]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6444645311621308143}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: Ability2
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: f0cca32c-5a9f-477c-adab-e8e61ec27cf1
     m_ActionName: 'Main/Air Slash[/Keyboard/1]'
   - m_PersistentCalls:
@@ -348,10 +360,10 @@ MonoBehaviour:
   rb: {fileID: 3541855743480106084}
   speed: 15
   jumpPower: 10
-  dashForce: 30
+  dashForce: 50
   dashCooldown: 2
   playerPositionX: 0
-  dashDuration: 0.3
+  dashDuration: 0.1
   isGrounded: 0
   isDashing: 0
   canMove: 1
@@ -370,7 +382,7 @@ MonoBehaviour:
   Ability1Cooldown: 3
   Ability1Range: 25
   CanUseAbility2: 1
-  slashPrefab: {fileID: 0}
+  slashPrefab: {fileID: 7528257964417565072, guid: 415a107a22853854b9a358c071266015, type: 3}
   SlashProjectileSpeed: 20
   Ability2Cooldown: 5
   slashKnockbackForce: 10
