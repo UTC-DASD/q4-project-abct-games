@@ -17,6 +17,8 @@ public class PawnAI : MonoBehaviour
 
     void Update()
     {
+        if (GetComponent<NPCHealth>().stunned == false)
+        {
          if (Vector2.Distance(transform.position, player.position) < sightRange)
         {
         if (player != null)
@@ -42,7 +44,12 @@ public class PawnAI : MonoBehaviour
            else if (directionX < 0) transform.localRotation = new Quaternion(0, 0, 0, 1);
         }
         }
+        }
+        
     }
+
+
+}
    /*public GameObject player;
    public float Speed;
 
@@ -63,4 +70,4 @@ public class PawnAI : MonoBehaviour
             transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, Speed * Time.deltaTime);
         }
     }*/
-}
+

@@ -42,11 +42,12 @@ public class Slash : MonoBehaviour
     {
         if (collision.CompareTag("Enemy") || collision.CompareTag("King") || collision.CompareTag("Queen"))
         {
+            collision.GetComponent<NPCHealth>().stunned = true;
                 NPCHealth enemyHealth = collision.GetComponent<NPCHealth>();
                 Rigidbody2D enemyRigidbody = collision.GetComponent<Rigidbody2D>();
         if (enemyHealth != null)
         {   enemyHealth.TakeDamage(damageAmount);
-            enemyRigidbody.AddForceX(knockbackForce, ForceMode2D.Impulse);
+            enemyRigidbody.AddForceX(trueKnockbackForce, ForceMode2D.Impulse);
             Destroy(gameObject);
         }
     }

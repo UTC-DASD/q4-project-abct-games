@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class NPCHealth : MonoBehaviour
 {
@@ -7,6 +8,7 @@ public class NPCHealth : MonoBehaviour
 
     public CoinScript coin;
     public int coinGain;
+    public bool stunned = false;
     void Start()
     {
         currentHealth = maxHealth; // Set current health to max at the start
@@ -24,6 +26,16 @@ public class NPCHealth : MonoBehaviour
             Die(); // Handle death when health drops to or below zero
             coin.coinAmount += coinGain;
         }
+        if (stunned == true)
+        {
+            StartCoroutine(StunDuration());
+        }
+    }
+    
+     private IEnumerator StunDuration()
+    {
+        yield return new WaitForSeconds(2f); // Example stun duration
+        stunned = false;
     }
 
     private void Die()

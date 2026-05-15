@@ -50,7 +50,8 @@ public class QueenAI : MonoBehaviour
 
     void Update()
     {
-
+        if (GetComponent<NPCHealth>().stunned == false)
+        {
             float directionX = 0f;
         if (Vector2.Distance(transform.position, player.position) < sightRange)
         {
@@ -104,9 +105,12 @@ public class QueenAI : MonoBehaviour
             rb.linearVelocity = lv;
        
         }
+        }
+        
         
     }
 
+ 
 
     private System.Collections.IEnumerator UseAbility1()
     {

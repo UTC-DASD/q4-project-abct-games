@@ -175,8 +175,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1768d831f8936244b4061a6ddf2f4a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Slash
-  damageAmount: 25
-  knockbackForce: 200
+  damageAmount: 15
+  knockbackForce: 10
 --- !u!50 &8061666975007715163
 Rigidbody2D:
   serializedVersion: 5
