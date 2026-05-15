@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class Health : MonoBehaviour
 {
@@ -10,10 +11,15 @@ public class Health : MonoBehaviour
     public bool CanBlock = true;
     public float BlockCooldown;
     public CoinScript coinScript;
+    public TextMeshProUGUI healthText;
 
     void Start()
     {
         currentHealth = maxHealth; // Set current health to max at the start
+    }
+    void Update()
+    {
+        healthText.text = "Health: " + currentHealth.ToString(); // Update health display
     }
 
 
