@@ -757,15 +757,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6698396900509622501, guid: a9d28a3a0dfc26142a9c53fc51472eb7, type: 3}
       propertyPath: unaffordableColor.b
-      value: 0.18238991
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6698396900509622501, guid: a9d28a3a0dfc26142a9c53fc51472eb7, type: 3}
       propertyPath: unaffordableColor.g
-      value: 0.18238991
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6698396900509622501, guid: a9d28a3a0dfc26142a9c53fc51472eb7, type: 3}
       propertyPath: unaffordableColor.r
-      value: 0.18238991
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6698396900509622501, guid: a9d28a3a0dfc26142a9c53fc51472eb7, type: 3}
       propertyPath: shop.Array.data[0].name
