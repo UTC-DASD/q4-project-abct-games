@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CoinScript
   CoinSave: {fileID: 2500541260279073061}
-  coinAmount: 10000
+  coinAmount: 0
   Shop:
     cardPrefab: {fileID: 0}
     prefab: {fileID: 0}
