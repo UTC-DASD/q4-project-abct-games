@@ -1,0 +1,455 @@
+fileFormatVersion: 2
+guid: 5bc29319047e27b4c94b96321fa82bfa
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3574957663534981397
+    second: Cris_Chess Sprite Sheet_0
+  - first:
+      213: 1458490546323443972
+    second: Cris_Chess Sprite Sheet_1
+  - first:
+      213: 135636181199168445
+    second: Cris_Chess Sprite Sheet_2
+  - first:
+      213: -3098227096082996334
+    second: Cris_Chess Sprite Sheet_3
+  - first:
+      213: 3409248121589265179
+    second: Cris_Chess Sprite Sheet_4
+  - first:
+      213: 8790771386001684074
+    second: Cris_Chess Sprite Sheet_5
+  - first:
+      213: 2143541476193764547
+    second: Cris_Chess Sprite Sheet_6
+  - first:
+      213: 1580492640089482019
+    second: Cris_Chess Sprite Sheet_7
+  - first:
+      213: -1607807777099669284
+    second: Cris_Chess Sprite Sheet_8
+  - first:
+      213: -8420354853093251755
+    second: Cris_Chess Sprite Sheet_9
+  - first:
+      213: 2422069243971413083
+    second: Cris_Chess Sprite Sheet_10
+  - first:
+      213: -4516816149943199229
+    second: Cris_Chess Sprite Sheet_11
+  - first:
+      213: -7607287051069840506
+    second: Cris_Chess Sprite Sheet_12
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Cris_Chess Sprite Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 7648
+        width: 2029
+        height: 1864
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5112016dd0dcc9130800000000000000
+      internalID: 3574957663534981397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cris_Chess Sprite Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 2606
+        y: 7648
+        width: 2168
+        height: 1864
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 401dfd9ac699d3410800000000000000
+      internalID: 1458490546323443972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cris_Chess Sprite Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 5120
+        y: 7648
+        width: 2137
+        height: 1864
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db3211f5360e1e100800000000000000
+      internalID: 135636181199168445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cris_Chess Sprite Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 7631
+        y: 7648
+        width: 1865
+        height: 1864
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 293ab780fd2e005d0800000000000000
+      internalID: -3098227096082996334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cris_Chess Sprite Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 688
+        y: 5009
+        width: 1164
+        height: 2492
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b13fe768a15105f20800000000000000
+      internalID: 3409248121589265179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cris_Chess Sprite Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 3513
+        y: 6168
+        width: 414
+        height: 530
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a667c4400081ff970800000000000000
+      internalID: 8790771386001684074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cris_Chess Sprite Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 5457
+        y: 5058
+        width: 1455
+        height: 2392
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c488d99d936fbd10800000000000000
+      internalID: 2143541476193764547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cris_Chess Sprite Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 7717
+        y: 5059
+        width: 1979
+        height: 2332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32327aeaea90fe510800000000000000
+      internalID: 1580492640089482019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cris_Chess Sprite Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 6425
+        y: 4999
+        width: 15
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd02dd2685befa9e0800000000000000
+      internalID: -1607807777099669284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cris_Chess Sprite Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 413
+        y: 2578
+        width: 1712
+        height: 2353
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 555e3a2cfd3e42b80800000000000000
+      internalID: -8420354853093251755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cris_Chess Sprite Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 2735
+        y: 2512
+        width: 2036
+        height: 2446
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b54a05c052bec9120800000000000000
+      internalID: 2422069243971413083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cris_Chess Sprite Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 5205
+        y: 2524
+        width: 2064
+        height: 2454
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30a53ea84ab0151c0800000000000000
+      internalID: -4516816149943199229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cris_Chess Sprite Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 7559
+        y: 2736
+        width: 2378
+        height: 2220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 683ad807bbc7d6690800000000000000
+      internalID: -7607287051069840506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Cris_Chess Sprite Sheet_0: 3574957663534981397
+      Cris_Chess Sprite Sheet_1: 1458490546323443972
+      Cris_Chess Sprite Sheet_10: 2422069243971413083
+      Cris_Chess Sprite Sheet_11: -4516816149943199229
+      Cris_Chess Sprite Sheet_12: -7607287051069840506
+      Cris_Chess Sprite Sheet_2: 135636181199168445
+      Cris_Chess Sprite Sheet_3: -3098227096082996334
+      Cris_Chess Sprite Sheet_4: 3409248121589265179
+      Cris_Chess Sprite Sheet_5: 8790771386001684074
+      Cris_Chess Sprite Sheet_6: 2143541476193764547
+      Cris_Chess Sprite Sheet_7: 1580492640089482019
+      Cris_Chess Sprite Sheet_8: -1607807777099669284
+      Cris_Chess Sprite Sheet_9: -8420354853093251755
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

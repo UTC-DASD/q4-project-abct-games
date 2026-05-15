@@ -122,6 +122,7 @@ public bool whatisgoingonhelpmehelpmehelpmenightmarenightmarenightmare = true;  
         }
 
         coinScript.coinAmount -= itemPrice;
+     
         Debug.Log($"Purchased: {item.name} for {itemPrice} coins.");
         RefreshUI();
         ApplyItemEffect(item);
