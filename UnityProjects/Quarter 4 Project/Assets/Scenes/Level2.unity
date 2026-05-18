@@ -475,22 +475,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2449777803391550621, guid: 7e944aaf697f43644906a13ecb0d1f9a, type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 238565205}
-    - target: {fileID: 2655277805000059414, guid: 7e944aaf697f43644906a13ecb0d1f9a, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.6753135
-      objectReference: {fileID: 0}
-    - target: {fileID: 2655277805000059414, guid: 7e944aaf697f43644906a13ecb0d1f9a, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.6753135
-      objectReference: {fileID: 0}
-    - target: {fileID: 2655277805000059414, guid: 7e944aaf697f43644906a13ecb0d1f9a, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.6753135
-      objectReference: {fileID: 0}
     - target: {fileID: 2655277805000059414, guid: 7e944aaf697f43644906a13ecb0d1f9a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 127.8763
@@ -535,25 +519,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rook (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 4641020454669249053, guid: 7e944aaf697f43644906a13ecb0d1f9a, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4641020454669249053, guid: 7e944aaf697f43644906a13ecb0d1f9a, type: 3}
-      propertyPath: m_TagString
-      value: Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 6803878974855719014, guid: cb1c09321fb6873449f55ec6779c4488, type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 238565205}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4641020454669249053, guid: 7e944aaf697f43644906a13ecb0d1f9a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1943188430}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7e944aaf697f43644906a13ecb0d1f9a, type: 3}
 --- !u!1001 &604263611
 PrefabInstance:
@@ -2376,27 +2345,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a5396e5cc289214fbab40514bfadda1, type: 3}
---- !u!1 &1943188423 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4641020454669249053, guid: 7e944aaf697f43644906a13ecb0d1f9a, type: 3}
-  m_PrefabInstance: {fileID: 505852640}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1943188430
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1943188423}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48c085288fd487440bbbd29606a262fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NPCHealth
-  maxHealth: 100
-  currentHealth: 0
-  coin: {fileID: 0}
-  coinGain: 0
 --- !u!1 &2000331759
 GameObject:
   m_ObjectHideFlags: 0

@@ -38,6 +38,8 @@ public class QueenAI : MonoBehaviour
     private int projectileCount = 3; // Number of projectiles in the spread
     private float phase2projectileCount = 7; // Number of projectiles in the spread for phase 2
     private bool attackPlayer = false;
+    private bool recentlyAttacked = false;
+    private bool playerhit = false;
     
 
      void Start()
@@ -86,7 +88,7 @@ public class QueenAI : MonoBehaviour
                 StartCoroutine(ProtectKing());
                 
             }
-            else if (!isUsingAbility && player.position.y > transform.position.y - .2f && player.position.y < transform.position.y + .2f)
+            else if (!isUsingAbility && player.position.y > transform.position.y - 1f && player.position.y < transform.position.y + 1f && recentlyAttacked == false)
             {
                 StartCoroutine(AttackPlayer());
                 
@@ -99,6 +101,10 @@ public class QueenAI : MonoBehaviour
             if (king.GetComponent<NPCHealth>().currentHealth < (king.GetComponent<NPCHealth>().maxHealth / 2))
             {
                 phase2 = true;
+            }
+            if (playerhit == true)
+            {
+                StartCoroutine(AttackReset());
             }
             
           if (attackPlayer == false)
@@ -126,9 +132,10 @@ public class QueenAI : MonoBehaviour
                 }
             }
         }
-        if (collision.gameObject.CompareTag("Player") && attackPlayer == true)
+        if (collision.gameObject.CompareTag("Player") && attackPlayer == true && playerhit == false)
         {
             collision.gameObject.GetComponent<Health>().TakeDamage(collisionDamage2);
+            playerhit = true;
         }
     }
 
@@ -140,6 +147,12 @@ public class QueenAI : MonoBehaviour
         }
     }
 
+    private System.Collections.IEnumerator AttackReset()
+    {
+        
+            yield return new WaitForSeconds(1f); // Wait for 1 second before allowing movement again
+            playerhit = false;
+    }
  
 
     private System.Collections.IEnumerator UseAbility1()
@@ -202,6 +215,7 @@ public class QueenAI : MonoBehaviour
     private System.Collections.IEnumerator AttackPlayer()
     {
         attackPlayer = true;
+        recentlyAttacked = true;
         if (player.position.x > transform.position.x)
         {
             rb.AddForceX(10f, ForceMode2D.Impulse); // Example: Dash right towards player
@@ -212,6 +226,9 @@ public class QueenAI : MonoBehaviour
         }
         yield return new WaitForSeconds(0.5f); // Wait for the dash to complete
         attackPlayer = false;
+        yield return new WaitForSeconds(2f); // Cooldown before the next attack
+        recentlyAttacked = false;
+
     }
 
     private System.Collections.IEnumerator UltimateAttack()
