@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using Unity.VisualScripting;
 
 public class QueenAI : MonoBehaviour
 {
@@ -16,8 +17,8 @@ public class QueenAI : MonoBehaviour
     public bool usedAbility1 = false;
     public bool usedAbility2 = false;
     public bool usedUltimate = false;
-    public float collisionDamage1 = 20f;
-    public float collisionDamage2 = 40f;
+    public int collisionDamage1 = 20;
+    public int collisionDamage2 = 40;
     public int projectileDamage1 = 10;
     public int projectileDamage2 = 20;
     public int projectileDamage3 = 15;
@@ -36,6 +37,7 @@ public class QueenAI : MonoBehaviour
     private float spreadAngle = 20f; // Total angle of the spread
     private int projectileCount = 3; // Number of projectiles in the spread
     private float phase2projectileCount = 7; // Number of projectiles in the spread for phase 2
+    private bool attackPlayer = false;
     
 
      void Start()
@@ -84,7 +86,7 @@ public class QueenAI : MonoBehaviour
                 StartCoroutine(ProtectKing());
                 
             }
-            else if (!isUsingAbility)
+            else if (!isUsingAbility && player.position.y > transform.position.y - .2f && player.position.y < transform.position.y + .2f)
             {
                 StartCoroutine(AttackPlayer());
                 
@@ -99,15 +101,43 @@ public class QueenAI : MonoBehaviour
                 phase2 = true;
             }
             
-           // Apply velocity, keeping existing vertical velocity (gravity)
+          if (attackPlayer == false)
+            {
             var lv = rb.linearVelocity;
             lv.x = directionX * speed;
             rb.linearVelocity = lv;
+            }
        
         }
         }
         
         
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (abilit1AOEActive && collision.gameObject.CompareTag("Ground"))
+        {
+            foreach (var hit in Physics2D.CircleCastAll(transform.position, 5f, Vector2.zero))
+            {
+                if (hit.collider != null && hit.collider.CompareTag("Player"))
+                {
+                    hit.collider.gameObject.GetComponent<Health>().TakeDamage(collisionDamage1);
+                }
+            }
+        }
+        if (collision.gameObject.CompareTag("Player") && attackPlayer == true)
+        {
+            collision.gameObject.GetComponent<Health>().TakeDamage(collisionDamage2);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player") && abilit1AOEActive == true)
+        {
+            collision.gameObject.GetComponent<Health>().TakeDamage(collisionDamage1);
+        }
     }
 
  
@@ -132,7 +162,7 @@ public class QueenAI : MonoBehaviour
         rb.AddForceY(-80f, ForceMode2D.Impulse); // Example: Jump up as part of ability 1
 
         yield return new WaitForSeconds(0.1f);
-        
+        abilit1AOEActive = false; // Deactivate AOE damage after a short duration
         isUsingAbility = false;
         yield return new WaitForSeconds(ability1Cooldown);
         usedAbility1 = false;
@@ -171,10 +201,17 @@ public class QueenAI : MonoBehaviour
 
     private System.Collections.IEnumerator AttackPlayer()
     {
-        
-        // Implement attack logic here (e.g., spawn projectiles, move towards player, etc.)
-
-        yield return null; // Placeholder for any delay between attacks
+        attackPlayer = true;
+        if (player.position.x > transform.position.x)
+        {
+            rb.AddForceX(10f, ForceMode2D.Impulse); // Example: Dash right towards player
+        }
+        else
+        {
+            rb.AddForceX(-10f, ForceMode2D.Impulse); // Example: Dash left towards player
+        }
+        yield return new WaitForSeconds(0.5f); // Wait for the dash to complete
+        attackPlayer = false;
     }
 
     private System.Collections.IEnumerator UltimateAttack()
