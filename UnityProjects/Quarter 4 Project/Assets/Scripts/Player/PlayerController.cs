@@ -583,17 +583,61 @@ public class PlayerController : MonoBehaviour
         CanUseAbility2 = true;
     }
 
+    public GameObject MagicianEffect;
+    private int magicianDamage = 35;
+    public GameObject FindClosestWithTag(string tag)
+{
+    List<GameObject> objectsWithTag = new List<GameObject>();
+    objectsWithTag.AddRange(GameObject.FindGameObjectsWithTag("Enemy"));
+    objectsWithTag.AddRange(GameObject.FindGameObjectsWithTag("King"));
+    objectsWithTag.AddRange(GameObject.FindGameObjectsWithTag("Queen"));
+    objectsWithTag.AddRange(GameObject.FindGameObjectsWithTag("Flyer"));
+    
+    GameObject closest = null;
+    float shortestDistance = Mathf.Infinity;
+
+    foreach (GameObject obj in objectsWithTag)
+    {
+        // Calculate squared distance (performance optimization)
+        Vector2 diff = obj.transform.position - transform.position;
+        float curDistance = diff.sqrMagnitude;
+
+        if (curDistance < shortestDistance)
+        {
+            closest = obj;
+            shortestDistance = curDistance;
+        }
+    }
+    return closest;
+}
     private System.Collections.IEnumerator Magician()
     {
+        GameObject closestEnemy = FindClosestWithTag("Enemy");
+        if (closestEnemy != null)
+        {
+            Instantiate(MagicianEffect, closestEnemy.transform.position, Quaternion.identity);
+            NPCHealth enemyHealth = closestEnemy.GetComponent<NPCHealth>();
+            if (enemyHealth != null)
+            {
+                enemyHealth.TakeDamage(magicianDamage);
+            }
+        }
         yield return new WaitForSeconds (15);
     }
     private System.Collections.IEnumerator Empress()
     {
         yield return new WaitForSeconds (15);
     }
+    private bool canUseTemperance = true;
     private System.Collections.IEnumerator Temperance()
     {
-        yield return new WaitForSeconds (15);
+        if (canUseTemperance == true)
+        {
+            canUseTemperance = false;
+        GetComponent<Health>().Heal(50);
+        }
+        yield return new WaitForSeconds (45);
+        canUseTemperance = true;
     }
     private System.Collections.IEnumerator Emperor()
     {
