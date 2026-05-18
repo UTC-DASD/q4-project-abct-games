@@ -285,7 +285,6 @@ public class PlayerController : MonoBehaviour
     {
         if (isGrounded == true)
         {
-            UnityEngine.Debug.Log("Jumped");
             rb.linearVelocity = new UnityEngine.Vector2(rb.linearVelocity.x, jumpPower);
             JumpActive = true;
             DashActive = false;
@@ -311,7 +310,7 @@ public class PlayerController : MonoBehaviour
         isDashing = true;
         dashTime = dashDuration;
         rb.AddForce(new Vector2(dashDirection * dashForce, 0), ForceMode2D.Impulse);
-        Debug.Log("Dashed!");
+        
         timeSinceLastDash = 0f;
         DashJump();
     }
@@ -339,7 +338,7 @@ public class PlayerController : MonoBehaviour
     {
         if (isGrounded == true)
         {
-        Debug.Log("Ground Attack Active");
+        
         IsAttacking = true;
         canAttack = false;
         yield return new WaitForSeconds(.5f);
@@ -349,7 +348,7 @@ public class PlayerController : MonoBehaviour
         }
         if (isGrounded == false)
         {
-            Debug.Log("Air Attack Active");
+           
             AirAttack = true;
             rb.linearVelocity = Vector2.zero;
             rb.AddForceY(-30, ForceMode2D.Impulse);
@@ -373,7 +372,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.CompareTag("Enemy") || collision.CompareTag("King") || collision.CompareTag("Queen") || collision.CompareTag("Flyer"))
         {
-            Debug.Log("EnemyAttacked");
+            
             NPCHealth enemyHealth = collision.GetComponent<NPCHealth>();
             if (enemyHealth != null)
             {
@@ -432,7 +431,7 @@ public class PlayerController : MonoBehaviour
     {
         if (CanUseAbility2 == true)
         {    
-        Debug.Log("Slash Activated");    
+            
         StartCoroutine(Slash());
         }
     }
@@ -576,7 +575,7 @@ public class PlayerController : MonoBehaviour
     private System.Collections.IEnumerator Slash()
     {
         CanUseAbility2 = false;
-        Debug.Log("Slash Attempted Spawn");
+        
         GameObject projectile = Instantiate(slashPrefab, transform.position, Quaternion.identity);
         projectile.GetComponent<Rigidbody2D>().AddForceX(-transform.localScale.x * SlashProjectileSpeed, ForceMode2D.Impulse);
         slashPrefab.GetComponent<Slash>().damageAmount = Damage;
